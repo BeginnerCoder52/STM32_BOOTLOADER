@@ -1,0 +1,1 @@
+void mount_spiffs();
