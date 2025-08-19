@@ -1,0 +1,9 @@
+
+
+# Load bootloader symbols
+set confirm off
+    add-symbol-file D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/STM32_BOOTLOADER/ESP32_HOST/ESP32_HOST/build/bootloader/bootloader.elf
+set confirm on
+
+# Load application symbols
+file D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/STM32_BOOTLOADER/ESP32_HOST/ESP32_HOST/build/app-template.elf

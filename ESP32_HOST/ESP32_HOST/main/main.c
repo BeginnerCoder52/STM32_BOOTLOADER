@@ -1,8 +1,12 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
+#include "freertos/FreeRTOS.h"
+#include "freertos/task.h"
+#include "driver/uart.h"  // Include UART driver
+#include "esp_crc.h"      // Include CRC library
 #include "uart_link.h"
-#include "esp_crc.h"
-#include "spiffs.h"  // Add
+#include "spiffs.h"
 
 #define FW_PATH "/spiffs/firmware.bin"
 #define CHUNK_SIZE 256
@@ -10,21 +14,28 @@
 #define TRIAL_COUNT 3
 
 void app_main(void) {
-    uart_init(17, 16, UART_NUM_1, 115200);  // Example pins, adjust
+    uart_init(17, 16, 1, 115200);  // Use 1 instead of UART_NUM_1, as uart_init expects port number
     mount_spiffs();
 
     FILE* f = fopen(FW_PATH, "rb");
-    if (!f) return;
+    if (!f) {
+        printf("Failed to open firmware file\n");
+        vTaskDelete(NULL);
+    }
 
     fseek(f, 0, SEEK_END);
     uint32_t fw_size = ftell(f);
     fseek(f, 0, SEEK_SET);
 
     uint8_t* buf = malloc(fw_size);
+    if (!buf) {
+        fclose(f);
+        vTaskDelete(NULL);
+    }
     fread(buf, 1, fw_size, f);
     fclose(f);
 
-    uint32_t fw_crc = calculate_crc32(buf, fw_size);
+    uint32_t fw_crc = esp_crc32_le(0xFFFFFFFF, buf, fw_size);  // Use esp_crc32_le
     uint32_t version = 0x00010000;  // Example
 
     send_BEGIN(PART_CURRENT, fw_size, fw_crc, version);
@@ -35,7 +46,7 @@ void app_main(void) {
         uint8_t cs = 0;
         for (uint16_t i = 0; i < len; i++) cs ^= buf[offset + i];
         send_DATA(offset, &buf[offset], len);
-        send_DATA(offset + len, &cs, 1);  // Send checksum after data (adjust send_DATA if needed)
+        send_DATA(offset + len, &cs, 1);  // Send checksum after data
         wait_response('A', 1000);  // Wait ACK
     }
 
@@ -46,4 +57,5 @@ void app_main(void) {
     send_REBOOT();
 
     free(buf);
+    vTaskDelete(NULL);
 }

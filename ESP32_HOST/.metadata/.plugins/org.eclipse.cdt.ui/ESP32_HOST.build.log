@@ -1,0 +1,6 @@
+cmake --build . -- -v
+ninja: error: loading 'build.ninja': The system cannot find the file specified.
+
+
+Build complete (0 errors, 0 warnings): D:\File_dai_hoc_UIT\Thuc_Tap_FSOFT\INTERN_PROJECT\STM32_BOOTLOADER\ESP32_HOST\ESP32_HOST\build
+Total time taken to build the project: 15,585 ms
