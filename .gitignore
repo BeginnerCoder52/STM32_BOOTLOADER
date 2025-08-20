@@ -1,4 +1,4 @@
-# Ignore code project directories
-code project APP_CURRENT.txt
-code project APP_OLD.txt
-code project BOOTLOADER.txt
+# Ignore the code project files
+APP_CURRENT.txt
+APP_OLD.txt
+BOOTLOADER.txt
