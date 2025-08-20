@@ -1,0 +1,184 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: µVision V5.42.0.0
+Copyright (C) 2025 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: Richard Acer, UIT, LIC=----
+ 
+Tool Versions:
+Toolchain:       MDK-Lite  Version: 5.42.0.0
+Toolchain Path:  D:\KEIL_C\ARM\ARMCLANG\Bin
+C Compiler:      ArmClang.exe V6.23
+Assembler:       Armasm.exe V6.23
+Linker/Locator:  ArmLink.exe V6.23
+Library Manager: ArmAr.exe V6.23
+Hex Converter:   FromElf.exe V6.23
+CPU DLL:         SARMCM3.DLL V5.42.0.0
+Dialog DLL:      DCM.DLL V1.17.5.0
+Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.3.0.0
+Dialog DLL:      TCM.DLL V1.56.6.0
+ 
+<h2>Project:</h2>
+D:\File_dai_hoc_UIT\Thuc_Tap_FSOFT\INTERN_PROJECT\STM32_BOOTLOADER\STM32_BOOTLOADER\STM32_BOOTLOADER.uvprojx
+Project File Date:  08/20/2025
+
+<h2>Output:</h2>
+*** Using Compiler 'V6.23', folder: 'D:\KEIL_C\ARM\ARMCLANG\Bin'
+Rebuild target 'STM32_BOOTLOADER'
+Src/flash_if.c(86): error: call to undeclared function 'FLASH_Write_Char'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+   86 |     return FLASH_Write_Char(addr, (char*)data, len) == FLASH_OK ? 0 : -1;
+      |            ^
+Src/flash_if.c(86): note: did you mean 'FLASH_Write_Data'?
+Drivers/Inc\stm32f103xx_flash_driver.h(49): note: 'FLASH_Write_Data' declared here
+   49 | uint8_t FLASH_Write_Data(uint32_t PageAddress, uint32_t *pTxBuffer, uint16_t length);
+      |         ^
+1 error generated.
+compiling flash_if.c...
+Src/syscalls.c(24): error: 'sys/stat.h' file not found
+   24 | #include <sys/stat.h>
+      |          ^~~~~~~~~~~~
+1 error generated.
+compiling syscalls.c...
+Drivers/Src/stm32f103xx_spi_driver.c(16): warning: expression result unused [-Wunused-value]
+   16 |                 (uint16_t*)(pSPIHandle->pTxBuffer)++;
+      |                 ^          ~~~~~~~~~~~~~~~~~~~~~~~~~
+Drivers/Src/stm32f103xx_spi_driver.c(42): warning: expression result unused [-Wunused-value]
+   42 |                 (uint16_t*)(pSPIHandle->pRxBuffer)++;
+      |                 ^          ~~~~~~~~~~~~~~~~~~~~~~~~~
+Drivers/Src/stm32f103xx_spi_driver.c(165): warning: expression result unused [-Wunused-value]
+  165 |                         (uint16_t*)pTxBuffer++;
+      |                         ^          ~~~~~~~~~~~
+Drivers/Src/stm32f103xx_spi_driver.c(186): warning: expression result unused [-Wunused-value]
+  186 |                         (uint16_t*)pRxBuffer++;
+      |                         ^          ~~~~~~~~~~~
+4 warnings generated.
+compiling stm32f103xx_spi_driver.c...
+compiling watchdog.c...
+Src/sysmem.c(30): error: use of undeclared identifier 'NULL'
+   30 | static uint8_t *__sbrk_heap_end = NULL;
+      |                                   ^
+Src/sysmem.c(53): error: unknown type name 'ptrdiff_t'
+   53 | void *_sbrk(ptrdiff_t incr)
+      |             ^
+Src/sysmem.c(63): error: use of undeclared identifier 'NULL'
+   63 |   if (NULL == __sbrk_heap_end)
+      |       ^
+3 errors generated.
+compiling sysmem.c...
+compiling bootloader.c...
+compiling stm32f103xx_rcc_driver.c...
+Src/main.c(289): warning: In file included from...
+D:/KEIL_C/Arm/ARM/CMSIS/6.1.0/CMSIS/Core/Include\core_cm3.h(1612): error: unknown type name 'IRQn_Type'
+ 1612 | __STATIC_INLINE void __NVIC_EnableIRQ(IRQn_Type IRQn)
+      |                                       ^
+D:/KEIL_C/Arm/ARM/CMSIS/6.1.0/CMSIS/Core/Include\core_cm3.h(1631): error: unknown type name 'IRQn_Type'
+ 1631 | __STATIC_INLINE uint32_t __NVIC_GetEnableIRQ(IRQn_Type IRQn)
+      |                                              ^
+D:/KEIL_C/Arm/ARM/CMSIS/6.1.0/CMSIS/Core/Include\core_cm3.h(1650): error: unknown type name 'IRQn_Type'
+ 1650 | __STATIC_INLINE void __NVIC_DisableIRQ(IRQn_Type IRQn)
+      |                                        ^
+D:/KEIL_C/Arm/ARM/CMSIS/6.1.0/CMSIS/Core/Include\core_cm3.h(1669): error: unknown type name 'IRQn_Type'
+ 1669 | __STATIC_INLINE uint32_t __NVIC_GetPendingIRQ(IRQn_Type IRQn)
+      |                                               ^
+D:/KEIL_C/Arm/ARM/CMSIS/6.1.0/CMSIS/Core/Include\core_cm3.h(1688): error: unknown type name 'IRQn_Type'
+ 1688 | __STATIC_INLINE void __NVIC_SetPendingIRQ(IRQn_Type IRQn)
+      |                                           ^
+D:/KEIL_C/Arm/ARM/CMSIS/6.1.0/CMSIS/Core/Include\core_cm3.h(1703): error: unknown type name 'IRQn_Type'
+ 1703 | __STATIC_INLINE void __NVIC_ClearPendingIRQ(IRQn_Type IRQn)
+      |                                             ^
+D:/KEIL_C/Arm/ARM/CMSIS/6.1.0/CMSIS/Core/Include\core_cm3.h(1720): error: unknown type name 'IRQn_Type'
+ 1720 | __STATIC_INLINE uint32_t __NVIC_GetActive(IRQn_Type IRQn)
+      |                                           ^
+D:/KEIL_C/Arm/ARM/CMSIS/6.1.0/CMSIS/Core/Include\core_cm3.h(1742): error: unknown type name 'IRQn_Type'
+ 1742 | __STATIC_INLINE void __NVIC_SetPriority(IRQn_Type IRQn, uint32_t priority)
+      |                                         ^
+D:/KEIL_C/Arm/ARM/CMSIS/6.1.0/CMSIS/Core/Include\core_cm3.h(1746): error: use of undeclared identifier '__NVIC_PRIO_BITS'
+ 1746 |     NVIC->IPR[((uint32_t)IRQn)]               = (uint8_t)((priority << (8U - __NVIC_PRIO_BITS)) & (uint32_t)0xFFUL);
+      |                                                                              ^
+D:/KEIL_C/Arm/ARM/CMSIS/6.1.0/CMSIS/Core/Include\core_cm3.h(1750): error: use of undeclared identifier '__NVIC_PRIO_BITS'
+ 1750 |     SCB->SHPR[(((uint32_t)IRQn) & 0xFUL)-4UL] = (uint8_t)((priority << (8U - __NVIC_PRIO_BITS)) & (uint32_t)0xFFUL);
+      |                                                                              ^
+D:/KEIL_C/Arm/ARM/CMSIS/6.1.0/CMSIS/Core/Include\core_cm3.h(1764): error: unknown type name 'IRQn_Type'
+ 1764 | __STATIC_INLINE uint32_t __NVIC_GetPriority(IRQn_Type IRQn)
+      |                                             ^
+D:/KEIL_C/Arm/ARM/CMSIS/6.1.0/CMSIS/Core/Include\core_cm3.h(1769): error: use of undeclared identifier '__NVIC_PRIO_BITS'
+ 1769 |     return(((uint32_t)NVIC->IPR[((uint32_t)IRQn)]               >> (8U - __NVIC_PRIO_BITS)));
+      |                                                                          ^
+D:/KEIL_C/Arm/ARM/CMSIS/6.1.0/CMSIS/Core/Include\core_cm3.h(1773): error: use of undeclared identifier '__NVIC_PRIO_BITS'
+ 1773 |     return(((uint32_t)SCB->SHPR[(((uint32_t)IRQn) & 0xFUL)-4UL] >> (8U - __NVIC_PRIO_BITS)));
+      |                                                                          ^
+D:/KEIL_C/Arm/ARM/CMSIS/6.1.0/CMSIS/Core/Include\core_cm3.h(1795): error: use of undeclared identifier '__NVIC_PRIO_BITS'
+ 1795 |   PreemptPriorityBits = ((7UL - PriorityGroupTmp) > (uint32_t)(__NVIC_PRIO_BITS)) ? (uint32_t)(__NVIC_PRIO_BITS) : (uint32_t)(7UL - PriorityGroupTmp);
+      |                                                                ^
+D:/KEIL_C/Arm/ARM/CMSIS/6.1.0/CMSIS/Core/Include\core_cm3.h(1795): error: use of undeclared identifier '__NVIC_PRIO_BITS'
+ 1795 |   PreemptPriorityBits = ((7UL - PriorityGroupTmp) > (uint32_t)(__NVIC_PRIO_BITS)) ? (uint32_t)(__NVIC_PRIO_BITS) : (uint32_t)(7UL - PriorityGroupTmp);
+      |                                                                                                ^
+D:/KEIL_C/Arm/ARM/CMSIS/6.1.0/CMSIS/Core/Include\core_cm3.h(1796): error: use of undeclared identifier '__NVIC_PRIO_BITS'
+ 1796 |   SubPriorityBits     = ((PriorityGroupTmp + (uint32_t)(__NVIC_PRIO_BITS)) < (uint32_t)7UL) ? (uint32_t)0UL : (uint32_t)((PriorityGroupTmp - 7UL) + (uint32_t)(__NVIC_PRIO_BITS));
+      |                                                         ^
+D:/KEIL_C/Arm/ARM/CMSIS/6.1.0/CMSIS/Core/Include\core_cm3.h(1796): error: use of undeclared identifier '__NVIC_PRIO_BITS'
+ 1796 |   SubPriorityBits     = ((PriorityGroupTmp + (uint32_t)(__NVIC_PRIO_BITS)) < (uint32_t)7UL) ? (uint32_t)0UL : (uint32_t)((PriorityGroupTmp - 7UL) + (uint32_t)(__NVIC_PRIO_BITS));
+      |                                                                                                                                                                ^
+D:/KEIL_C/Arm/ARM/CMSIS/6.1.0/CMSIS/Core/Include\core_cm3.h(1822): error: use of undeclared identifier '__NVIC_PRIO_BITS'
+ 1822 |   PreemptPriorityBits = ((7UL - PriorityGroupTmp) > (uint32_t)(__NVIC_PRIO_BITS)) ? (uint32_t)(__NVIC_PRIO_BITS) : (uint32_t)(7UL - PriorityGroupTmp);
+      |                                                                ^
+D:/KEIL_C/Arm/ARM/CMSIS/6.1.0/CMSIS/Core/Include\core_cm3.h(1822): error: use of undeclared identifier '__NVIC_PRIO_BITS'
+ 1822 |   PreemptPriorityBits = ((7UL - PriorityGroupTmp) > (uint32_t)(__NVIC_PRIO_BITS)) ? (uint32_t)(__NVIC_PRIO_BITS) : (uint32_t)(7UL - PriorityGroupTmp);
+      |                                                                                                ^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+20 errors generated.
+compiling main.c...
+compiling stm32f103xx_flash_driver.c...
+Drivers/Src/stm32f103xx_gpio_drivers.c(69): warning: label followed by a declaration is a C23 extension [-Wc23-extensions]
+   69 |                 uint8_t speed = pGPIOHandle->GPIO_PinConfig.GPIO_PinSpeed == 0 ? 1 : pGPIOHandle->GPIO_PinConfig.GPIO_PinSpeed;
+      |                 ^
+1 warning generated.
+compiling stm32f103xx_gpio_drivers.c...
+Drivers/Src/stm32f103xx_usart_driver.c(22): warning: expression result unused [-Wunused-value]
+   22 |                         (uint16_t *)pUSARTHandle->pTxBuffer++;
+      |                         ^           ~~~~~~~~~~~~~~~~~~~~~~~~~
+Drivers/Src/stm32f103xx_usart_driver.c(155): warning: label at end of compound statement is a C23 extension [-Wc23-extensions]
+  155 |         }
+      |         ^
+Drivers/Src/stm32f103xx_usart_driver.c(171): warning: label at end of compound statement is a C23 extension [-Wc23-extensions]
+  171 |         }
+      |         ^
+Drivers/Src/stm32f103xx_usart_driver.c(201): warning: label at end of compound statement is a C23 extension [-Wc23-extensions]
+  201 |         }
+      |         ^
+Drivers/Src/stm32f103xx_usart_driver.c(270): warning: expression result unused [-Wunused-value]
+  270 |                                 (uint16_t *)pTxBuffer++;
+      |                                 ^           ~~~~~~~~~~~
+5 warnings generated.
+compiling stm32f103xx_usart_driver.c...
+"STM32_BOOTLOADER\STM32_BOOTLOADER.axf" - 24 Error(s), 10 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                https://www.keil.com/pack/ARM.CMSIS.6.1.0.pack
+                ARM::CMSIS@6.1.0
+                CMSIS (Common Microcontroller Software Interface Standard)
+   * Component: CORE Version: 6.1.0
+
+Package Vendor: Keil
+                https://www.keil.com/pack/Keil.STM32F1xx_DFP.2.4.1.pack
+                Keil::STM32F1xx_DFP@2.4.1
+                STMicroelectronics STM32F1 Series Device Support, Drivers and Examples
+
+<h2>Collection of Component include folders:</h2>
+  ./RTE/_STM32_BOOTLOADER
+  D:/KEIL_C/Arm/ARM/CMSIS/6.1.0/CMSIS/Core/Include
+  D:/KEIL_C/Arm/Keil/STM32F1xx_DFP/2.4.1/Device/Include
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE@6.1.0
+      Include file:  CMSIS/Core/Include/tz_context.h
+Target not created.
+Build Time Elapsed:  00:00:02
+</pre>
+</body>
+</html>

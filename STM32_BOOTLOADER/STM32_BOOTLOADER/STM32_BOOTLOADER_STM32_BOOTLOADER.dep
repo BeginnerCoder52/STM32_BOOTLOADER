@@ -1,0 +1,91 @@
+Dependencies for Project 'STM32_BOOTLOADER', Target 'STM32_BOOTLOADER': (DO NOT MODIFY !)
+CompilerVersion: 6230000::V6.23::ARMCLANG
+F (.\Drivers\Inc\stm32f103xx.h)(0x68A41388)()
+F (.\Drivers\Inc\stm32f103xx_flash_driver.h)(0x68A41388)()
+F (.\Drivers\Inc\stm32f103xx_gpio_driver.h)(0x68A41388)()
+F (.\Drivers\Inc\stm32f103xx_rcc_driver.h)(0x68A41388)()
+F (.\Drivers\Inc\stm32f103xx_spi_driver.h)(0x68A41388)()
+F (.\Drivers\Inc\stm32f103xx_usart_driver.h)(0x68A41388)()
+F (.\Drivers\Src\stm32f103xx_flash_driver.c)(0x68A41388)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O3 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I Drivers/Inc -I Inc-I./RTE/_STM32_BOOTLOADER-ID:/KEIL_C/Arm/ARM/CMSIS/6.1.0/CMSIS/Core/Include-ID:/KEIL_C/Arm/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="542" -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o stm32_bootloader/stm32f103xx_flash_driver.o -MMD)
+I (Drivers\Inc\stm32f103xx_flash_driver.h)(0x68A41388)
+I (Drivers\Inc\stm32f103xx.h)(0x68A41388)
+I (Drivers\Inc\stm32f103xx_rcc_driver.h)(0x68A41388)
+I (Drivers\Inc\stm32f103xx_gpio_driver.h)(0x68A41388)
+I (Drivers\Inc\stm32f103xx_it_driver.h)(0x68A41388)
+I (Drivers\Inc\stm32f103xx_spi_driver.h)(0x68A41388)
+I (Drivers\Inc\stm32f103xx_usart_driver.h)(0x68A41388)
+F (.\Drivers\Src\stm32f103xx_gpio_drivers.c)(0x68A41388)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O3 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I Drivers/Inc -I Inc-I./RTE/_STM32_BOOTLOADER-ID:/KEIL_C/Arm/ARM/CMSIS/6.1.0/CMSIS/Core/Include-ID:/KEIL_C/Arm/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="542" -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o stm32_bootloader/stm32f103xx_gpio_drivers.o -MMD)
+I (Drivers\Inc\stm32f103xx_gpio_driver.h)(0x68A41388)
+I (Drivers\Inc\stm32f103xx.h)(0x68A41388)
+I (Drivers\Inc\stm32f103xx_rcc_driver.h)(0x68A41388)
+I (Drivers\Inc\stm32f103xx_it_driver.h)(0x68A41388)
+I (Drivers\Inc\stm32f103xx_spi_driver.h)(0x68A41388)
+I (Drivers\Inc\stm32f103xx_usart_driver.h)(0x68A41388)
+I (Drivers\Inc\stm32f103xx_flash_driver.h)(0x68A41388)
+F (.\Drivers\Src\stm32f103xx_rcc_driver.c)(0x68A41388)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O3 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I Drivers/Inc -I Inc-I./RTE/_STM32_BOOTLOADER-ID:/KEIL_C/Arm/ARM/CMSIS/6.1.0/CMSIS/Core/Include-ID:/KEIL_C/Arm/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="542" -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o stm32_bootloader/stm32f103xx_rcc_driver.o -MMD)
+I (Drivers\Inc\stm32f103xx_rcc_driver.h)(0x68A41388)
+I (Drivers\Inc\stm32f103xx.h)(0x68A41388)
+I (Drivers\Inc\stm32f103xx_gpio_driver.h)(0x68A41388)
+I (Drivers\Inc\stm32f103xx_it_driver.h)(0x68A41388)
+I (Drivers\Inc\stm32f103xx_spi_driver.h)(0x68A41388)
+I (Drivers\Inc\stm32f103xx_usart_driver.h)(0x68A41388)
+I (Drivers\Inc\stm32f103xx_flash_driver.h)(0x68A41388)
+F (.\Drivers\Src\stm32f103xx_spi_driver.c)(0x68A41388)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O3 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I Drivers/Inc -I Inc-I./RTE/_STM32_BOOTLOADER-ID:/KEIL_C/Arm/ARM/CMSIS/6.1.0/CMSIS/Core/Include-ID:/KEIL_C/Arm/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="542" -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o stm32_bootloader/stm32f103xx_spi_driver.o -MMD)
+I (Drivers\Inc\stm32f103xx_spi_driver.h)(0x68A41388)
+I (Drivers\Inc\stm32f103xx.h)(0x68A41388)
+I (Drivers\Inc\stm32f103xx_rcc_driver.h)(0x68A41388)
+I (Drivers\Inc\stm32f103xx_gpio_driver.h)(0x68A41388)
+I (Drivers\Inc\stm32f103xx_it_driver.h)(0x68A41388)
+I (Drivers\Inc\stm32f103xx_usart_driver.h)(0x68A41388)
+I (Drivers\Inc\stm32f103xx_flash_driver.h)(0x68A41388)
+F (.\Drivers\Src\stm32f103xx_usart_driver.c)(0x68A41388)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O3 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I Drivers/Inc -I Inc-I./RTE/_STM32_BOOTLOADER-ID:/KEIL_C/Arm/ARM/CMSIS/6.1.0/CMSIS/Core/Include-ID:/KEIL_C/Arm/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="542" -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o stm32_bootloader/stm32f103xx_usart_driver.o -MMD)
+I (Drivers\Inc\stm32f103xx_usart_driver.h)(0x68A41388)
+I (Drivers\Inc\stm32f103xx.h)(0x68A41388)
+I (Drivers\Inc\stm32f103xx_rcc_driver.h)(0x68A41388)
+I (Drivers\Inc\stm32f103xx_gpio_driver.h)(0x68A41388)
+I (Drivers\Inc\stm32f103xx_it_driver.h)(0x68A41388)
+I (Drivers\Inc\stm32f103xx_spi_driver.h)(0x68A41388)
+I (Drivers\Inc\stm32f103xx_flash_driver.h)(0x68A41388)
+F (.\Inc\bl_meta.h)(0x68A431F3)()
+F (.\Inc\bootloader.h)(0x68A4C6CC)()
+F (.\Inc\flash_if.h)(0x68A4C6CB)()
+F (.\Inc\main.h)(0x68A55B7D)()
+F (.\Inc\stm32f1xx_hal_conf.h)(0x68A41388)()
+F (.\Inc\stm32f1xx_it.h)(0x68A41388)()
+F (.\Src\bootloader.c)(0x68A4C8AC)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O3 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I Drivers/Inc -I Inc-I./RTE/_STM32_BOOTLOADER-ID:/KEIL_C/Arm/ARM/CMSIS/6.1.0/CMSIS/Core/Include-ID:/KEIL_C/Arm/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="542" -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o stm32_bootloader/bootloader.o -MMD)
+I (Inc\bootloader.h)(0x68A4C6CC)
+I (Drivers\Inc\stm32f103xx.h)(0x68A41388)
+I (Drivers\Inc\stm32f103xx_rcc_driver.h)(0x68A41388)
+I (Drivers\Inc\stm32f103xx_gpio_driver.h)(0x68A41388)
+I (Drivers\Inc\stm32f103xx_it_driver.h)(0x68A41388)
+I (Drivers\Inc\stm32f103xx_spi_driver.h)(0x68A41388)
+I (Drivers\Inc\stm32f103xx_usart_driver.h)(0x68A41388)
+I (Drivers\Inc\stm32f103xx_flash_driver.h)(0x68A41388)
+I (Inc\bl_meta.h)(0x68A431F3)
+I (Inc\flash_if.h)(0x68A4C6CB)
+F (.\Src\flash_if.c)(0x68A4C91C)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O3 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I Drivers/Inc -I Inc-I./RTE/_STM32_BOOTLOADER-ID:/KEIL_C/Arm/ARM/CMSIS/6.1.0/CMSIS/Core/Include-ID:/KEIL_C/Arm/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="542" -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o stm32_bootloader/flash_if.o -MMD)
+I (Inc\flash_if.h)(0x68A4C6CB)
+I (Drivers\Inc\stm32f103xx.h)(0x68A41388)
+I (Drivers\Inc\stm32f103xx_rcc_driver.h)(0x68A41388)
+I (Drivers\Inc\stm32f103xx_gpio_driver.h)(0x68A41388)
+I (Drivers\Inc\stm32f103xx_it_driver.h)(0x68A41388)
+I (Drivers\Inc\stm32f103xx_spi_driver.h)(0x68A41388)
+I (Drivers\Inc\stm32f103xx_usart_driver.h)(0x68A41388)
+I (Drivers\Inc\stm32f103xx_flash_driver.h)(0x68A41388)
+I (Inc\bl_meta.h)(0x68A431F3)
+F (.\Src\main.c)(0x68A55AD4)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O3 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I Drivers/Inc -I Inc-I./RTE/_STM32_BOOTLOADER-ID:/KEIL_C/Arm/ARM/CMSIS/6.1.0/CMSIS/Core/Include-ID:/KEIL_C/Arm/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="542" -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o stm32_bootloader/main.o -MMD)
+I (Inc\main.h)(0x68A55B7D)
+I (Drivers\Inc\stm32f103xx.h)(0x68A41388)
+I (Drivers\Inc\stm32f103xx_rcc_driver.h)(0x68A41388)
+I (Drivers\Inc\stm32f103xx_gpio_driver.h)(0x68A41388)
+I (Drivers\Inc\stm32f103xx_it_driver.h)(0x68A41388)
+I (Drivers\Inc\stm32f103xx_spi_driver.h)(0x68A41388)
+I (Drivers\Inc\stm32f103xx_usart_driver.h)(0x68A41388)
+I (Drivers\Inc\stm32f103xx_flash_driver.h)(0x68A41388)
+I (Inc\bootloader.h)(0x68A4C6CC)
+I (Inc\bl_meta.h)(0x68A431F3)
+I (Inc\flash_if.h)(0x68A4C6CB)
+I (D:\KEIL_C\Arm\ARM\CMSIS\6.1.0\CMSIS\Core\Include\core_cm3.h)(0x664BE698)
+F (.\Src\syscalls.c)(0x68A41388)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O3 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I Drivers/Inc -I Inc-I./RTE/_STM32_BOOTLOADER-ID:/KEIL_C/Arm/ARM/CMSIS/6.1.0/CMSIS/Core/Include-ID:/KEIL_C/Arm/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="542" -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o stm32_bootloader/syscalls.o -MMD)
+F (.\Src\sysmem.c)(0x68A41388)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O3 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I Drivers/Inc -I Inc-I./RTE/_STM32_BOOTLOADER-ID:/KEIL_C/Arm/ARM/CMSIS/6.1.0/CMSIS/Core/Include-ID:/KEIL_C/Arm/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="542" -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o stm32_bootloader/sysmem.o -MMD)
+F (.\Src\watchdog.c)(0x68A44931)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O3 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I Drivers/Inc -I Inc-I./RTE/_STM32_BOOTLOADER-ID:/KEIL_C/Arm/ARM/CMSIS/6.1.0/CMSIS/Core/Include-ID:/KEIL_C/Arm/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="542" -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o stm32_bootloader/watchdog.o -MMD)

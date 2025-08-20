@@ -1,11 +1,4 @@
 =======
-system_stm32f1xx.c
-
-#define VECT_TAB_BASE_ADDRESS   FLASH_BASE      /*!< Vector Table base address field.
-                                                     This value must be a multiple of 0x200. */
-#define VECT_TAB_OFFSET         0x00012000U     /*!< Vector Table base offset field.
-       
-=======
 bl_meta.h (tương tự Bootloader)
 =======
 main.c

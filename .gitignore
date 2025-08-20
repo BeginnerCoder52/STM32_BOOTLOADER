@@ -1,0 +1,4 @@
+# Ignore code project directories
+APP_OLD/
+APP_CURRENT/
+BOOTLOADER/
