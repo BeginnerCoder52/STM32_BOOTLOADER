@@ -1,0 +1,28 @@
+/*
+ * app_meta.h
+ * Shared metadata structure and constants between Bootloader, APP_CURRENT, and APP_OLD
+ */
+#ifndef __APP_META_H
+#define __APP_META_H
+
+#pragma once
+#include <stdint.h>
+
+/* Metadata base addresses from your memory map */
+#define APP_CURRENT_META_ADDR   0x08011C00UL  // last 1KB of Current App
+#define APP_OLD_META_ADDR       0x0801FC00UL  // last 1KB of Old App
+
+/* Magic numbers & flags */
+#define META_MAGIC              0x5A5A55AAUL  // identifies valid metadata struct
+#define META_FLAG_FW_READY      0x46575244UL  // 'FWRD'
+#define META_FLAG_APP_OK        0x4150504FUL  // 'APPO'
+#define META_FLAG_EMPTY         0xFFFFFFFFUL  // erased flash default
+
+typedef struct __attribute__((packed)) {
+    uint32_t magic;    // META_MAGIC when populated
+    uint32_t flag;     // one of META_FLAG_...
+    uint32_t version;  // app version number (e.g. 0x00010000)
+    uint32_t crc32;    // optional: checksum of app image
+} app_meta_t;
+
+#endif

@@ -1,0 +1,21 @@
+[
+  {
+    "id": 0,
+    "idfLocation": "D:/Espressif/frameworks/",
+    "idfVersion": "5.4.2",
+    "active": true,
+    "systemGitExecutablePath": "D:/Espressif/Espressif/tools/idf-git/2.44.0/cmd/git.exe",
+    "systemPythonExecutablePath": "D:/Espressif/Espressif/python_env/idf5.4_py3.11_env/Scripts/python.exe",
+    "envVars": {
+      "PATH": "D:\\Espressif\\Espressif\\tools\\xtensa-esp-elf-gdb\\14.2_20240403\\xtensa-esp-elf-gdb\\bin;D:\\Espressif\\Espressif\\tools\\riscv32-esp-elf-gdb\\14.2_20240403\\riscv32-esp-elf-gdb\\bin;D:\\Espressif\\Espressif\\tools\\xtensa-esp-elf\\esp-14.2.0_20241119\\xtensa-esp-elf\\bin;D:\\Espressif\\Espressif\\tools\\esp-clang\\esp-18.1.2_20240912\\esp-clang\\bin;D:\\Espressif\\Espressif\\tools\\riscv32-esp-elf\\esp-14.2.0_20241119\\riscv32-esp-elf\\bin;D:\\Espressif\\Espressif\\tools\\esp32ulp-elf\\2.38_20240113\\esp32ulp-elf\\bin;D:\\Espressif\\Espressif\\tools\\cmake\\3.30.2\\bin;D:\\Espressif\\Espressif\\tools\\openocd-esp32\\v0.12.0-esp32-20250422\\openocd-esp32\\bin;D:\\Espressif\\Espressif\\tools\\ninja\\1.12.1\\;D:\\Espressif\\Espressif\\tools\\idf-exe\\1.0.3\\;D:\\Espressif\\Espressif\\tools\\ccache\\4.10.2\\ccache-4.10.2-windows-x86_64;D:\\Espressif\\Espressif\\tools\\dfu-util\\0.11\\dfu-util-0.11-win64;D:\\Espressif\\Espressif\\python_env\\idf5.4_py3.11_env\\Scripts;D:\\Espressif\\frameworks\\tools;%PATH%",
+      "IDF_COMPONENT_MANAGER": "1",
+      "OPENOCD_SCRIPTS": "D:\\Espressif\\Espressif\\tools\\openocd-esp32\\v0.12.0-esp32-20250422\\openocd-esp32\\share\\openocd\\scripts",
+      "IDF_DEACTIVATE_FILE_PATH": "C:\\Users\\Acer\\AppData\\Local\\Temp\\tmp_5vm1o_kidf_2832",
+      "IDF_MAINTAINER": "1",
+      "IDF_CCACHE_ENABLE": "1",
+      "IDF_PYTHON_ENV_PATH": "D:\\Espressif\\Espressif\\python_env\\idf5.4_py3.11_env",
+      "ESP_IDF_VERSION": "5.4.2",
+      "ESP_ROM_ELF_DIR": "D:\\Espressif\\Espressif\\tools\\esp-rom-elfs\\20241011\\"
+    }
+  }
+]

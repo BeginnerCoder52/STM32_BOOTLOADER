@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename resource &apos;ESP32_HOST/main/uart_link&apos; to &apos;uart_link.c&apos;" description="Rename resource &apos;uart_link&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="main/uart_link" name="uart_link.c" stamp="1755587000184" updateReferences="true"/>
-</session>

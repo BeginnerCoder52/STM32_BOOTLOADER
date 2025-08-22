@@ -1,0 +1,4 @@
+../Src/main.c:98:5:main	2
+../Src/main.c:151:13:led_init	1
+../Src/main.c:166:13:led_toggle	1
+../Src/main.c:171:13:uart_send_string	1

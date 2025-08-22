@@ -1,0 +1,98 @@
+#include <string.h>
+#include "stm32f103xx.h"
+#include "stm32f103xx_rcc_driver.h"
+#include "stm32f103xx_gpio_driver.h"
+#include "stm32f103xx_usart_driver.h"
+#include "stm32f103xx_flash_driver.h"
+
+
+// ---------------- Constants ----------------
+#define APP_UART_BAUD       115200U
+#define APP_META_BASE       0x0801FC00U   // last page of 128 KB flash (adjust to your MCU)
+#define FW_REQ_CHAR         'U'
+
+// ---------------- Handles ------------------
+USART_Handle_t husart1;
+GPIO_Handle_t  ledA7;
+
+// ---------------- Prototypes ----------------
+static void delay_ms(uint32_t ms);
+static void MX_GPIO_Init(void);
+static void MX_USART1_UART_Init(void);
+static void write_meta_flag(uint32_t addr, uint32_t flag);
+
+// ---------------- Main ----------------------
+int main(void)
+{
+    // Init system clocks if needed
+    RCC_DeInit();
+
+    MX_GPIO_Init();
+    MX_USART1_UART_Init();
+
+    char banner[] = "APP_OLD started\r\n";
+    USART_SendData(&husart1, (uint8_t*)banner, strlen(banner));
+
+    for (;;)
+    {
+        // Blink LED
+        GPIO_WritePin(GPIOA, GPIO_PIN_NO_7, GPIO_PIN_SET);
+        delay_ms(200);
+        GPIO_WritePin(GPIOA, GPIO_PIN_NO_7, GPIO_PIN_RESET);
+        delay_ms(200);
+
+        // Check UART for firmware request
+        uint8_t ch;
+        if (USART_ReceiveDataIT(&husart1, &ch, 1) == USART_READY)
+        {
+            if (ch == FW_REQ_CHAR)
+            {
+                const uint32_t flag = 0x46575244; // 'FWRD'
+                write_meta_flag(APP_META_BASE, flag);
+
+                // Simple software reset: write to AIRCR
+                NVIC_SystemReset();
+            }
+        }
+    }
+}
+
+// ---------------- Init Functions ----------------
+static void MX_GPIO_Init(void)
+{
+    ledA7.pGPIOx = GPIOA;
+    ledA7.GPIO_PinConfig.GPIO_PinNumber    = GPIO_PIN_NO_7;
+    ledA7.GPIO_PinConfig.GPIO_PinMode      = GPIO_MODE_OUT;
+    ledA7.GPIO_PinConfig.GPIO_PinCfgMode   = GPIO_CFG_OUT_GE_PP;
+    ledA7.GPIO_PinConfig.GPIO_PinSpeed     = GPIO_SPEED_MEDIUM;
+    ledA7.GPIO_PinConfig.GPIO_PinPuPdControl = GPIO_PULLUP;
+    GPIO_Init(&ledA7);
+}
+
+static void MX_USART1_UART_Init(void)
+{
+    husart1.pUSARTx = USART1;
+    husart1.USART_Config.USART_Mode            = USART_MODE_TXRX;
+    husart1.USART_Config.USART_Baudrate        = APP_UART_BAUD;
+    husart1.USART_Config.USART_NumberOfStopBits= USART_STOPBITS_1;
+    husart1.USART_Config.USART_WordLength      = USART_WORDLEN_8BITS;
+    husart1.USART_Config.USART_ParityControl   = USART_PARITY_DISABLE;
+    husart1.USART_Config.USART_HWFLowControl   = USART_HW_FLOW_CTRL_NONE;
+
+    USART_Init(&husart1);
+    USART_Start(husart1.pUSARTx);
+}
+
+// ---------------- Utility ---------------------
+static void delay_ms(uint32_t ms)
+{
+    for (uint32_t i = 0; i < ms * 8000; i++) {
+        __asm("nop");
+    }
+}
+
+static void write_meta_flag(uint32_t addr, uint32_t flag)
+{
+    FLASH_Erase(addr);
+    FLASH_Write_Data(addr, (uint32_t*)&flag, 1);
+}

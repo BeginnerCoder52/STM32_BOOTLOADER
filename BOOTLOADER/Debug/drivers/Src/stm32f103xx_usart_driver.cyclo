@@ -1,0 +1,15 @@
+../drivers/Src/stm32f103xx_usart_driver.c:12:13:USART_TXE_Interrupt_Handle	4
+../drivers/Src/stm32f103xx_usart_driver.c:53:13:USART_RXNE_Interrupt_Handle	5
+../drivers/Src/stm32f103xx_usart_driver.c:107:6:USART_PeriClockControl	7
+../drivers/Src/stm32f103xx_usart_driver.c:123:6:USART_Start	1
+../drivers/Src/stm32f103xx_usart_driver.c:128:6:USART_Stop	1
+../drivers/Src/stm32f103xx_usart_driver.c:137:6:USART_Init	13
+../drivers/Src/stm32f103xx_usart_driver.c:209:6:USART_SetBaudRate	2
+../drivers/Src/stm32f103xx_usart_driver.c:236:6:USART_DeInit	6
+../drivers/Src/stm32f103xx_usart_driver.c:254:6:USART_SendData	6
+../drivers/Src/stm32f103xx_usart_driver.c:294:6:USART_ReceiveData	6
+../drivers/Src/stm32f103xx_usart_driver.c:339:9:USART_SendDataIT	2
+../drivers/Src/stm32f103xx_usart_driver.c:354:9:USART_ReceiveDataIT	2
+../drivers/Src/stm32f103xx_usart_driver.c:373:6:USART_IRQHandling	5
+../drivers/Src/stm32f103xx_usart_driver.c:425:13:USART_TransmissionEventsCallback	1
+../drivers/Src/stm32f103xx_usart_driver.c:427:13:USART_ReceptionEventsCallback	1

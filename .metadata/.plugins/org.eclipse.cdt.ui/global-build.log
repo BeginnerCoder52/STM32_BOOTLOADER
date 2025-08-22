@@ -1,0 +1,24 @@
+16:20:54 **** Incremental Build of configuration Debug for project APP_OLD ****
+make -j12 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -I"D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/STM32_BOOTLOADER/APP_OLD/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "APP_OLD.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\File_dai_hoc_UIT\Thuc_Tap_FSOFT\INTERN_PROJECT\STM32_BOOTLOADER\APP_OLD\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="APP_OLD.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: APP_OLD.elf
+ 
+arm-none-eabi-size  APP_OLD.elf 
+arm-none-eabi-objdump -h -S APP_OLD.elf  > "APP_OLD.list"
+   text	   data	    bss	    dec	    hex	filename
+   4368	      0	   1616	   5984	   1760	APP_OLD.elf
+arm-none-eabi-objcopy  -O binary APP_OLD.elf  "APP_OLD.bin"
+Finished building: default.size.stdout
+ 
+Finished building: APP_OLD.bin
+Finished building: APP_OLD.list
+ 
+ 
+16:21:22 **** Incremental Build of configuration Debug for project APP_OLD ****
+make -j12 all 
+arm-none-eabi-size  APP_OLD.elf 
+   text	   data	    bss	    dec	    hex	filename
+   4368	      0	   1616	   5984	   1760	APP_OLD.elf
+Finished building: default.size.stdout
+ 

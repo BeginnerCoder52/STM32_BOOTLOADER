@@ -1,0 +1,15 @@
+{
+    "files.associations": {
+        "netdb.h": "c",
+        "wifi_app.h": "c",
+        "esp_task.h": "c",
+        "cstring": "c",
+        "esp_netif.h": "c",
+        "freertos.h": "c",
+        "esp_http_server.h": "c",
+        "http_server.h": "c",
+        "task.h": "c",
+        "esp_vfs.h": "c",
+        "esp_wifi.h": "c"
+    }
+}

@@ -1,0 +1,293 @@
+!SESSION 2025-08-22 00:57:08.665 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=17.0.6
+java.vendor=Amazon.com Inc.
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.launchbar.core 2 0 2025-08-22 01:04:23.440
+!MESSAGE Enablement expression is missing for descriptor type com.espressif.idf.debug.gdbjtag.openocd.descriptorType
+
+!ENTRY org.eclipse.launchbar.core 2 0 2025-08-22 01:04:23.442
+!MESSAGE Enablement expression is missing for config provider for com.espressif.idf.debug.gdbjtag.openocd.descriptorType
+
+!ENTRY org.eclipse.launchbar.core 2 0 2025-08-22 01:04:23.443
+!MESSAGE Enablement expression is missing for config provider for com.espressif.idf.launch.serial.core.idf.descriptorType
+
+!ENTRY org.eclipse.launchbar.core 2 0 2025-08-22 01:04:23.447
+!MESSAGE Enablement expression is missing for descriptor type com.espressif.idf.launch.serial.core.idf.descriptorType
+
+!ENTRY org.eclipse.egit.ui 2 0 2025-08-22 01:04:23.448
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Acer'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY com.espressif.idf.core 1 0 2025-08-22 01:04:25.731
+!MESSAGE Initializing toolchain...
+
+!ENTRY com.espressif.idf.core 1 0 2025-08-22 01:04:25.732
+!MESSAGE idf_tools.py path: null/tools/idf_tools.py
+
+!ENTRY com.espressif.idf.core 1 0 2025-08-22 01:04:25.733
+!MESSAGE idf_tools.py path doesn't exist
+
+!ENTRY com.espressif.idf.core 1 0 2025-08-22 01:04:25.734
+!MESSAGE [C:\Program Files (x86)\Common Files\Oracle\Java\java8path;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files\Microsoft MPI\Bin\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\dotnet\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;D:\PH?N M?M QUAN TR?NG\Git\cmd;E:\altera\13.0sp1\quartus\bin;C:\Program Files (x86)\STMicroelectronics\STM32 ST-LINK Utility\ST-LINK Utility;C:\Program Files\PuTTY\;C:\Program Files\Git\cmd;C:\Program Files\Git\bin;C:\Program Files\nodejs\;D:\PHAN_MEM_QUAN_TRONG\Java_JDK\Oracle_JDK-24\jdk-24.0.1\bin;C:\Users\Acer\AppData\Local\Programs\oh-my-posh\bin\;C:\altera\91sp2\modelsim_ase\win32aloem;C:\Users\Acer\AppData\Local\Programs\Python\Python313\Scripts\;C:\Users\Acer\AppData\Local\Programs\Python\Python313\;C:\Users\Acer\AppData\Local\Programs\Python\Launcher\;C:\Users\Acer\AppData\Local\Microsoft\WindowsApps;C:\MinGW\bin;C:\Users\Acer\AppData\Local\Programs\oh-my-posh\bin;C:\MinGW\bin\gdb.exe;C:\Program Files\Azure Data Studio\bin;C:\Program Files (x86)\Java\jre-1.8\bin;C:\Exercism;D:\Microsoft VS Code\bin;C:\Users\Acer\AppData\Local\GitHubDesktop\bin;C:\altera\13.0sp1\modelsim_ase\win32aloem;C:\modeltech64_2020.4\win64;D:\PHAN_MEM_QUAN_TRONG\ANACONDA;D:\PHAN_MEM_QUAN_TRONG\ANACONDA\Scripts;C:\Users\Acer\AppData\Roaming\npm;D:\PHAN_MEM_QUAN_TRONG\XpdfReader-win64\xpdf.exe;C:\Users\Acer\AppData\Local\Microsoft\WindowsApps;D:\PHAN_MEM_QUAN_TRONG\Nmap]
+
+!ENTRY org.eclipse.cdt.core 4 2 2025-08-22 01:04:25.741
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.cdt.core".
+!STACK 0
+java.nio.file.InvalidPathException: Illegal char <?> at index 5: D:\PH?N M?M QUAN TR?NG\Git\cmd
+	at java.base/sun.nio.fs.WindowsPathParser.normalize(WindowsPathParser.java:182)
+	at java.base/sun.nio.fs.WindowsPathParser.parse(WindowsPathParser.java:153)
+	at java.base/sun.nio.fs.WindowsPathParser.parse(WindowsPathParser.java:77)
+	at java.base/sun.nio.fs.WindowsPath.parse(WindowsPath.java:92)
+	at java.base/sun.nio.fs.WindowsFileSystem.getPath(WindowsFileSystem.java:232)
+	at java.base/java.nio.file.Path.of(Path.java:147)
+	at java.base/java.nio.file.Paths.get(Paths.java:69)
+	at com.espressif.idf.core.toolchain.ESPToolChainManager.lambda$19(ESPToolChainManager.java)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:992)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:575)
+	at java.base/java.util.stream.AbstractPipeline.evaluateToArrayNode(AbstractPipeline.java:260)
+	at java.base/java.util.stream.ReferencePipeline.toArray(ReferencePipeline.java:616)
+	at com.espressif.idf.core.toolchain.ESPToolChainManager.getDirectories(ESPToolChainManager.java:181)
+	at com.espressif.idf.core.toolchain.ESPToolChainManager.findToolChain(ESPToolChainManager.java:165)
+	at com.espressif.idf.core.toolchain.ESPToolChainManager.initToolChain(ESPToolChainManager.java:136)
+	at com.espressif.idf.core.toolchain.ESPToolChainProvider.init(ESPToolChainProvider.java:36)
+	at org.eclipse.cdt.internal.core.build.ToolChainManager.lambda$0(ToolChainManager.java:67)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.cdt.internal.core.build.ToolChainManager.init(ToolChainManager.java:64)
+	at org.eclipse.cdt.internal.core.build.ToolChainManager.getAllToolChains(ToolChainManager.java:206)
+	at com.espressif.idf.core.toolchain.ESPToolChainManager.getAllEspToolchains(ESPToolChainManager.java:427)
+	at com.espressif.idf.core.toolchain.ESPToolChainManager.addToolchainBasedTargets(ESPToolChainManager.java:440)
+	at com.espressif.idf.launch.serial.SerialFlashLaunchTargetProvider.init(SerialFlashLaunchTargetProvider.java:33)
+	at org.eclipse.launchbar.core.internal.target.LaunchTargetManager.initTargets(LaunchTargetManager.java:123)
+	at org.eclipse.launchbar.core.internal.target.LaunchTargetManager.getProvider(LaunchTargetManager.java:130)
+	at org.eclipse.launchbar.core.internal.target.LaunchTargetManager.getStatus(LaunchTargetManager.java:191)
+	at org.eclipse.launchbar.ui.controls.internal.TargetSelector.setToolTipText(TargetSelector.java:217)
+	at org.eclipse.launchbar.ui.controls.internal.TargetSelector.update(TargetSelector.java:248)
+	at org.eclipse.launchbar.ui.controls.internal.CSelector.lambda$6(CSelector.java:468)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:132)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4058)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3676)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1151)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1042)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:152)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:639)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:546)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:173)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:208)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:143)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:109)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:439)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:271)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:668)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:605)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1481)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1454)
+
+!ENTRY com.espressif.idf.core 1 0 2025-08-22 01:04:25.844
+!MESSAGE Eclipse Install location::file:/D:/Espressif/Espressif/tools/espressif-ide/3.1.0/
+
+!ENTRY com.espressif.idf.core 1 0 2025-08-22 01:04:25.930
+!MESSAGE Executing D:/Espressif/Espressif/python_env/idf5.4_py3.11_env/Scripts/python.exe D:\Espressif\frameworks\tools\idf_tools.py export --format=key-value
+
+!ENTRY com.espressif.idf.core 1 0 2025-08-22 01:04:30.589
+!MESSAGE Key: OPENOCD_SCRIPTS Value: D:\Espressif\Espressif\tools\openocd-esp32\v0.12.0-esp32-20250422\openocd-esp32\share\openocd\scripts
+
+!ENTRY com.espressif.idf.core 1 0 2025-08-22 01:04:30.589
+!MESSAGE Key: IDF_CCACHE_ENABLE Value: 1
+
+!ENTRY com.espressif.idf.core 1 0 2025-08-22 01:04:30.590
+!MESSAGE Key: ESP_ROM_ELF_DIR Value: D:\Espressif\Espressif\tools\esp-rom-elfs\20241011\
+
+!ENTRY com.espressif.idf.core 1 0 2025-08-22 01:04:30.590
+!MESSAGE Key: IDF_PYTHON_ENV_PATH Value: D:\Espressif\Espressif\python_env\idf5.4_py3.11_env
+
+!ENTRY com.espressif.idf.core 1 0 2025-08-22 01:04:30.591
+!MESSAGE Key: ESP_IDF_VERSION Value: 5.4
+
+!ENTRY com.espressif.idf.core 1 0 2025-08-22 01:04:30.591
+!MESSAGE Key: PATH Value: D:\Espressif\Espressif\tools\xtensa-esp-elf-gdb\14.2_20240403\xtensa-esp-elf-gdb\bin;D:\Espressif\Espressif\tools\riscv32-esp-elf-gdb\14.2_20240403\riscv32-esp-elf-gdb\bin;D:\Espressif\Espressif\tools\xtensa-esp-elf\esp-14.2.0_20241119\xtensa-esp-elf\bin;D:\Espressif\Espressif\tools\esp-clang\esp-18.1.2_20240912\esp-clang\bin;D:\Espressif\Espressif\tools\riscv32-esp-elf\esp-14.2.0_20241119\riscv32-esp-elf\bin;D:\Espressif\Espressif\tools\esp32ulp-elf\2.38_20240113\esp32ulp-elf\bin;D:\Espressif\Espressif\tools\cmake\3.30.2\bin;D:\Espressif\Espressif\tools\openocd-esp32\v0.12.0-esp32-20250422\openocd-esp32\bin;D:\Espressif\Espressif\tools\ninja\1.12.1\;D:\Espressif\Espressif\tools\idf-exe\1.0.3\;D:\Espressif\Espressif\tools\ccache\4.10.2\ccache-4.10.2-windows-x86_64;D:\Espressif\Espressif\tools\dfu-util\0.11\dfu-util-0.11-win64;D:\Espressif\Espressif\python_env\idf5.4_py3.11_env\Scripts;D:\Espressif\frameworks\tools;%PATH%
+
+!ENTRY com.espressif.idf.core 1 0 2025-08-22 01:04:30.591
+!MESSAGE Key: IDF_DEACTIVATE_FILE_PATH Value: C:\Users\Acer\AppData\Local\Temp\tmp_5vm1o_kidf_2832
+
+!ENTRY com.espressif.idf.core 1 0 2025-08-22 01:04:30.593
+!MESSAGE Executing D:\Espressif\Espressif\python_env\idf5.4_py3.11_env/Scripts/python.exe D:\Espressif\frameworks\tools\idf.py --version
+
+!ENTRY com.espressif.idf.core 1 0 2025-08-22 01:04:30.594
+!MESSAGE {USERDOMAIN_ROAMINGPROFILE=RICHARDMELVIN52, PROCESSOR_LEVEL=23, ALLUSERSPROFILE=C:\ProgramData, PROCESSOR_ARCHITECTURE=AMD64, PSModulePath=%ProgramFiles%\WindowsPowerShell\Modules;C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules, SystemDrive=C:, WEBOTS_HOME=D:\UIT_CAR_RACING_2024\Webots, USERNAME=Richard Acer, ProgramFiles(x86)=C:\Program Files (x86), FPS_BROWSER_USER_PROFILE_STRING=Default, PATHEXT=.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC, DriverData=C:\Windows\System32\Drivers\DriverData, POSH_THEMES_PATH=C:\Users\Acer\AppData\Local\Programs\oh-my-posh\themes\, LM_LICENSE_FILE=D:\PHAM_MEM_QUAN_TRONG\Xlinx.lic, ProgramData=C:\ProgramData, ProgramW6432=C:\Program Files, HOMEPATH=\Users\Acer, SOPC_KIT_NIOS2=E:\altera\13.0sp1\nios2eds, PROCESSOR_IDENTIFIER=AMD64 Family 23 Model 104 Stepping 1, AuthenticAMD, ProgramFiles=C:\Program Files, PUBLIC=C:\Users\Public, windir=C:\WINDOWS, =::=::\, MSMPI_BENCHMARKS=C:\Program Files\Microsoft MPI\Benchmarks\, POSH_INSTALLER=winget, LOCALAPPDATA=C:\Users\Acer\AppData\Local, MSMPI_BIN=C:\Program Files\Microsoft MPI\Bin\, USERDOMAIN=RICHARDMELVIN52, FPS_BROWSER_APP_PROFILE_STRING=Internet Explorer, LOGONSERVER=\\RICHARDMELVIN52, MODELSIM=C:\modeltech64_2020.4\win64\vsim.exe, IDF_TOOLS_PATH=D:/Espressif/Espressif, OneDrive=D:\OneDrive, APPDATA=C:\Users\Acer\AppData\Roaming, VBOX_HWVIRTEX_IGNORE_SVM_IN_USE=1, CommonProgramFiles=C:\Program Files\Common Files, Path=C:\Program Files (x86)\Common Files\Oracle\Java\java8path;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files\Microsoft MPI\Bin\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\dotnet\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;D:\PH?N M?M QUAN TR?NG\Git\cmd;E:\altera\13.0sp1\quartus\bin;C:\Program Files (x86)\STMicroelectronics\STM32 ST-LINK Utility\ST-LINK Utility;C:\Program Files\PuTTY\;C:\Program Files\Git\cmd;C:\Program Files\Git\bin;C:\Program Files\nodejs\;D:\PHAN_MEM_QUAN_TRONG\Java_JDK\Oracle_JDK-24\jdk-24.0.1\bin;C:\Users\Acer\AppData\Local\Programs\oh-my-posh\bin\;C:\altera\91sp2\modelsim_ase\win32aloem;C:\Users\Acer\AppData\Local\Programs\Python\Python313\Scripts\;C:\Users\Acer\AppData\Local\Programs\Python\Python313\;C:\Users\Acer\AppData\Local\Programs\Python\Launcher\;C:\Users\Acer\AppData\Local\Microsoft\WindowsApps;C:\MinGW\bin;C:\Users\Acer\AppData\Local\Programs\oh-my-posh\bin;C:\MinGW\bin\gdb.exe;C:\Program Files\Azure Data Studio\bin;C:\Program Files (x86)\Java\jre-1.8\bin;C:\Exercism;D:\Microsoft VS Code\bin;C:\Users\Acer\AppData\Local\GitHubDesktop\bin;C:\altera\13.0sp1\modelsim_ase\win32aloem;C:\modeltech64_2020.4\win64;D:\PHAN_MEM_QUAN_TRONG\ANACONDA;D:\PHAN_MEM_QUAN_TRONG\ANACONDA\Scripts;C:\Users\Acer\AppData\Roaming\npm;D:\PHAN_MEM_QUAN_TRONG\XpdfReader-win64\xpdf.exe;C:\Users\Acer\AppData\Local\Microsoft\WindowsApps;D:\PHAN_MEM_QUAN_TRONG\Nmap, OS=Windows_NT, COMPUTERNAME=RICHARDMELVIN52, PROCESSOR_REVISION=6801, CommonProgramW6432=C:\Program Files\Common Files, ComSpec=C:\WINDOWS\system32\cmd.exe, STM32CubeMX_PATH=D:\stm32cubemx, SystemRoot=C:\WINDOWS, TEMP=C:\Users\Acer\AppData\Local\Temp, HOMEDRIVE=C:, USERPROFILE=C:\Users\Acer, TMP=C:\Users\Acer\AppData\Local\Temp, CommonProgramFiles(x86)=C:\Program Files (x86)\Common Files, NUMBER_OF_PROCESSORS=12, QUARTUS_ROOTDIR=E:\altera\13.0sp1\quartus}
+
+!ENTRY com.espressif.idf.core 1 0 2025-08-22 01:04:36.393
+!MESSAGE Updating environment variables with key:ESP_IDF_VERSION value:5.4.2
+
+!ENTRY com.espressif.idf.core 1 0 2025-08-22 01:04:36.398
+!MESSAGE Updating environment variables with key:GIT_PATH value:D:/Espressif/Espressif/tools/idf-git/2.44.0/cmd/git.exe
+
+!ENTRY com.espressif.idf.core 1 0 2025-08-22 01:04:36.409
+!MESSAGE Updating environment variables with key:IDF_COMPONENT_MANAGER value:1
+
+!ENTRY com.espressif.idf.core 1 0 2025-08-22 01:04:36.420
+!MESSAGE Updating environment variables with key:IDF_MAINTAINER value:1
+
+!ENTRY com.espressif.idf.core 1 0 2025-08-22 01:04:36.431
+!MESSAGE Updating environment variables with key:IDF_PATH value:D:/Espressif/frameworks/
+
+!ENTRY com.espressif.idf.core 1 0 2025-08-22 01:04:36.444
+!MESSAGE Updating environment variables with key:IDF_PYTHON_ENV_PATH value:D:\Espressif\Espressif\python_env\idf5.4_py3.11_env
+
+!ENTRY com.espressif.idf.core 1 0 2025-08-22 01:04:36.456
+!MESSAGE Updating environment variables with key:OPENOCD_SCRIPTS value:D:\Espressif\Espressif\tools\openocd-esp32\v0.12.0-esp32-20250422\openocd-esp32\share\openocd\scripts
+
+!ENTRY com.espressif.idf.core 1 0 2025-08-22 01:04:36.468
+!MESSAGE Updating environment variables with key:PATH value:D:\Espressif\Espressif\tools\xtensa-esp-elf-gdb\14.2_20240403\xtensa-esp-elf-gdb\bin;D:\Espressif\Espressif\tools\riscv32-esp-elf-gdb\14.2_20240403\riscv32-esp-elf-gdb\bin;D:\Espressif\Espressif\tools\xtensa-esp-elf\esp-14.2.0_20241119\xtensa-esp-elf\bin;D:\Espressif\Espressif\tools\esp-clang\esp-18.1.2_20240912\esp-clang\bin;D:\Espressif\Espressif\tools\riscv32-esp-elf\esp-14.2.0_20241119\riscv32-esp-elf\bin;D:\Espressif\Espressif\tools\esp32ulp-elf\2.38_20240113\esp32ulp-elf\bin;D:\Espressif\Espressif\tools\cmake\3.30.2\bin;D:\Espressif\Espressif\tools\openocd-esp32\v0.12.0-esp32-20250422\openocd-esp32\bin;D:\Espressif\Espressif\tools\ninja\1.12.1\;D:\Espressif\Espressif\tools\idf-exe\1.0.3\;D:\Espressif\Espressif\tools\ccache\4.10.2\ccache-4.10.2-windows-x86_64;D:\Espressif\Espressif\tools\dfu-util\0.11\dfu-util-0.11-win64;D:\Espressif\Espressif\python_env\idf5.4_py3.11_env\Scripts;D:\Espressif\frameworks\tools;C:\Program Files (x86)\Common Files\Oracle\Java\java8path;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files\Microsoft MPI\Bin\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\dotnet\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;D:\PH?N M?M QUAN TR?NG\Git\cmd;E:\altera\13.0sp1\quartus\bin;C:\Program Files (x86)\STMicroelectronics\STM32 ST-LINK Utility\ST-LINK Utility;C:\Program Files\PuTTY\;C:\Program Files\Git\cmd;C:\Program Files\Git\bin;C:\Program Files\nodejs\;D:\PHAN_MEM_QUAN_TRONG\Java_JDK\Oracle_JDK-24\jdk-24.0.1\bin;C:\Users\Acer\AppData\Local\Programs\oh-my-posh\bin\;C:\altera\91sp2\modelsim_ase\win32aloem;C:\Users\Acer\AppData\Local\Programs\Python\Python313\Scripts\;C:\Users\Acer\AppData\Local\Programs\Python\Python313\;C:\Users\Acer\AppData\Local\Programs\Python\Launcher\;C:\Users\Acer\AppData\Local\Microsoft\WindowsApps;C:\MinGW\bin;C:\Users\Acer\AppData\Local\Programs\oh-my-posh\bin;C:\MinGW\bin\gdb.exe;C:\Program Files\Azure Data Studio\bin;C:\Program Files (x86)\Java\jre-1.8\bin;C:\Exercism;D:\Microsoft VS Code\bin;C:\Users\Acer\AppData\Local\GitHubDesktop\bin;C:\altera\13.0sp1\modelsim_ase\win32aloem;C:\modeltech64_2020.4\win64;D:\PHAN_MEM_QUAN_TRONG\ANACONDA;D:\PHAN_MEM_QUAN_TRONG\ANACONDA\Scripts;C:\Users\Acer\AppData\Roaming\npm;D:\PHAN_MEM_QUAN_TRONG\XpdfReader-win64\xpdf.exe;C:\Users\Acer\AppData\Local\Microsoft\WindowsApps;D:\PHAN_MEM_QUAN_TRONG\Nmap
+
+!ENTRY com.espressif.idf.core 1 0 2025-08-22 01:04:36.481
+!MESSAGE Updating environment variables with key:PYTHON_EXE_PATH value:D:/Espressif/Espressif/python_env/idf5.4_py3.11_env/Scripts/python.exe
+
+!ENTRY com.espressif.idf.core 1 0 2025-08-22 01:04:36.493
+!MESSAGE Updating environment variables with key:IDF_COMPONENT_MANAGER value:1
+
+!ENTRY com.espressif.idf.core 1 0 2025-08-22 01:04:36.494
+!MESSAGE Updating environment variables with key:IDF_MAINTAINER value:1
+
+!ENTRY com.espressif.idf.core 1 0 2025-08-22 01:04:36.495
+!MESSAGE Executing D:\Espressif\Espressif\python_env\idf5.4_py3.11_env/Scripts/python.exe D:\Espressif\frameworks\tools\idf.py --list-targets
+
+!ENTRY com.espressif.idf.core 1 0 2025-08-22 01:04:36.496
+!MESSAGE {USERDOMAIN_ROAMINGPROFILE=RICHARDMELVIN52, PROCESSOR_LEVEL=23, ALLUSERSPROFILE=C:\ProgramData, PROCESSOR_ARCHITECTURE=AMD64, PSModulePath=%ProgramFiles%\WindowsPowerShell\Modules;C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules, SystemDrive=C:, WEBOTS_HOME=D:\UIT_CAR_RACING_2024\Webots, USERNAME=Richard Acer, ProgramFiles(x86)=C:\Program Files (x86), FPS_BROWSER_USER_PROFILE_STRING=Default, PATHEXT=.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC, DriverData=C:\Windows\System32\Drivers\DriverData, POSH_THEMES_PATH=C:\Users\Acer\AppData\Local\Programs\oh-my-posh\themes\, LM_LICENSE_FILE=D:\PHAM_MEM_QUAN_TRONG\Xlinx.lic, ProgramData=C:\ProgramData, ProgramW6432=C:\Program Files, HOMEPATH=\Users\Acer, SOPC_KIT_NIOS2=E:\altera\13.0sp1\nios2eds, PROCESSOR_IDENTIFIER=AMD64 Family 23 Model 104 Stepping 1, AuthenticAMD, ProgramFiles=C:\Program Files, PUBLIC=C:\Users\Public, windir=C:\WINDOWS, =::=::\, MSMPI_BENCHMARKS=C:\Program Files\Microsoft MPI\Benchmarks\, POSH_INSTALLER=winget, LOCALAPPDATA=C:\Users\Acer\AppData\Local, MSMPI_BIN=C:\Program Files\Microsoft MPI\Bin\, USERDOMAIN=RICHARDMELVIN52, FPS_BROWSER_APP_PROFILE_STRING=Internet Explorer, LOGONSERVER=\\RICHARDMELVIN52, MODELSIM=C:\modeltech64_2020.4\win64\vsim.exe, IDF_TOOLS_PATH=D:/Espressif/Espressif, OneDrive=D:\OneDrive, APPDATA=C:\Users\Acer\AppData\Roaming, VBOX_HWVIRTEX_IGNORE_SVM_IN_USE=1, CommonProgramFiles=C:\Program Files\Common Files, Path=C:\Program Files (x86)\Common Files\Oracle\Java\java8path;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files\Microsoft MPI\Bin\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\dotnet\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;D:\PH?N M?M QUAN TR?NG\Git\cmd;E:\altera\13.0sp1\quartus\bin;C:\Program Files (x86)\STMicroelectronics\STM32 ST-LINK Utility\ST-LINK Utility;C:\Program Files\PuTTY\;C:\Program Files\Git\cmd;C:\Program Files\Git\bin;C:\Program Files\nodejs\;D:\PHAN_MEM_QUAN_TRONG\Java_JDK\Oracle_JDK-24\jdk-24.0.1\bin;C:\Users\Acer\AppData\Local\Programs\oh-my-posh\bin\;C:\altera\91sp2\modelsim_ase\win32aloem;C:\Users\Acer\AppData\Local\Programs\Python\Python313\Scripts\;C:\Users\Acer\AppData\Local\Programs\Python\Python313\;C:\Users\Acer\AppData\Local\Programs\Python\Launcher\;C:\Users\Acer\AppData\Local\Microsoft\WindowsApps;C:\MinGW\bin;C:\Users\Acer\AppData\Local\Programs\oh-my-posh\bin;C:\MinGW\bin\gdb.exe;C:\Program Files\Azure Data Studio\bin;C:\Program Files (x86)\Java\jre-1.8\bin;C:\Exercism;D:\Microsoft VS Code\bin;C:\Users\Acer\AppData\Local\GitHubDesktop\bin;C:\altera\13.0sp1\modelsim_ase\win32aloem;C:\modeltech64_2020.4\win64;D:\PHAN_MEM_QUAN_TRONG\ANACONDA;D:\PHAN_MEM_QUAN_TRONG\ANACONDA\Scripts;C:\Users\Acer\AppData\Roaming\npm;D:\PHAN_MEM_QUAN_TRONG\XpdfReader-win64\xpdf.exe;C:\Users\Acer\AppData\Local\Microsoft\WindowsApps;D:\PHAN_MEM_QUAN_TRONG\Nmap, OS=Windows_NT, COMPUTERNAME=RICHARDMELVIN52, PROCESSOR_REVISION=6801, CommonProgramW6432=C:\Program Files\Common Files, ComSpec=C:\WINDOWS\system32\cmd.exe, STM32CubeMX_PATH=D:\stm32cubemx, SystemRoot=C:\WINDOWS, TEMP=C:\Users\Acer\AppData\Local\Temp, HOMEDRIVE=C:, USERPROFILE=C:\Users\Acer, TMP=C:\Users\Acer\AppData\Local\Temp, CommonProgramFiles(x86)=C:\Program Files (x86)\Common Files, NUMBER_OF_PROCESSORS=12, QUARTUS_ROOTDIR=E:\altera\13.0sp1\quartus}
+
+!ENTRY com.espressif.idf.core 1 0 2025-08-22 01:04:38.768
+!MESSAGE Initializing toolchain...
+
+!ENTRY com.espressif.idf.core 1 0 2025-08-22 01:04:38.770
+!MESSAGE idf_tools.py path: D:/Espressif/frameworks//tools/idf_tools.py
+
+!ENTRY com.espressif.idf.core 1 0 2025-08-22 01:04:38.771
+!MESSAGE [D:\Espressif\Espressif\python_env\idf5.4_py3.11_env\Scripts\python.exe, D:/Espressif/frameworks//tools/idf_tools.py, export, --format=key-value]
+
+!ENTRY com.espressif.idf.core 1 0 2025-08-22 01:04:39.322
+!MESSAGE idf_tools.py export output: WARNING: The following issue occurred while accessing the ESP-IDF version file in the Python environment: [Errno 2] No such file or directory: 'D:\\Espressif\\Espressif\\python_env\\idf5.4_py3.11_env\\idf_version.txt'. (Diagnostic information. It can be ignored.)
+OPENOCD_SCRIPTS=D:\Espressif\Espressif\tools\openocd-esp32\v0.12.0-esp32-20250422\openocd-esp32\share\openocd\scripts
+IDF_CCACHE_ENABLE=1
+ESP_ROM_ELF_DIR=D:\Espressif\Espressif\tools\esp-rom-elfs\20241011\
+IDF_PYTHON_ENV_PATH=D:\Espressif\Espressif\python_env\idf5.4_py3.11_env
+ESP_IDF_VERSION=5.4
+PATH=D:\Espressif\Espressif\tools\xtensa-esp-elf-gdb\14.2_20240403\xtensa-esp-elf-gdb\bin;D:\Espressif\Espressif\tools\riscv32-esp-elf-gdb\14.2_20240403\riscv32-esp-elf-gdb\bin;D:\Espressif\Espressif\tools\xtensa-esp-elf\esp-14.2.0_20241119\xtensa-esp-elf\bin;D:\Espressif\Espressif\tools\esp-clang\esp-18.1.2_20240912\esp-clang\bin;D:\Espressif\Espressif\tools\riscv32-esp-elf\esp-14.2.0_20241119\riscv32-esp-elf\bin;D:\Espressif\Espressif\tools\esp32ulp-elf\2.38_20240113\esp32ulp-elf\bin;D:\Espressif\Espressif\tools\cmake\3.30.2\bin;D:\Espressif\Espressif\tools\openocd-esp32\v0.12.0-esp32-20250422\openocd-esp32\bin;D:\Espressif\Espressif\tools\ninja\1.12.1\;D:\Espressif\Espressif\tools\idf-exe\1.0.3\;D:\Espressif\Espressif\tools\ccache\4.10.2\ccache-4.10.2-windows-x86_64;D:\Espressif\Espressif\tools\dfu-util\0.11\dfu-util-0.11-win64;D:\Espressif\Espressif\python_env\idf5.4_py3.11_env\Scripts;D:\Espressif\frameworks\tools;%PATH%
+IDF_DEACTIVATE_FILE_PATH=C:\Users\Acer\AppData\Local\Temp\tmpp5zpd08sidf_2180
+
+!ENTRY com.espressif.idf.core 1 0 2025-08-22 01:04:39.322
+!MESSAGE PATH: D:\Espressif\Espressif\tools\xtensa-esp-elf-gdb\14.2_20240403\xtensa-esp-elf-gdb\bin;D:\Espressif\Espressif\tools\riscv32-esp-elf-gdb\14.2_20240403\riscv32-esp-elf-gdb\bin;D:\Espressif\Espressif\tools\xtensa-esp-elf\esp-14.2.0_20241119\xtensa-esp-elf\bin;D:\Espressif\Espressif\tools\esp-clang\esp-18.1.2_20240912\esp-clang\bin;D:\Espressif\Espressif\tools\riscv32-esp-elf\esp-14.2.0_20241119\riscv32-esp-elf\bin;D:\Espressif\Espressif\tools\esp32ulp-elf\2.38_20240113\esp32ulp-elf\bin;D:\Espressif\Espressif\tools\cmake\3.30.2\bin;D:\Espressif\Espressif\tools\openocd-esp32\v0.12.0-esp32-20250422\openocd-esp32\bin;D:\Espressif\Espressif\tools\ninja\1.12.1\;D:\Espressif\Espressif\tools\idf-exe\1.0.3\;D:\Espressif\Espressif\tools\ccache\4.10.2\ccache-4.10.2-windows-x86_64;D:\Espressif\Espressif\tools\dfu-util\0.11\dfu-util-0.11-win64;D:\Espressif\Espressif\python_env\idf5.4_py3.11_env\Scripts;D:\Espressif\frameworks\tools;%PATH%
+
+!ENTRY com.espressif.idf.core 1 0 2025-08-22 01:04:39.323
+!MESSAGE [D:\Espressif\Espressif\tools\xtensa-esp-elf-gdb\14.2_20240403\xtensa-esp-elf-gdb\bin;D:\Espressif\Espressif\tools\riscv32-esp-elf-gdb\14.2_20240403\riscv32-esp-elf-gdb\bin;D:\Espressif\Espressif\tools\xtensa-esp-elf\esp-14.2.0_20241119\xtensa-esp-elf\bin;D:\Espressif\Espressif\tools\esp-clang\esp-18.1.2_20240912\esp-clang\bin;D:\Espressif\Espressif\tools\riscv32-esp-elf\esp-14.2.0_20241119\riscv32-esp-elf\bin;D:\Espressif\Espressif\tools\esp32ulp-elf\2.38_20240113\esp32ulp-elf\bin;D:\Espressif\Espressif\tools\cmake\3.30.2\bin;D:\Espressif\Espressif\tools\openocd-esp32\v0.12.0-esp32-20250422\openocd-esp32\bin;D:\Espressif\Espressif\tools\ninja\1.12.1\;D:\Espressif\Espressif\tools\idf-exe\1.0.3\;D:\Espressif\Espressif\tools\ccache\4.10.2\ccache-4.10.2-windows-x86_64;D:\Espressif\Espressif\tools\dfu-util\0.11\dfu-util-0.11-win64;D:\Espressif\Espressif\python_env\idf5.4_py3.11_env\Scripts;D:\Espressif\frameworks\tools;%PATH%]
+
+!ENTRY com.espressif.idf.core 1 0 2025-08-22 01:04:39.850
+!MESSAGE Executing D:\Espressif\Espressif\python_env\idf5.4_py3.11_env/Scripts/python.exe -m pip list
+
+!ENTRY com.espressif.idf.core 1 0 2025-08-22 01:04:39.852
+!MESSAGE {USERDOMAIN_ROAMINGPROFILE=RICHARDMELVIN52, PROCESSOR_LEVEL=23, ALLUSERSPROFILE=C:\ProgramData, PROCESSOR_ARCHITECTURE=AMD64, PSModulePath=%ProgramFiles%\WindowsPowerShell\Modules;C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules, SystemDrive=C:, WEBOTS_HOME=D:\UIT_CAR_RACING_2024\Webots, USERNAME=Richard Acer, ProgramFiles(x86)=C:\Program Files (x86), FPS_BROWSER_USER_PROFILE_STRING=Default, PATHEXT=.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC, DriverData=C:\Windows\System32\Drivers\DriverData, POSH_THEMES_PATH=C:\Users\Acer\AppData\Local\Programs\oh-my-posh\themes\, LM_LICENSE_FILE=D:\PHAM_MEM_QUAN_TRONG\Xlinx.lic, ProgramData=C:\ProgramData, ProgramW6432=C:\Program Files, HOMEPATH=\Users\Acer, SOPC_KIT_NIOS2=E:\altera\13.0sp1\nios2eds, PROCESSOR_IDENTIFIER=AMD64 Family 23 Model 104 Stepping 1, AuthenticAMD, ProgramFiles=C:\Program Files, PUBLIC=C:\Users\Public, windir=C:\WINDOWS, =::=::\, MSMPI_BENCHMARKS=C:\Program Files\Microsoft MPI\Benchmarks\, POSH_INSTALLER=winget, LOCALAPPDATA=C:\Users\Acer\AppData\Local, MSMPI_BIN=C:\Program Files\Microsoft MPI\Bin\, USERDOMAIN=RICHARDMELVIN52, FPS_BROWSER_APP_PROFILE_STRING=Internet Explorer, LOGONSERVER=\\RICHARDMELVIN52, MODELSIM=C:\modeltech64_2020.4\win64\vsim.exe, IDF_TOOLS_PATH=D:/Espressif/Espressif, OneDrive=D:\OneDrive, APPDATA=C:\Users\Acer\AppData\Roaming, VBOX_HWVIRTEX_IGNORE_SVM_IN_USE=1, CommonProgramFiles=C:\Program Files\Common Files, Path=C:\Program Files (x86)\Common Files\Oracle\Java\java8path;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files\Microsoft MPI\Bin\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\dotnet\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;D:\PH?N M?M QUAN TR?NG\Git\cmd;E:\altera\13.0sp1\quartus\bin;C:\Program Files (x86)\STMicroelectronics\STM32 ST-LINK Utility\ST-LINK Utility;C:\Program Files\PuTTY\;C:\Program Files\Git\cmd;C:\Program Files\Git\bin;C:\Program Files\nodejs\;D:\PHAN_MEM_QUAN_TRONG\Java_JDK\Oracle_JDK-24\jdk-24.0.1\bin;C:\Users\Acer\AppData\Local\Programs\oh-my-posh\bin\;C:\altera\91sp2\modelsim_ase\win32aloem;C:\Users\Acer\AppData\Local\Programs\Python\Python313\Scripts\;C:\Users\Acer\AppData\Local\Programs\Python\Python313\;C:\Users\Acer\AppData\Local\Programs\Python\Launcher\;C:\Users\Acer\AppData\Local\Microsoft\WindowsApps;C:\MinGW\bin;C:\Users\Acer\AppData\Local\Programs\oh-my-posh\bin;C:\MinGW\bin\gdb.exe;C:\Program Files\Azure Data Studio\bin;C:\Program Files (x86)\Java\jre-1.8\bin;C:\Exercism;D:\Microsoft VS Code\bin;C:\Users\Acer\AppData\Local\GitHubDesktop\bin;C:\altera\13.0sp1\modelsim_ase\win32aloem;C:\modeltech64_2020.4\win64;D:\PHAN_MEM_QUAN_TRONG\ANACONDA;D:\PHAN_MEM_QUAN_TRONG\ANACONDA\Scripts;C:\Users\Acer\AppData\Roaming\npm;D:\PHAN_MEM_QUAN_TRONG\XpdfReader-win64\xpdf.exe;C:\Users\Acer\AppData\Local\Microsoft\WindowsApps;D:\PHAN_MEM_QUAN_TRONG\Nmap, OS=Windows_NT, COMPUTERNAME=RICHARDMELVIN52, PROCESSOR_REVISION=6801, CommonProgramW6432=C:\Program Files\Common Files, ComSpec=C:\WINDOWS\system32\cmd.exe, STM32CubeMX_PATH=D:\stm32cubemx, SystemRoot=C:\WINDOWS, TEMP=C:\Users\Acer\AppData\Local\Temp, HOMEDRIVE=C:, USERPROFILE=C:\Users\Acer, TMP=C:\Users\Acer\AppData\Local\Temp, CommonProgramFiles(x86)=C:\Program Files (x86)\Common Files, NUMBER_OF_PROCESSORS=12, QUARTUS_ROOTDIR=E:\altera\13.0sp1\quartus}
+
+!ENTRY org.eclipse.launchbar.core 4 0 2025-08-22 01:06:47.240
+!MESSAGE Cannot invoke "org.eclipse.launchbar.core.target.ILaunchTarget.getTypeId()" because "target" is null
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "org.eclipse.launchbar.core.target.ILaunchTarget.getTypeId()" because "target" is null
+	at org.eclipse.cdt.debug.internal.core.launch.CoreBuildLocalLaunchConfigProvider.supports(CoreBuildLocalLaunchConfigProvider.java:37)
+	at org.eclipse.launchbar.core.internal.LaunchBarManager.getLaunchConfiguration(LaunchBarManager.java:867)
+	at org.eclipse.launchbar.core.internal.LaunchBarManager.getActiveLaunchConfiguration(LaunchBarManager.java:837)
+	at com.espressif.idf.ui.LaunchBarListener.activeLaunchDescriptorChanged(LaunchBarListener.java:57)
+	at org.eclipse.launchbar.core.internal.LaunchBarManager.lambda$2(LaunchBarManager.java:655)
+	at org.eclipse.launchbar.core.internal.LaunchBarManager.fireEvent(LaunchBarManager.java:646)
+	at org.eclipse.launchbar.core.internal.LaunchBarManager.fireActiveLaunchDescriptorChanged(LaunchBarManager.java:653)
+	at org.eclipse.launchbar.core.internal.LaunchBarManager.setActiveLaunchDescriptor(LaunchBarManager.java:500)
+	at org.eclipse.launchbar.core.internal.LaunchBarManager.addDescriptor(LaunchBarManager.java:313)
+	at org.eclipse.launchbar.core.internal.LaunchBarManager.launchObjectAdded(LaunchBarManager.java:362)
+	at org.eclipse.launchbar.core.internal.LaunchBarManager.launchObjectChanged(LaunchBarManager.java:398)
+	at org.eclipse.launchbar.core.internal.ProjectLaunchObjectProvider.lambda$0(ProjectLaunchObjectProvider.java:68)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:77)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:87)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:61)
+	at org.eclipse.launchbar.core.internal.ProjectLaunchObjectProvider.resourceChanged(ProjectLaunchObjectProvider.java:55)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:321)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:311)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:174)
+	at org.eclipse.core.internal.resources.Workspace.broadcastPostChange(Workspace.java:458)
+	at org.eclipse.core.internal.resources.Workspace.endOperation(Workspace.java:1586)
+	at org.eclipse.core.internal.resources.Project.setDescription(Project.java:1368)
+	at org.eclipse.core.internal.resources.Project.setDescription(Project.java:1378)
+	at org.eclipse.tools.templates.freemarker.FMProjectGenerator.createProject(FMProjectGenerator.java:90)
+	at org.eclipse.tools.templates.freemarker.FMProjectGenerator.generate(FMProjectGenerator.java:65)
+	at org.eclipse.cdt.cmake.core.CMakeProjectGenerator.generate(CMakeProjectGenerator.java:58)
+	at org.eclipse.tools.templates.freemarker.FMGenerator.generate(FMGenerator.java:94)
+	at org.eclipse.tools.templates.ui.ProjectImportConfigurator.configure(ProjectImportConfigurator.java:166)
+	at org.eclipse.ui.internal.wizards.datatransfer.SmartImportJob.importProjectAndChildrenRecursively(SmartImportJob.java:456)
+	at org.eclipse.ui.internal.wizards.datatransfer.SmartImportJob$1.run(SmartImportJob.java:223)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.launchbar.core 4 0 2025-08-22 01:06:47.241
+!MESSAGE Cannot invoke "org.eclipse.launchbar.core.target.ILaunchTarget.getTypeId()" because "target" is null
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "org.eclipse.launchbar.core.target.ILaunchTarget.getTypeId()" because "target" is null
+	at org.eclipse.cdt.debug.core.launch.CoreBuildGenericLaunchConfigProvider.supports(CoreBuildGenericLaunchConfigProvider.java:35)
+	at org.eclipse.launchbar.core.internal.LaunchBarManager.getLaunchConfiguration(LaunchBarManager.java:867)
+	at org.eclipse.launchbar.core.internal.LaunchBarManager.getActiveLaunchConfiguration(LaunchBarManager.java:837)
+	at com.espressif.idf.ui.LaunchBarListener.activeLaunchDescriptorChanged(LaunchBarListener.java:57)
+	at org.eclipse.launchbar.core.internal.LaunchBarManager.lambda$2(LaunchBarManager.java:655)
+	at org.eclipse.launchbar.core.internal.LaunchBarManager.fireEvent(LaunchBarManager.java:646)
+	at org.eclipse.launchbar.core.internal.LaunchBarManager.fireActiveLaunchDescriptorChanged(LaunchBarManager.java:653)
+	at org.eclipse.launchbar.core.internal.LaunchBarManager.setActiveLaunchDescriptor(LaunchBarManager.java:500)
+	at org.eclipse.launchbar.core.internal.LaunchBarManager.addDescriptor(LaunchBarManager.java:313)
+	at org.eclipse.launchbar.core.internal.LaunchBarManager.launchObjectAdded(LaunchBarManager.java:362)
+	at org.eclipse.launchbar.core.internal.LaunchBarManager.launchObjectChanged(LaunchBarManager.java:398)
+	at org.eclipse.launchbar.core.internal.ProjectLaunchObjectProvider.lambda$0(ProjectLaunchObjectProvider.java:68)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:77)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:87)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:61)
+	at org.eclipse.launchbar.core.internal.ProjectLaunchObjectProvider.resourceChanged(ProjectLaunchObjectProvider.java:55)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:321)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:311)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:174)
+	at org.eclipse.core.internal.resources.Workspace.broadcastPostChange(Workspace.java:458)
+	at org.eclipse.core.internal.resources.Workspace.endOperation(Workspace.java:1586)
+	at org.eclipse.core.internal.resources.Project.setDescription(Project.java:1368)
+	at org.eclipse.core.internal.resources.Project.setDescription(Project.java:1378)
+	at org.eclipse.tools.templates.freemarker.FMProjectGenerator.createProject(FMProjectGenerator.java:90)
+	at org.eclipse.tools.templates.freemarker.FMProjectGenerator.generate(FMProjectGenerator.java:65)
+	at org.eclipse.cdt.cmake.core.CMakeProjectGenerator.generate(CMakeProjectGenerator.java:58)
+	at org.eclipse.tools.templates.freemarker.FMGenerator.generate(FMGenerator.java:94)
+	at org.eclipse.tools.templates.ui.ProjectImportConfigurator.configure(ProjectImportConfigurator.java:166)
+	at org.eclipse.ui.internal.wizards.datatransfer.SmartImportJob.importProjectAndChildrenRecursively(SmartImportJob.java:456)
+	at org.eclipse.ui.internal.wizards.datatransfer.SmartImportJob$1.run(SmartImportJob.java:223)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.cdt.cmake.core 1 0 2025-08-22 01:11:51.964
+!MESSAGE Could not map D:/Espressif/Espressif/tools/cmake/3.30.2/share/cmake-3.30/Modules/CMakeTestCCompiler.cmake to a workspace resource. Did the build run in a container?
+
+!ENTRY org.eclipse.cdt.cmake.core 1 0 2025-08-22 01:12:13.813
+!MESSAGE Could not map D:/Espressif/Espressif/tools/cmake/3.30.2/share/cmake-3.30/Modules/CMakeTestCCompiler.cmake to a workspace resource. Did the build run in a container?
+
+!ENTRY org.eclipse.cdt.cmake.core 1 0 2025-08-22 01:26:24.152
+!MESSAGE Could not map D:/Espressif/Espressif/tools/cmake/3.30.2/share/cmake-3.30/Modules/CMakeTestCCompiler.cmake to a workspace resource. Did the build run in a container?
+
+!ENTRY org.eclipse.cdt.cmake.core 1 0 2025-08-22 01:28:15.754
+!MESSAGE Could not map D:/Espressif/Espressif/tools/cmake/3.30.2/share/cmake-3.30/Modules/CMakeTestCCompiler.cmake to a workspace resource. Did the build run in a container?
+
+!ENTRY org.eclipse.cdt.cmake.core 1 0 2025-08-22 01:39:51.478
+!MESSAGE Could not map D:/Espressif/Espressif/tools/cmake/3.30.2/share/cmake-3.30/Modules/CMakeTestCCompiler.cmake to a workspace resource. Did the build run in a container?

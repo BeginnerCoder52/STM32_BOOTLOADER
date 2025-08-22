@@ -1,0 +1,192 @@
+#include "main.h"
+#include <string.h>
+#include <stdbool.h>
+
+/* ================== Address layout (from system requirements) ================== */
+#define APP_BASE        (0x08004000UL)   /* Start of App Current code */
+#define APP_CODE_SIZE   (0x0000DC00UL)   /* 55KB for code */
+#define APP_META_BASE   (0x08011C00UL)   /* 1KB metadata page at end of App Current */
+
+/* ================== UART config ================== */
+#define APP_UART_BAUD   (115200U)
+#define CMD_FW_REQUEST  "FW_REQUEST"     /* ASCII command from ESP32 */
+
+/* ================== Metadata flags (example values) ================== */
+#define META_FLAG_FW_READY   (0x46575244UL)   /* 'FWRD' - firmware ready to update */
+#define META_FLAG_APP_OK     (0x4150504FUL)   /* 'APPO' - app confirmed OK (optional) */
+
+/* HAL handles (provided by CubeMX when you generate) */
+UART_HandleTypeDef huart1;
+
+/* ================== Prototypes ================== */
+static void SystemClock_Config(void);
+static void MX_GPIO_Init(void);
+static void MX_USART1_UART_Init(void);
+static void set_vector_table_to_app(void);
+static bool process_uart_and_check_fw_request(void);
+static HAL_StatusTypeDef meta_write_flag(uint32_t addr, uint32_t flag);
+static HAL_StatusTypeDef meta_erase_page(uint32_t page_addr);
+
+/* ================== Simple RX buffer ================== */
+static char rx_line[64];
+static uint32_t rx_len = 0;
+
+/* ================== Entry point ================== */
+int main(void)
+{
+  HAL_Init();
+  SystemClock_Config();
+  set_vector_table_to_app();   /* Ensure interrupts vector from App region */
+
+  MX_GPIO_Init();              /* PA7 LED */
+  MX_USART1_UART_Init();       /* USART1 @115200 */
+
+  /* Optional: print banner (if TX connected to ESP32 RX) */
+  const char *banner = "APP_OLD started @0x08004000\r\n";
+  HAL_UART_Transmit(&huart1, (uint8_t*)banner, strlen(banner), 100);
+
+  while (1)
+  {
+    /* Blink PA7 at 1 Hz to indicate APP_OLD is running */
+    HAL_GPIO_WritePin(GPIOA, GPIO_PIN_7, GPIO_PIN_SET);
+    HAL_Delay(500);
+    HAL_GPIO_WritePin(GPIOA, GPIO_PIN_7, GPIO_PIN_RESET);
+    HAL_Delay(500);
+
+    /* Check for FW_REQUEST command over UART */
+    if (process_uart_and_check_fw_request())
+    {
+      const char *ack = "APP_OLD: FW_REQUEST received, marking FW_READY and resetting to BL\r\n";
+      HAL_UART_Transmit(&huart1, (uint8_t*)ack, strlen(ack), 100);
+
+      /* Erase metadata page then write FW_READY flag */
+      if (meta_erase_page(APP_META_BASE) == HAL_OK)
+      {
+        (void)meta_write_flag(APP_META_BASE, META_FLAG_FW_READY);
+      }
+
+      /* Reset back to Bootloader; BL will see FW_READY and start OTA */
+      HAL_Delay(50);
+      NVIC_SystemReset();
+    }
+
+    /* Optional: after first seconds of stable run, mark APP_OK for BL health check */
+    /* Example pattern (commented out):
+    static uint32_t t0 = 0; if (!t0) t0 = HAL_GetTick();
+    if (HAL_GetTick() - t0 > 5000) {
+        if (meta_erase_page(APP_META_BASE) == HAL_OK) {
+            (void)meta_write_flag(APP_META_BASE, META_FLAG_APP_OK);
+        }
+        t0 = 0xFFFFFFFF; // only once
+    }
+    */
+  }
+}
+
+/* ================== Set VTOR to app vector table ================== */
+static void set_vector_table_to_app(void)
+{
+  /* Safety: relocate vector table to App base (works even if BL jumps) */
+  SCB->VTOR = APP_BASE;
+  __DSB(); __ISB();
+}
+
+/* ================== Minimal GPIO: PA7 as push-pull output ================== */
+static void MX_GPIO_Init(void)
+{
+  __HAL_RCC_GPIOA_CLK_ENABLE();
+
+  GPIO_InitTypeDef GPIO_InitStruct = {0};
+  GPIO_InitStruct.Pin = GPIO_PIN_7;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_7, GPIO_PIN_RESET); // LED off initially
+}
+
+/* ================== USART1 init: 115200 8N1 ================== */
+static void MX_USART1_UART_Init(void)
+{
+  __HAL_RCC_USART1_CLK_ENABLE();
+  __HAL_RCC_GPIOA_CLK_ENABLE();
+
+  /* PA9 = TX, PA10 = RX configured by CubeMX if you enable USART1, else setup here */
+  huart1.Instance = USART1;
+  huart1.Init.BaudRate = APP_UART_BAUD;
+  huart1.Init.WordLength = UART_WORDLENGTH_8B;
+  huart1.Init.StopBits = UART_STOPBITS_1;
+  huart1.Init.Parity = UART_PARITY_NONE;
+  huart1.Init.Mode = UART_MODE_TX_RX;
+  huart1.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+  huart1.Init.OverSampling = UART_OVERSAMPLING_16;
+  HAL_UART_Init(&huart1);
+}
+
+/* ================== Poll UART for line and check FW_REQUEST ================== */
+static bool process_uart_and_check_fw_request(void)
+{
+  uint8_t ch;
+  /* Non-blocking poll with short timeout to keep LED blinking smoothly */
+  if (HAL_UART_Receive(&huart1, &ch, 1, 5) == HAL_OK)
+  {
+    if (ch == '\r' || ch == '\n')
+    {
+      rx_line[rx_len] = '\0';
+      bool match = (strcmp(rx_line, CMD_FW_REQUEST) == 0);
+      rx_len = 0;
+      return match;
+    }
+    if (rx_len < sizeof(rx_line) - 1)
+    {
+      rx_line[rx_len++] = (char)ch;
+    }
+    else
+    {
+      /* Overflow protection: reset buffer */
+      rx_len = 0;
+    }
+  }
+  return false;
+}
+
+/* ================== Flash metadata helpers ================== */
+static HAL_StatusTypeDef meta_erase_page(uint32_t page_addr)
+{
+  HAL_StatusTypeDef st;
+  FLASH_EraseInitTypeDef erase = {0};
+  uint32_t page_error = 0;
+
+  HAL_FLASH_Unlock();
+
+  /* For STM32F103 medium-density, page size = 1KB; erase 1 page for metadata */
+  erase.TypeErase   = FLASH_TYPEERASE_PAGES;
+  erase.PageAddress = page_addr;
+  erase.NbPages     = 1;
+
+  st = HAL_FLASHEx_Erase(&erase, &page_error);
+
+  HAL_FLASH_Lock();
+  return st;
+}
+
+static HAL_StatusTypeDef meta_write_flag(uint32_t addr, uint32_t flag)
+{
+  HAL_StatusTypeDef st = HAL_OK;
+
+  HAL_FLASH_Unlock();
+
+  /* Program first 32-bit word at metadata base to the flag */
+  st = HAL_FLASH_Program(FLASH_TYPEPROGRAM_WORD, addr, flag);
+
+  HAL_FLASH_Lock();
+  return st;
+}
+
+/* ================== Clock config (adjust to your board/oscillator) ================== */
+static void SystemClock_Config(void)
+{
+  /* Typical config: HSE 8MHz -> PLL 72MHz.
+     Use CubeMX to auto-generate this for reliability. */
+}

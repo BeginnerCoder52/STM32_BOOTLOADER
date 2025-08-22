@@ -1,0 +1,819 @@
+
+---
+events:
+  -
+    kind: "message-v1"
+    backtrace:
+      - "D:/Espressif/Espressif/tools/cmake/3.30.2/share/cmake-3.30/Modules/CMakeDetermineSystem.cmake:205 (message)"
+      - "CMakeLists.txt"
+    message: |
+      The system is: Windows - 10.0.26100 - AMD64
+  -
+    kind: "message-v1"
+    backtrace:
+      - "D:/Espressif/Espressif/tools/cmake/3.30.2/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "D:/Espressif/Espressif/tools/cmake/3.30.2/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "D:/Espressif/Espressif/tools/cmake/3.30.2/share/cmake-3.30/Modules/CMakeDetermineCCompiler.cmake:123 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt"
+    message: |
+      Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+      Compiler: D:/Espressif/Espressif/tools/esp-clang/esp-18.1.2_20240912/esp-clang/bin/clang.exe 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+      
+      The C compiler identification is Clang, found in:
+        D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/esp32_to_stm32/main/build/default/CMakeFiles/3.30.2/CompilerIdC/a.out
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "D:/Espressif/Espressif/tools/cmake/3.30.2/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "D:/Espressif/Espressif/tools/cmake/3.30.2/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "D:/Espressif/Espressif/tools/cmake/3.30.2/share/cmake-3.30/Modules/CMakeDetermineCXXCompiler.cmake:126 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+      Compiler: D:/Espressif/Espressif/tools/esp-clang/esp-18.1.2_20240912/esp-clang/bin/clang++.exe 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
+      
+      The CXX compiler identification is Clang, found in:
+        D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/esp32_to_stm32/main/build/default/CMakeFiles/3.30.2/CompilerIdCXX/a.out
+      
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "D:/Espressif/Espressif/tools/cmake/3.30.2/share/cmake-3.30/Modules/CMakeDetermineCompilerABI.cmake:74 (try_compile)"
+      - "D:/Espressif/Espressif/tools/cmake/3.30.2/share/cmake-3.30/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt"
+    checks:
+      - "Detecting C compiler ABI info"
+    directories:
+      source: "D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/esp32_to_stm32/main/build/default/CMakeFiles/CMakeScratch/TryCompile-f7r2iu"
+      binary: "D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/esp32_to_stm32/main/build/default/CMakeFiles/CMakeScratch/TryCompile-f7r2iu"
+    cmakeVariables:
+      CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS-NOTFOUND"
+      CMAKE_C_FLAGS: ""
+    buildResult:
+      variable: "CMAKE_C_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/esp32_to_stm32/main/build/default/CMakeFiles/CMakeScratch/TryCompile-f7r2iu'
+        
+        Run Build Command(s): D:/Espressif/Espressif/tools/cmake/3.30.2/bin/cmake.exe -E env VERBOSE=1 C:/MinGW/bin/mingw32-make.exe -f Makefile cmTC_73417/fast
+        C:/MinGW/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_73417.dir\\build.make CMakeFiles/cmTC_73417.dir/build
+        mingw32-make.exe[1]: Entering directory 'D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/esp32_to_stm32/main/build/default/CMakeFiles/CMakeScratch/TryCompile-f7r2iu'
+        Building C object CMakeFiles/cmTC_73417.dir/CMakeCCompilerABI.c.obj
+        D:\\Espressif\\Espressif\\tools\\esp-clang\\esp-18.1.2_20240912\\esp-clang\\bin\\clang.exe   -v -MD -MT CMakeFiles/cmTC_73417.dir/CMakeCCompilerABI.c.obj -MF CMakeFiles\\cmTC_73417.dir\\CMakeCCompilerABI.c.obj.d -o CMakeFiles\\cmTC_73417.dir\\CMakeCCompilerABI.c.obj -c D:\\Espressif\\Espressif\\tools\\cmake\\3.30.2\\share\\cmake-3.30\\Modules\\CMakeCCompilerABI.c
+        clang version 18.1.2 (https://github.com/espressif/llvm-project.git esp-18.1.2_20240912)
+        Target: riscv32-esp-unknown-elf
+        Thread model: posix
+        InstalledDir: D:/Espressif/Espressif/tools/esp-clang/esp-18.1.2_20240912/esp-clang/bin
+         (in-process)
+         "D:/Espressif/Espressif/tools/esp-clang/esp-18.1.2_20240912/esp-clang/bin/clang.exe" -cc1 -triple riscv32-esp-unknown-elf -emit-obj -mrelax-all -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCCompilerABI.c -mrelocation-model static -mframe-pointer=all -fmath-errno -ffp-contract=on -fno-rounding-math -mconstructor-aliases -nostdsysteminc -target-cpu generic-rv32 -target-feature +m -target-feature +a -target-feature +c -target-feature -d -target-feature -e -target-feature -f -target-feature -h -target-feature -smaia -target-feature -smepmp -target-feature -ssaia -target-feature -svinval -target-feature -svnapot -target-feature -svpbmt -target-feature -v -target-feature -xcvalu -target-feature -xcvbi -target-feature -xcvbitmanip -target-feature -xcvelw -target-feature -xcvmac -target-feature -xcvmem -target-feature -xcvsimd -target-feature -xesppie -target-feature -xsfvcp -target-feature -xsfvfnrclipxfqf -target-feature -xsfvfwmaccqqq -target-feature -xsfvqmaccdod -target-feature -xsfvqmaccqoq -target-feature -xtheadba -target-feature -xtheadbb -target-feature -xtheadbs -target-feature -xtheadcmo -target-feature -xtheadcondmov -target-feature -xtheadfmemidx -target-feature -xtheadmac -target-feature -xtheadmemidx -target-feature -xtheadmempair -target-feature -xtheadsync -target-feature -xtheadvdot -target-feature -xventanacondops -target-feature -za128rs -target-feature -za64rs -target-feature -zawrs -target-feature -zba -target-feature -zbb -target-feature -zbc -target-feature -zbkb -target-feature -zbkc -target-feature -zbkx -target-feature -zbs -target-feature -zca -target-feature -zcb -target-feature -zcd -target-feature -zce -target-feature -zcf -target-feature -zcmp -target-feature -zcmt -target-feature -zdinx -target-feature -zfa -target-feature -zfh -target-feature -zfhmin -target-feature -zfinx -target-feature -zhinx -target-feature -zhinxmin -target-feature -zic64b -target-feature -zicbom -target-feature -zicbop -target-feature -zicboz -target-feature -ziccamoa -target-feature -ziccif -target-feature -zicclsm -target-feature -ziccrse -target-feature -zicntr -target-feature -zicond -target-feature -zicsr -target-feature -zifencei -target-feature -zihintntl -target-feature -zihintpause -target-feature -zihpm -target-feature -zk -target-feature -zkn -target-feature -zknd -target-feature -zkne -target-feature -zknh -target-feature -zkr -target-feature -zks -target-feature -zksed -target-feature -zksh -target-feature -zkt -target-feature -zmmul -target-feature -zvbb -target-feature -zvbc -target-feature -zve32f -target-feature -zve32x -target-feature -zve64d -target-feature -zve64f -target-feature -zve64x -target-feature -zvfh -target-feature -zvfhmin -target-feature -zvkb -target-feature -zvkg -target-feature -zvkn -target-feature -zvknc -target-feature -zvkned -target-feature -zvkng -target-feature -zvknha -target-feature -zvknhb -target-feature -zvks -target-feature -zvksc -target-feature -zvksed -target-feature -zvksg -target-feature -zvksh -target-feature -zvkt -target-feature -zvl1024b -target-feature -zvl128b -target-feature -zvl16384b -target-feature -zvl2048b -target-feature -zvl256b -target-feature -zvl32768b -target-feature -zvl32b -target-feature -zvl4096b -target-feature -zvl512b -target-feature -zvl64b -target-feature -zvl65536b -target-feature -zvl8192b -target-feature -experimental-zacas -target-feature -experimental-zcmop -target-feature -experimental-zfbfmin -target-feature -experimental-zicfilp -target-feature -experimental-zicfiss -target-feature -experimental-zimop -target-feature -experimental-ztso -target-feature -experimental-zvfbfmin -target-feature -experimental-zvfbfwma -target-feature +relax -target-abi ilp32 -msmall-data-limit 8 -debugger-tuning=gdb -fdebug-compilation-dir=D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/esp32_to_stm32/main/build/default/CMakeFiles/CMakeScratch/TryCompile-f7r2iu -v -fcoverage-compilation-dir=D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/esp32_to_stm32/main/build/default/CMakeFiles/CMakeScratch/TryCompile-f7r2iu -resource-dir D:/Espressif/Espressif/tools/esp-clang/esp-18.1.2_20240912/esp-clang/lib/clang/18 -dependency-file "CMakeFiles\\\\cmTC_73417.dir\\\\CMakeCCompilerABI.c.obj.d" -MT CMakeFiles/cmTC_73417.dir/CMakeCCompilerABI.c.obj -sys-header-deps -internal-isystem D:/Espressif/Espressif/tools/esp-clang/esp-18.1.2_20240912/esp-clang/lib/clang/18/include -internal-isystem D:/Espressif/Espressif/tools/esp-clang/esp-18.1.2_20240912/esp-clang/bin/../lib/clang-runtimes/riscv32-esp-unknown-elf/rv32imac-zicsr-zifencei_ilp32/include -ferror-limit 19 -fno-signed-char -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -faddrsig -o "CMakeFiles\\\\cmTC_73417.dir\\\\CMakeCCompilerABI.c.obj" -x c "D:\\\\Espressif\\\\Espressif\\\\tools\\\\cmake\\\\3.30.2\\\\share\\\\cmake-3.30\\\\Modules\\\\CMakeCCompilerABI.c"
+        clang -cc1 version 18.1.2 based upon LLVM 18.1.2 default target riscv32-esp-elf
+        ignoring duplicate directory "D:/Espressif/Espressif/tools/esp-clang/esp-18.1.2_20240912/esp-clang/lib/clang/18/include"
+        #include "..." search starts here:
+        #include <...> search starts here:
+         D:/Espressif/Espressif/tools/esp-clang/esp-18.1.2_20240912/esp-clang/lib/clang/18/include
+         D:/Espressif/Espressif/tools/esp-clang/esp-18.1.2_20240912/esp-clang/bin/../lib/clang-runtimes/riscv32-esp-unknown-elf/rv32imac-zicsr-zifencei_ilp32/include
+        End of search list.
+        Linking C executable cmTC_73417.exe
+        D:\\Espressif\\Espressif\\tools\\cmake\\3.30.2\\bin\\cmake.exe -E cmake_link_script CMakeFiles\\cmTC_73417.dir\\link.txt --verbose=1
+        D:\\Espressif\\Espressif\\tools\\cmake\\3.30.2\\bin\\cmake.exe -E rm -f CMakeFiles\\cmTC_73417.dir/objects.a
+        D:\\Espressif\\Espressif\\tools\\esp-clang\\esp-18.1.2_20240912\\esp-clang\\bin\\llvm-ar.exe qc CMakeFiles\\cmTC_73417.dir/objects.a @CMakeFiles\\cmTC_73417.dir\\objects1.rsp
+        D:\\Espressif\\Espressif\\tools\\esp-clang\\esp-18.1.2_20240912\\esp-clang\\bin\\clang.exe  -v -Wl,-v -Wl,--whole-archive CMakeFiles\\cmTC_73417.dir/objects.a -Wl,--no-whole-archive -o cmTC_73417.exe -Wl,--out-implib,libcmTC_73417.dll.a -Wl,--major-image-version,0,--minor-image-version,0
+        clang version 18.1.2 (https://github.com/espressif/llvm-project.git esp-18.1.2_20240912)
+        Target: riscv32-esp-unknown-elf
+        Thread model: posix
+        InstalledDir: D:/Espressif/Espressif/tools/esp-clang/esp-18.1.2_20240912/esp-clang/bin
+         "D:/Espressif/Espressif/tools/esp-clang/esp-18.1.2_20240912/esp-clang/bin/ld.lld" -m elf32lriscv -o cmTC_73417.exe -X D:/Espressif/Espressif/tools/esp-clang/esp-18.1.2_20240912/esp-clang/bin/../lib/clang-runtimes/riscv32-esp-unknown-elf/rv32imac-zicsr-zifencei_ilp32/lib/crt0.o -v --whole-archive "CMakeFiles\\\\cmTC_73417.dir/objects.a" --no-whole-archive --out-implib libcmTC_73417.dll.a --major-image-version 0 --minor-image-version 0 -LD:/Espressif/Espressif/tools/esp-clang/esp-18.1.2_20240912/esp-clang/bin/../lib/clang-runtimes/riscv32-esp-unknown-elf/rv32imac-zicsr-zifencei_ilp32/lib -lm --start-group -lc -lgloss -lnosys --end-group -lclang_rt.builtins
+        ld.lld: error: unknown argument '--major-image-version'
+        ld.lld: error: unknown argument '--minor-image-version'
+        LLD 18.1.2 (compatible with GNU linkers)
+        ld.lld: error: cannot open 0: No such file or directory
+        ld.lld: error: cannot open 0: No such file or directory
+        clang: error: ld command failed with exit code 1 (use -v to see invocation)
+        CMakeFiles\\cmTC_73417.dir\\build.make:99: recipe for target 'cmTC_73417.exe' failed
+        mingw32-make.exe[1]: *** [cmTC_73417.exe] Error 1
+        mingw32-make.exe[1]: Leaving directory 'D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/esp32_to_stm32/main/build/default/CMakeFiles/CMakeScratch/TryCompile-f7r2iu'
+        Makefile:126: recipe for target 'cmTC_73417/fast' failed
+        mingw32-make.exe: *** [cmTC_73417/fast] Error 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "D:/Espressif/Espressif/tools/cmake/3.30.2/share/cmake-3.30/Modules/CMakeTestCCompiler.cmake:56 (try_compile)"
+      - "CMakeLists.txt"
+    checks:
+      - "Check for working C compiler: D:/Espressif/Espressif/tools/esp-clang/esp-18.1.2_20240912/esp-clang/bin/clang.exe"
+    directories:
+      source: "D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/esp32_to_stm32/main/build/default/CMakeFiles/CMakeScratch/TryCompile-q6qhdh"
+      binary: "D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/esp32_to_stm32/main/build/default/CMakeFiles/CMakeScratch/TryCompile-q6qhdh"
+    cmakeVariables:
+      CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS-NOTFOUND"
+      CMAKE_C_FLAGS: ""
+    buildResult:
+      variable: "CMAKE_C_COMPILER_WORKS"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/esp32_to_stm32/main/build/default/CMakeFiles/CMakeScratch/TryCompile-q6qhdh'
+        
+        Run Build Command(s): D:/Espressif/Espressif/tools/cmake/3.30.2/bin/cmake.exe -E env VERBOSE=1 C:/MinGW/bin/mingw32-make.exe -f Makefile cmTC_439d7/fast
+        C:/MinGW/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_439d7.dir\\build.make CMakeFiles/cmTC_439d7.dir/build
+        mingw32-make.exe[1]: Entering directory 'D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/esp32_to_stm32/main/build/default/CMakeFiles/CMakeScratch/TryCompile-q6qhdh'
+        Building C object CMakeFiles/cmTC_439d7.dir/testCCompiler.c.obj
+        D:\\Espressif\\Espressif\\tools\\esp-clang\\esp-18.1.2_20240912\\esp-clang\\bin\\clang.exe    -MD -MT CMakeFiles/cmTC_439d7.dir/testCCompiler.c.obj -MF CMakeFiles\\cmTC_439d7.dir\\testCCompiler.c.obj.d -o CMakeFiles\\cmTC_439d7.dir\\testCCompiler.c.obj -c D:\\File_dai_hoc_UIT\\Thuc_Tap_FSOFT\\INTERN_PROJECT\\esp32_to_stm32\\main\\build\\default\\CMakeFiles\\CMakeScratch\\TryCompile-q6qhdh\\testCCompiler.c
+        Linking C executable cmTC_439d7.exe
+        D:\\Espressif\\Espressif\\tools\\cmake\\3.30.2\\bin\\cmake.exe -E cmake_link_script CMakeFiles\\cmTC_439d7.dir\\link.txt --verbose=1
+        D:\\Espressif\\Espressif\\tools\\cmake\\3.30.2\\bin\\cmake.exe -E rm -f CMakeFiles\\cmTC_439d7.dir/objects.a
+        D:\\Espressif\\Espressif\\tools\\esp-clang\\esp-18.1.2_20240912\\esp-clang\\bin\\llvm-ar.exe qc CMakeFiles\\cmTC_439d7.dir/objects.a @CMakeFiles\\cmTC_439d7.dir\\objects1.rsp
+        D:\\Espressif\\Espressif\\tools\\esp-clang\\esp-18.1.2_20240912\\esp-clang\\bin\\clang.exe -Wl,--whole-archive CMakeFiles\\cmTC_439d7.dir/objects.a -Wl,--no-whole-archive -o cmTC_439d7.exe -Wl,--out-implib,libcmTC_439d7.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\\cmTC_439d7.dir\\linkLibs.rsp
+        ld.lld: error: unknown argument '--major-image-version'
+        ld.lld: error: unknown argument '--minor-image-version'
+        ld.lld: error: cannot open 0: No such file or directory
+        ld.lld: error: cannot open 0: No such file or directory
+        ld.lld: error: unable to find library -lkernel32
+        ld.lld: error: unable to find library -luser32
+        ld.lld: error: unable to find library -lgdi32
+        ld.lld: error: unable to find library -lwinspool
+        ld.lld: error: unable to find library -lshell32
+        ld.lld: error: unable to find library -lole32
+        ld.lld: error: unable to find library -loleaut32
+        ld.lld: error: unable to find library -luuid
+        ld.lld: error: unable to find library -lcomdlg32
+        ld.lld: error: unable to find library -ladvapi32
+        clang: error: ld command failed with exit code 1 (use -v to see invocation)
+        CMakeFiles\\cmTC_439d7.dir\\build.make:100: recipe for target 'cmTC_439d7.exe' failed
+        mingw32-make.exe[1]: *** [cmTC_439d7.exe] Error 1
+        mingw32-make.exe[1]: Leaving directory 'D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/esp32_to_stm32/main/build/default/CMakeFiles/CMakeScratch/TryCompile-q6qhdh'
+        Makefile:126: recipe for target 'cmTC_439d7/fast' failed
+        mingw32-make.exe: *** [cmTC_439d7/fast] Error 2
+        
+      exitCode: 2
+...
+
+---
+events:
+  -
+    kind: "message-v1"
+    backtrace:
+      - "D:/Espressif/Espressif/tools/cmake/3.30.2/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "D:/Espressif/Espressif/tools/cmake/3.30.2/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "D:/Espressif/Espressif/tools/cmake/3.30.2/share/cmake-3.30/Modules/CMakeDetermineCCompiler.cmake:123 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt"
+    message: |
+      Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+      Compiler: D:/Espressif/Espressif/tools/esp-clang/esp-18.1.2_20240912/esp-clang/bin/clang.exe 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+      
+      The C compiler identification is Clang, found in:
+        D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/esp32_to_stm32/main/build/default/CMakeFiles/3.30.2/CompilerIdC/a.out
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "D:/Espressif/Espressif/tools/cmake/3.30.2/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "D:/Espressif/Espressif/tools/cmake/3.30.2/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "D:/Espressif/Espressif/tools/cmake/3.30.2/share/cmake-3.30/Modules/CMakeDetermineCXXCompiler.cmake:126 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+      Compiler: D:/Espressif/Espressif/tools/esp-clang/esp-18.1.2_20240912/esp-clang/bin/clang++.exe 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
+      
+      The CXX compiler identification is Clang, found in:
+        D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/esp32_to_stm32/main/build/default/CMakeFiles/3.30.2/CompilerIdCXX/a.out
+      
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "D:/Espressif/Espressif/tools/cmake/3.30.2/share/cmake-3.30/Modules/CMakeDetermineCompilerABI.cmake:74 (try_compile)"
+      - "D:/Espressif/Espressif/tools/cmake/3.30.2/share/cmake-3.30/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt"
+    checks:
+      - "Detecting C compiler ABI info"
+    directories:
+      source: "D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/esp32_to_stm32/main/build/default/CMakeFiles/CMakeScratch/TryCompile-v1ez0j"
+      binary: "D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/esp32_to_stm32/main/build/default/CMakeFiles/CMakeScratch/TryCompile-v1ez0j"
+    cmakeVariables:
+      CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS-NOTFOUND"
+      CMAKE_C_FLAGS: ""
+    buildResult:
+      variable: "CMAKE_C_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/esp32_to_stm32/main/build/default/CMakeFiles/CMakeScratch/TryCompile-v1ez0j'
+        
+        Run Build Command(s): D:/Espressif/Espressif/tools/cmake/3.30.2/bin/cmake.exe -E env VERBOSE=1 C:/MinGW/bin/mingw32-make.exe -f Makefile cmTC_80abd/fast
+        C:/MinGW/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_80abd.dir\\build.make CMakeFiles/cmTC_80abd.dir/build
+        mingw32-make.exe[1]: Entering directory 'D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/esp32_to_stm32/main/build/default/CMakeFiles/CMakeScratch/TryCompile-v1ez0j'
+        Building C object CMakeFiles/cmTC_80abd.dir/CMakeCCompilerABI.c.obj
+        D:\\Espressif\\Espressif\\tools\\esp-clang\\esp-18.1.2_20240912\\esp-clang\\bin\\clang.exe   -v -MD -MT CMakeFiles/cmTC_80abd.dir/CMakeCCompilerABI.c.obj -MF CMakeFiles\\cmTC_80abd.dir\\CMakeCCompilerABI.c.obj.d -o CMakeFiles\\cmTC_80abd.dir\\CMakeCCompilerABI.c.obj -c D:\\Espressif\\Espressif\\tools\\cmake\\3.30.2\\share\\cmake-3.30\\Modules\\CMakeCCompilerABI.c
+        clang version 18.1.2 (https://github.com/espressif/llvm-project.git esp-18.1.2_20240912)
+        Target: riscv32-esp-unknown-elf
+        Thread model: posix
+        InstalledDir: D:/Espressif/Espressif/tools/esp-clang/esp-18.1.2_20240912/esp-clang/bin
+         (in-process)
+         "D:/Espressif/Espressif/tools/esp-clang/esp-18.1.2_20240912/esp-clang/bin/clang.exe" -cc1 -triple riscv32-esp-unknown-elf -emit-obj -mrelax-all -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCCompilerABI.c -mrelocation-model static -mframe-pointer=all -fmath-errno -ffp-contract=on -fno-rounding-math -mconstructor-aliases -nostdsysteminc -target-cpu generic-rv32 -target-feature +m -target-feature +a -target-feature +c -target-feature -d -target-feature -e -target-feature -f -target-feature -h -target-feature -smaia -target-feature -smepmp -target-feature -ssaia -target-feature -svinval -target-feature -svnapot -target-feature -svpbmt -target-feature -v -target-feature -xcvalu -target-feature -xcvbi -target-feature -xcvbitmanip -target-feature -xcvelw -target-feature -xcvmac -target-feature -xcvmem -target-feature -xcvsimd -target-feature -xesppie -target-feature -xsfvcp -target-feature -xsfvfnrclipxfqf -target-feature -xsfvfwmaccqqq -target-feature -xsfvqmaccdod -target-feature -xsfvqmaccqoq -target-feature -xtheadba -target-feature -xtheadbb -target-feature -xtheadbs -target-feature -xtheadcmo -target-feature -xtheadcondmov -target-feature -xtheadfmemidx -target-feature -xtheadmac -target-feature -xtheadmemidx -target-feature -xtheadmempair -target-feature -xtheadsync -target-feature -xtheadvdot -target-feature -xventanacondops -target-feature -za128rs -target-feature -za64rs -target-feature -zawrs -target-feature -zba -target-feature -zbb -target-feature -zbc -target-feature -zbkb -target-feature -zbkc -target-feature -zbkx -target-feature -zbs -target-feature -zca -target-feature -zcb -target-feature -zcd -target-feature -zce -target-feature -zcf -target-feature -zcmp -target-feature -zcmt -target-feature -zdinx -target-feature -zfa -target-feature -zfh -target-feature -zfhmin -target-feature -zfinx -target-feature -zhinx -target-feature -zhinxmin -target-feature -zic64b -target-feature -zicbom -target-feature -zicbop -target-feature -zicboz -target-feature -ziccamoa -target-feature -ziccif -target-feature -zicclsm -target-feature -ziccrse -target-feature -zicntr -target-feature -zicond -target-feature -zicsr -target-feature -zifencei -target-feature -zihintntl -target-feature -zihintpause -target-feature -zihpm -target-feature -zk -target-feature -zkn -target-feature -zknd -target-feature -zkne -target-feature -zknh -target-feature -zkr -target-feature -zks -target-feature -zksed -target-feature -zksh -target-feature -zkt -target-feature -zmmul -target-feature -zvbb -target-feature -zvbc -target-feature -zve32f -target-feature -zve32x -target-feature -zve64d -target-feature -zve64f -target-feature -zve64x -target-feature -zvfh -target-feature -zvfhmin -target-feature -zvkb -target-feature -zvkg -target-feature -zvkn -target-feature -zvknc -target-feature -zvkned -target-feature -zvkng -target-feature -zvknha -target-feature -zvknhb -target-feature -zvks -target-feature -zvksc -target-feature -zvksed -target-feature -zvksg -target-feature -zvksh -target-feature -zvkt -target-feature -zvl1024b -target-feature -zvl128b -target-feature -zvl16384b -target-feature -zvl2048b -target-feature -zvl256b -target-feature -zvl32768b -target-feature -zvl32b -target-feature -zvl4096b -target-feature -zvl512b -target-feature -zvl64b -target-feature -zvl65536b -target-feature -zvl8192b -target-feature -experimental-zacas -target-feature -experimental-zcmop -target-feature -experimental-zfbfmin -target-feature -experimental-zicfilp -target-feature -experimental-zicfiss -target-feature -experimental-zimop -target-feature -experimental-ztso -target-feature -experimental-zvfbfmin -target-feature -experimental-zvfbfwma -target-feature +relax -target-abi ilp32 -msmall-data-limit 8 -debugger-tuning=gdb -fdebug-compilation-dir=D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/esp32_to_stm32/main/build/default/CMakeFiles/CMakeScratch/TryCompile-v1ez0j -v -fcoverage-compilation-dir=D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/esp32_to_stm32/main/build/default/CMakeFiles/CMakeScratch/TryCompile-v1ez0j -resource-dir D:/Espressif/Espressif/tools/esp-clang/esp-18.1.2_20240912/esp-clang/lib/clang/18 -dependency-file "CMakeFiles\\\\cmTC_80abd.dir\\\\CMakeCCompilerABI.c.obj.d" -MT CMakeFiles/cmTC_80abd.dir/CMakeCCompilerABI.c.obj -sys-header-deps -internal-isystem D:/Espressif/Espressif/tools/esp-clang/esp-18.1.2_20240912/esp-clang/lib/clang/18/include -internal-isystem D:/Espressif/Espressif/tools/esp-clang/esp-18.1.2_20240912/esp-clang/bin/../lib/clang-runtimes/riscv32-esp-unknown-elf/rv32imac-zicsr-zifencei_ilp32/include -ferror-limit 19 -fno-signed-char -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -faddrsig -o "CMakeFiles\\\\cmTC_80abd.dir\\\\CMakeCCompilerABI.c.obj" -x c "D:\\\\Espressif\\\\Espressif\\\\tools\\\\cmake\\\\3.30.2\\\\share\\\\cmake-3.30\\\\Modules\\\\CMakeCCompilerABI.c"
+        clang -cc1 version 18.1.2 based upon LLVM 18.1.2 default target riscv32-esp-elf
+        ignoring duplicate directory "D:/Espressif/Espressif/tools/esp-clang/esp-18.1.2_20240912/esp-clang/lib/clang/18/include"
+        #include "..." search starts here:
+        #include <...> search starts here:
+         D:/Espressif/Espressif/tools/esp-clang/esp-18.1.2_20240912/esp-clang/lib/clang/18/include
+         D:/Espressif/Espressif/tools/esp-clang/esp-18.1.2_20240912/esp-clang/bin/../lib/clang-runtimes/riscv32-esp-unknown-elf/rv32imac-zicsr-zifencei_ilp32/include
+        End of search list.
+        Linking C executable cmTC_80abd.exe
+        D:\\Espressif\\Espressif\\tools\\cmake\\3.30.2\\bin\\cmake.exe -E cmake_link_script CMakeFiles\\cmTC_80abd.dir\\link.txt --verbose=1
+        D:\\Espressif\\Espressif\\tools\\cmake\\3.30.2\\bin\\cmake.exe -E rm -f CMakeFiles\\cmTC_80abd.dir/objects.a
+        D:\\Espressif\\Espressif\\tools\\esp-clang\\esp-18.1.2_20240912\\esp-clang\\bin\\llvm-ar.exe qc CMakeFiles\\cmTC_80abd.dir/objects.a @CMakeFiles\\cmTC_80abd.dir\\objects1.rsp
+        D:\\Espressif\\Espressif\\tools\\esp-clang\\esp-18.1.2_20240912\\esp-clang\\bin\\clang.exe  -v -Wl,-v -Wl,--whole-archive CMakeFiles\\cmTC_80abd.dir/objects.a -Wl,--no-whole-archive -o cmTC_80abd.exe -Wl,--out-implib,libcmTC_80abd.dll.a -Wl,--major-image-version,0,--minor-image-version,0
+        clang version 18.1.2 (https://github.com/espressif/llvm-project.git esp-18.1.2_20240912)
+        Target: riscv32-esp-unknown-elf
+        Thread model: posix
+        InstalledDir: D:/Espressif/Espressif/tools/esp-clang/esp-18.1.2_20240912/esp-clang/bin
+         "D:/Espressif/Espressif/tools/esp-clang/esp-18.1.2_20240912/esp-clang/bin/ld.lld" -m elf32lriscv -o cmTC_80abd.exe -X D:/Espressif/Espressif/tools/esp-clang/esp-18.1.2_20240912/esp-clang/bin/../lib/clang-runtimes/riscv32-esp-unknown-elf/rv32imac-zicsr-zifencei_ilp32/lib/crt0.o -v --whole-archive "CMakeFiles\\\\cmTC_80abd.dir/objects.a" --no-whole-archive --out-implib libcmTC_80abd.dll.a --major-image-version 0 --minor-image-version 0 -LD:/Espressif/Espressif/tools/esp-clang/esp-18.1.2_20240912/esp-clang/bin/../lib/clang-runtimes/riscv32-esp-unknown-elf/rv32imac-zicsr-zifencei_ilp32/lib -lm --start-group -lc -lgloss -lnosys --end-group -lclang_rt.builtins
+        ld.lld: error: unknown argument '--major-image-version'
+        ld.lld: error: unknown argument '--minor-image-version'
+        LLD 18.1.2 (compatible with GNU linkers)
+        ld.lld: error: cannot open 0: No such file or directory
+        ld.lld: error: cannot open 0: No such file or directory
+        clang: error: ld command failed with exit code 1 (use -v to see invocation)
+        CMakeFiles\\cmTC_80abd.dir\\build.make:99: recipe for target 'cmTC_80abd.exe' failed
+        mingw32-make.exe[1]: *** [cmTC_80abd.exe] Error 1
+        mingw32-make.exe[1]: Leaving directory 'D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/esp32_to_stm32/main/build/default/CMakeFiles/CMakeScratch/TryCompile-v1ez0j'
+        Makefile:126: recipe for target 'cmTC_80abd/fast' failed
+        mingw32-make.exe: *** [cmTC_80abd/fast] Error 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "D:/Espressif/Espressif/tools/cmake/3.30.2/share/cmake-3.30/Modules/CMakeTestCCompiler.cmake:56 (try_compile)"
+      - "CMakeLists.txt"
+    checks:
+      - "Check for working C compiler: D:/Espressif/Espressif/tools/esp-clang/esp-18.1.2_20240912/esp-clang/bin/clang.exe"
+    directories:
+      source: "D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/esp32_to_stm32/main/build/default/CMakeFiles/CMakeScratch/TryCompile-cssa6l"
+      binary: "D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/esp32_to_stm32/main/build/default/CMakeFiles/CMakeScratch/TryCompile-cssa6l"
+    cmakeVariables:
+      CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS-NOTFOUND"
+      CMAKE_C_FLAGS: ""
+    buildResult:
+      variable: "CMAKE_C_COMPILER_WORKS"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/esp32_to_stm32/main/build/default/CMakeFiles/CMakeScratch/TryCompile-cssa6l'
+        
+        Run Build Command(s): D:/Espressif/Espressif/tools/cmake/3.30.2/bin/cmake.exe -E env VERBOSE=1 C:/MinGW/bin/mingw32-make.exe -f Makefile cmTC_ffd4b/fast
+        C:/MinGW/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_ffd4b.dir\\build.make CMakeFiles/cmTC_ffd4b.dir/build
+        mingw32-make.exe[1]: Entering directory 'D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/esp32_to_stm32/main/build/default/CMakeFiles/CMakeScratch/TryCompile-cssa6l'
+        Building C object CMakeFiles/cmTC_ffd4b.dir/testCCompiler.c.obj
+        D:\\Espressif\\Espressif\\tools\\esp-clang\\esp-18.1.2_20240912\\esp-clang\\bin\\clang.exe    -MD -MT CMakeFiles/cmTC_ffd4b.dir/testCCompiler.c.obj -MF CMakeFiles\\cmTC_ffd4b.dir\\testCCompiler.c.obj.d -o CMakeFiles\\cmTC_ffd4b.dir\\testCCompiler.c.obj -c D:\\File_dai_hoc_UIT\\Thuc_Tap_FSOFT\\INTERN_PROJECT\\esp32_to_stm32\\main\\build\\default\\CMakeFiles\\CMakeScratch\\TryCompile-cssa6l\\testCCompiler.c
+        Linking C executable cmTC_ffd4b.exe
+        D:\\Espressif\\Espressif\\tools\\cmake\\3.30.2\\bin\\cmake.exe -E cmake_link_script CMakeFiles\\cmTC_ffd4b.dir\\link.txt --verbose=1
+        D:\\Espressif\\Espressif\\tools\\cmake\\3.30.2\\bin\\cmake.exe -E rm -f CMakeFiles\\cmTC_ffd4b.dir/objects.a
+        D:\\Espressif\\Espressif\\tools\\esp-clang\\esp-18.1.2_20240912\\esp-clang\\bin\\llvm-ar.exe qc CMakeFiles\\cmTC_ffd4b.dir/objects.a @CMakeFiles\\cmTC_ffd4b.dir\\objects1.rsp
+        D:\\Espressif\\Espressif\\tools\\esp-clang\\esp-18.1.2_20240912\\esp-clang\\bin\\clang.exe -Wl,--whole-archive CMakeFiles\\cmTC_ffd4b.dir/objects.a -Wl,--no-whole-archive -o cmTC_ffd4b.exe -Wl,--out-implib,libcmTC_ffd4b.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\\cmTC_ffd4b.dir\\linkLibs.rsp
+        ld.lld: error: unknown argument '--major-image-version'
+        ld.lld: error: unknown argument '--minor-image-version'
+        ld.lld: error: cannot open 0: No such file or directory
+        ld.lld: error: cannot open 0: No such file or directory
+        ld.lld: error: unable to find library -lkernel32
+        ld.lld: error: unable to find library -luser32
+        ld.lld: error: unable to find library -lgdi32
+        ld.lld: error: unable to find library -lwinspool
+        ld.lld: error: unable to find library -lshell32
+        ld.lld: error: unable to find library -lole32
+        ld.lld: error: unable to find library -loleaut32
+        ld.lld: error: unable to find library -luuid
+        ld.lld: error: unable to find library -lcomdlg32
+        ld.lld: error: unable to find library -ladvapi32
+        clang: error: ld command failed with exit code 1 (use -v to see invocation)
+        CMakeFiles\\cmTC_ffd4b.dir\\build.make:100: recipe for target 'cmTC_ffd4b.exe' failed
+        mingw32-make.exe[1]: *** [cmTC_ffd4b.exe] Error 1
+        mingw32-make.exe[1]: Leaving directory 'D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/esp32_to_stm32/main/build/default/CMakeFiles/CMakeScratch/TryCompile-cssa6l'
+        Makefile:126: recipe for target 'cmTC_ffd4b/fast' failed
+        mingw32-make.exe: *** [cmTC_ffd4b/fast] Error 2
+        
+      exitCode: 2
+...
+
+---
+events:
+  -
+    kind: "message-v1"
+    backtrace:
+      - "D:/Espressif/Espressif/tools/cmake/3.30.2/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "D:/Espressif/Espressif/tools/cmake/3.30.2/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "D:/Espressif/Espressif/tools/cmake/3.30.2/share/cmake-3.30/Modules/CMakeDetermineCCompiler.cmake:123 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+      Compiler: D:/Espressif/Espressif/tools/esp-clang/esp-18.1.2_20240912/esp-clang/bin/clang.exe 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+      
+      The C compiler identification is Clang, found in:
+        D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/esp32_to_stm32/main/build/default/CMakeFiles/3.30.2/CompilerIdC/a.out
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "D:/Espressif/Espressif/tools/cmake/3.30.2/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "D:/Espressif/Espressif/tools/cmake/3.30.2/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "D:/Espressif/Espressif/tools/cmake/3.30.2/share/cmake-3.30/Modules/CMakeDetermineCXXCompiler.cmake:126 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+      Compiler: D:/Espressif/Espressif/tools/esp-clang/esp-18.1.2_20240912/esp-clang/bin/clang++.exe 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
+      
+      The CXX compiler identification is Clang, found in:
+        D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/esp32_to_stm32/main/build/default/CMakeFiles/3.30.2/CompilerIdCXX/a.out
+      
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "D:/Espressif/Espressif/tools/cmake/3.30.2/share/cmake-3.30/Modules/CMakeDetermineCompilerABI.cmake:74 (try_compile)"
+      - "D:/Espressif/Espressif/tools/cmake/3.30.2/share/cmake-3.30/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    checks:
+      - "Detecting C compiler ABI info"
+    directories:
+      source: "D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/esp32_to_stm32/main/build/default/CMakeFiles/CMakeScratch/TryCompile-a4hlxz"
+      binary: "D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/esp32_to_stm32/main/build/default/CMakeFiles/CMakeScratch/TryCompile-a4hlxz"
+    cmakeVariables:
+      CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS-NOTFOUND"
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "CMAKE_C_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/esp32_to_stm32/main/build/default/CMakeFiles/CMakeScratch/TryCompile-a4hlxz'
+        
+        Run Build Command(s): D:/Espressif/Espressif/tools/cmake/3.30.2/bin/cmake.exe -E env VERBOSE=1 C:/MinGW/bin/mingw32-make.exe -f Makefile cmTC_e43ee/fast
+        C:/MinGW/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_e43ee.dir\\build.make CMakeFiles/cmTC_e43ee.dir/build
+        mingw32-make.exe[1]: Entering directory 'D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/esp32_to_stm32/main/build/default/CMakeFiles/CMakeScratch/TryCompile-a4hlxz'
+        Building C object CMakeFiles/cmTC_e43ee.dir/CMakeCCompilerABI.c.obj
+        D:\\Espressif\\Espressif\\tools\\esp-clang\\esp-18.1.2_20240912\\esp-clang\\bin\\clang.exe   -v -MD -MT CMakeFiles/cmTC_e43ee.dir/CMakeCCompilerABI.c.obj -MF CMakeFiles\\cmTC_e43ee.dir\\CMakeCCompilerABI.c.obj.d -o CMakeFiles\\cmTC_e43ee.dir\\CMakeCCompilerABI.c.obj -c D:\\Espressif\\Espressif\\tools\\cmake\\3.30.2\\share\\cmake-3.30\\Modules\\CMakeCCompilerABI.c
+        clang version 18.1.2 (https://github.com/espressif/llvm-project.git esp-18.1.2_20240912)
+        Target: riscv32-esp-unknown-elf
+        Thread model: posix
+        InstalledDir: D:/Espressif/Espressif/tools/esp-clang/esp-18.1.2_20240912/esp-clang/bin
+         (in-process)
+         "D:/Espressif/Espressif/tools/esp-clang/esp-18.1.2_20240912/esp-clang/bin/clang.exe" -cc1 -triple riscv32-esp-unknown-elf -emit-obj -mrelax-all -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCCompilerABI.c -mrelocation-model static -mframe-pointer=all -fmath-errno -ffp-contract=on -fno-rounding-math -mconstructor-aliases -nostdsysteminc -target-cpu generic-rv32 -target-feature +m -target-feature +a -target-feature +c -target-feature -d -target-feature -e -target-feature -f -target-feature -h -target-feature -smaia -target-feature -smepmp -target-feature -ssaia -target-feature -svinval -target-feature -svnapot -target-feature -svpbmt -target-feature -v -target-feature -xcvalu -target-feature -xcvbi -target-feature -xcvbitmanip -target-feature -xcvelw -target-feature -xcvmac -target-feature -xcvmem -target-feature -xcvsimd -target-feature -xesppie -target-feature -xsfvcp -target-feature -xsfvfnrclipxfqf -target-feature -xsfvfwmaccqqq -target-feature -xsfvqmaccdod -target-feature -xsfvqmaccqoq -target-feature -xtheadba -target-feature -xtheadbb -target-feature -xtheadbs -target-feature -xtheadcmo -target-feature -xtheadcondmov -target-feature -xtheadfmemidx -target-feature -xtheadmac -target-feature -xtheadmemidx -target-feature -xtheadmempair -target-feature -xtheadsync -target-feature -xtheadvdot -target-feature -xventanacondops -target-feature -za128rs -target-feature -za64rs -target-feature -zawrs -target-feature -zba -target-feature -zbb -target-feature -zbc -target-feature -zbkb -target-feature -zbkc -target-feature -zbkx -target-feature -zbs -target-feature -zca -target-feature -zcb -target-feature -zcd -target-feature -zce -target-feature -zcf -target-feature -zcmp -target-feature -zcmt -target-feature -zdinx -target-feature -zfa -target-feature -zfh -target-feature -zfhmin -target-feature -zfinx -target-feature -zhinx -target-feature -zhinxmin -target-feature -zic64b -target-feature -zicbom -target-feature -zicbop -target-feature -zicboz -target-feature -ziccamoa -target-feature -ziccif -target-feature -zicclsm -target-feature -ziccrse -target-feature -zicntr -target-feature -zicond -target-feature -zicsr -target-feature -zifencei -target-feature -zihintntl -target-feature -zihintpause -target-feature -zihpm -target-feature -zk -target-feature -zkn -target-feature -zknd -target-feature -zkne -target-feature -zknh -target-feature -zkr -target-feature -zks -target-feature -zksed -target-feature -zksh -target-feature -zkt -target-feature -zmmul -target-feature -zvbb -target-feature -zvbc -target-feature -zve32f -target-feature -zve32x -target-feature -zve64d -target-feature -zve64f -target-feature -zve64x -target-feature -zvfh -target-feature -zvfhmin -target-feature -zvkb -target-feature -zvkg -target-feature -zvkn -target-feature -zvknc -target-feature -zvkned -target-feature -zvkng -target-feature -zvknha -target-feature -zvknhb -target-feature -zvks -target-feature -zvksc -target-feature -zvksed -target-feature -zvksg -target-feature -zvksh -target-feature -zvkt -target-feature -zvl1024b -target-feature -zvl128b -target-feature -zvl16384b -target-feature -zvl2048b -target-feature -zvl256b -target-feature -zvl32768b -target-feature -zvl32b -target-feature -zvl4096b -target-feature -zvl512b -target-feature -zvl64b -target-feature -zvl65536b -target-feature -zvl8192b -target-feature -experimental-zacas -target-feature -experimental-zcmop -target-feature -experimental-zfbfmin -target-feature -experimental-zicfilp -target-feature -experimental-zicfiss -target-feature -experimental-zimop -target-feature -experimental-ztso -target-feature -experimental-zvfbfmin -target-feature -experimental-zvfbfwma -target-feature +relax -target-abi ilp32 -msmall-data-limit 8 -debugger-tuning=gdb -fdebug-compilation-dir=D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/esp32_to_stm32/main/build/default/CMakeFiles/CMakeScratch/TryCompile-a4hlxz -v -fcoverage-compilation-dir=D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/esp32_to_stm32/main/build/default/CMakeFiles/CMakeScratch/TryCompile-a4hlxz -resource-dir D:/Espressif/Espressif/tools/esp-clang/esp-18.1.2_20240912/esp-clang/lib/clang/18 -dependency-file "CMakeFiles\\\\cmTC_e43ee.dir\\\\CMakeCCompilerABI.c.obj.d" -MT CMakeFiles/cmTC_e43ee.dir/CMakeCCompilerABI.c.obj -sys-header-deps -internal-isystem D:/Espressif/Espressif/tools/esp-clang/esp-18.1.2_20240912/esp-clang/lib/clang/18/include -internal-isystem D:/Espressif/Espressif/tools/esp-clang/esp-18.1.2_20240912/esp-clang/bin/../lib/clang-runtimes/riscv32-esp-unknown-elf/rv32imac-zicsr-zifencei_ilp32/include -ferror-limit 19 -fno-signed-char -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -faddrsig -o "CMakeFiles\\\\cmTC_e43ee.dir\\\\CMakeCCompilerABI.c.obj" -x c "D:\\\\Espressif\\\\Espressif\\\\tools\\\\cmake\\\\3.30.2\\\\share\\\\cmake-3.30\\\\Modules\\\\CMakeCCompilerABI.c"
+        clang -cc1 version 18.1.2 based upon LLVM 18.1.2 default target riscv32-esp-elf
+        ignoring duplicate directory "D:/Espressif/Espressif/tools/esp-clang/esp-18.1.2_20240912/esp-clang/lib/clang/18/include"
+        #include "..." search starts here:
+        #include <...> search starts here:
+         D:/Espressif/Espressif/tools/esp-clang/esp-18.1.2_20240912/esp-clang/lib/clang/18/include
+         D:/Espressif/Espressif/tools/esp-clang/esp-18.1.2_20240912/esp-clang/bin/../lib/clang-runtimes/riscv32-esp-unknown-elf/rv32imac-zicsr-zifencei_ilp32/include
+        End of search list.
+        Linking C executable cmTC_e43ee.exe
+        D:\\Espressif\\Espressif\\tools\\cmake\\3.30.2\\bin\\cmake.exe -E cmake_link_script CMakeFiles\\cmTC_e43ee.dir\\link.txt --verbose=1
+        D:\\Espressif\\Espressif\\tools\\cmake\\3.30.2\\bin\\cmake.exe -E rm -f CMakeFiles\\cmTC_e43ee.dir/objects.a
+        D:\\Espressif\\Espressif\\tools\\esp-clang\\esp-18.1.2_20240912\\esp-clang\\bin\\llvm-ar.exe qc CMakeFiles\\cmTC_e43ee.dir/objects.a @CMakeFiles\\cmTC_e43ee.dir\\objects1.rsp
+        D:\\Espressif\\Espressif\\tools\\esp-clang\\esp-18.1.2_20240912\\esp-clang\\bin\\clang.exe  -v -Wl,-v -Wl,--whole-archive CMakeFiles\\cmTC_e43ee.dir/objects.a -Wl,--no-whole-archive -o cmTC_e43ee.exe -Wl,--out-implib,libcmTC_e43ee.dll.a -Wl,--major-image-version,0,--minor-image-version,0
+        clang version 18.1.2 (https://github.com/espressif/llvm-project.git esp-18.1.2_20240912)
+        Target: riscv32-esp-unknown-elf
+        Thread model: posix
+        InstalledDir: D:/Espressif/Espressif/tools/esp-clang/esp-18.1.2_20240912/esp-clang/bin
+         "D:/Espressif/Espressif/tools/esp-clang/esp-18.1.2_20240912/esp-clang/bin/ld.lld" -m elf32lriscv -o cmTC_e43ee.exe -X D:/Espressif/Espressif/tools/esp-clang/esp-18.1.2_20240912/esp-clang/bin/../lib/clang-runtimes/riscv32-esp-unknown-elf/rv32imac-zicsr-zifencei_ilp32/lib/crt0.o -v --whole-archive "CMakeFiles\\\\cmTC_e43ee.dir/objects.a" --no-whole-archive --out-implib libcmTC_e43ee.dll.a --major-image-version 0 --minor-image-version 0 -LD:/Espressif/Espressif/tools/esp-clang/esp-18.1.2_20240912/esp-clang/bin/../lib/clang-runtimes/riscv32-esp-unknown-elf/rv32imac-zicsr-zifencei_ilp32/lib -lm --start-group -lc -lgloss -lnosys --end-group -lclang_rt.builtins
+        ld.lld: error: unknown argument '--major-image-version'
+        ld.lld: error: unknown argument '--minor-image-version'
+        LLD 18.1.2 (compatible with GNU linkers)
+        ld.lld: error: cannot open 0: No such file or directory
+        ld.lld: error: cannot open 0: No such file or directory
+        clang: error: ld command failed with exit code 1 (use -v to see invocation)
+        CMakeFiles\\cmTC_e43ee.dir\\build.make:99: recipe for target 'cmTC_e43ee.exe' failed
+        mingw32-make.exe[1]: *** [cmTC_e43ee.exe] Error 1
+        mingw32-make.exe[1]: Leaving directory 'D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/esp32_to_stm32/main/build/default/CMakeFiles/CMakeScratch/TryCompile-a4hlxz'
+        Makefile:126: recipe for target 'cmTC_e43ee/fast' failed
+        mingw32-make.exe: *** [cmTC_e43ee/fast] Error 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "D:/Espressif/Espressif/tools/cmake/3.30.2/share/cmake-3.30/Modules/CMakeTestCCompiler.cmake:56 (try_compile)"
+      - "CMakeLists.txt:2 (project)"
+    checks:
+      - "Check for working C compiler: D:/Espressif/Espressif/tools/esp-clang/esp-18.1.2_20240912/esp-clang/bin/clang.exe"
+    directories:
+      source: "D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/esp32_to_stm32/main/build/default/CMakeFiles/CMakeScratch/TryCompile-36y9pa"
+      binary: "D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/esp32_to_stm32/main/build/default/CMakeFiles/CMakeScratch/TryCompile-36y9pa"
+    cmakeVariables:
+      CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS-NOTFOUND"
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "CMAKE_C_COMPILER_WORKS"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/esp32_to_stm32/main/build/default/CMakeFiles/CMakeScratch/TryCompile-36y9pa'
+        
+        Run Build Command(s): D:/Espressif/Espressif/tools/cmake/3.30.2/bin/cmake.exe -E env VERBOSE=1 C:/MinGW/bin/mingw32-make.exe -f Makefile cmTC_d1b80/fast
+        C:/MinGW/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_d1b80.dir\\build.make CMakeFiles/cmTC_d1b80.dir/build
+        mingw32-make.exe[1]: Entering directory 'D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/esp32_to_stm32/main/build/default/CMakeFiles/CMakeScratch/TryCompile-36y9pa'
+        Building C object CMakeFiles/cmTC_d1b80.dir/testCCompiler.c.obj
+        D:\\Espressif\\Espressif\\tools\\esp-clang\\esp-18.1.2_20240912\\esp-clang\\bin\\clang.exe    -MD -MT CMakeFiles/cmTC_d1b80.dir/testCCompiler.c.obj -MF CMakeFiles\\cmTC_d1b80.dir\\testCCompiler.c.obj.d -o CMakeFiles\\cmTC_d1b80.dir\\testCCompiler.c.obj -c D:\\File_dai_hoc_UIT\\Thuc_Tap_FSOFT\\INTERN_PROJECT\\esp32_to_stm32\\main\\build\\default\\CMakeFiles\\CMakeScratch\\TryCompile-36y9pa\\testCCompiler.c
+        Linking C executable cmTC_d1b80.exe
+        D:\\Espressif\\Espressif\\tools\\cmake\\3.30.2\\bin\\cmake.exe -E cmake_link_script CMakeFiles\\cmTC_d1b80.dir\\link.txt --verbose=1
+        D:\\Espressif\\Espressif\\tools\\cmake\\3.30.2\\bin\\cmake.exe -E rm -f CMakeFiles\\cmTC_d1b80.dir/objects.a
+        D:\\Espressif\\Espressif\\tools\\esp-clang\\esp-18.1.2_20240912\\esp-clang\\bin\\llvm-ar.exe qc CMakeFiles\\cmTC_d1b80.dir/objects.a @CMakeFiles\\cmTC_d1b80.dir\\objects1.rsp
+        D:\\Espressif\\Espressif\\tools\\esp-clang\\esp-18.1.2_20240912\\esp-clang\\bin\\clang.exe -Wl,--whole-archive CMakeFiles\\cmTC_d1b80.dir/objects.a -Wl,--no-whole-archive -o cmTC_d1b80.exe -Wl,--out-implib,libcmTC_d1b80.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\\cmTC_d1b80.dir\\linkLibs.rsp
+        ld.lld: error: unknown argument '--major-image-version'
+        ld.lld: error: unknown argument '--minor-image-version'
+        ld.lld: error: cannot open 0: No such file or directory
+        ld.lld: error: cannot open 0: No such file or directory
+        ld.lld: error: unable to find library -lkernel32
+        ld.lld: error: unable to find library -luser32
+        ld.lld: error: unable to find library -lgdi32
+        ld.lld: error: unable to find library -lwinspool
+        ld.lld: error: unable to find library -lshell32
+        ld.lld: error: unable to find library -lole32
+        ld.lld: error: unable to find library -loleaut32
+        ld.lld: error: unable to find library -luuid
+        ld.lld: error: unable to find library -lcomdlg32
+        ld.lld: error: unable to find library -ladvapi32
+        clang: error: ld command failed with exit code 1 (use -v to see invocation)
+        CMakeFiles\\cmTC_d1b80.dir\\build.make:100: recipe for target 'cmTC_d1b80.exe' failed
+        mingw32-make.exe[1]: *** [cmTC_d1b80.exe] Error 1
+        mingw32-make.exe[1]: Leaving directory 'D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/esp32_to_stm32/main/build/default/CMakeFiles/CMakeScratch/TryCompile-36y9pa'
+        Makefile:126: recipe for target 'cmTC_d1b80/fast' failed
+        mingw32-make.exe: *** [cmTC_d1b80/fast] Error 2
+        
+      exitCode: 2
+...
+
+---
+events:
+  -
+    kind: "message-v1"
+    backtrace:
+      - "D:/Espressif/Espressif/tools/cmake/3.30.2/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "D:/Espressif/Espressif/tools/cmake/3.30.2/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "D:/Espressif/Espressif/tools/cmake/3.30.2/share/cmake-3.30/Modules/CMakeDetermineCCompiler.cmake:123 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+      Compiler: D:/Espressif/Espressif/tools/esp-clang/esp-18.1.2_20240912/esp-clang/bin/clang.exe 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+      
+      The C compiler identification is Clang, found in:
+        D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/esp32_to_stm32/main/build/default/CMakeFiles/3.30.2/CompilerIdC/a.out
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "D:/Espressif/Espressif/tools/cmake/3.30.2/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "D:/Espressif/Espressif/tools/cmake/3.30.2/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "D:/Espressif/Espressif/tools/cmake/3.30.2/share/cmake-3.30/Modules/CMakeDetermineCXXCompiler.cmake:126 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+      Compiler: D:/Espressif/Espressif/tools/esp-clang/esp-18.1.2_20240912/esp-clang/bin/clang++.exe 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
+      
+      The CXX compiler identification is Clang, found in:
+        D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/esp32_to_stm32/main/build/default/CMakeFiles/3.30.2/CompilerIdCXX/a.out
+      
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "D:/Espressif/Espressif/tools/cmake/3.30.2/share/cmake-3.30/Modules/CMakeDetermineCompilerABI.cmake:74 (try_compile)"
+      - "D:/Espressif/Espressif/tools/cmake/3.30.2/share/cmake-3.30/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    checks:
+      - "Detecting C compiler ABI info"
+    directories:
+      source: "D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/esp32_to_stm32/main/build/default/CMakeFiles/CMakeScratch/TryCompile-49e33f"
+      binary: "D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/esp32_to_stm32/main/build/default/CMakeFiles/CMakeScratch/TryCompile-49e33f"
+    cmakeVariables:
+      CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS-NOTFOUND"
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "CMAKE_C_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/esp32_to_stm32/main/build/default/CMakeFiles/CMakeScratch/TryCompile-49e33f'
+        
+        Run Build Command(s): D:/Espressif/Espressif/tools/cmake/3.30.2/bin/cmake.exe -E env VERBOSE=1 C:/MinGW/bin/mingw32-make.exe -f Makefile cmTC_b58e4/fast
+        C:/MinGW/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_b58e4.dir\\build.make CMakeFiles/cmTC_b58e4.dir/build
+        mingw32-make.exe[1]: Entering directory 'D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/esp32_to_stm32/main/build/default/CMakeFiles/CMakeScratch/TryCompile-49e33f'
+        Building C object CMakeFiles/cmTC_b58e4.dir/CMakeCCompilerABI.c.obj
+        D:\\Espressif\\Espressif\\tools\\esp-clang\\esp-18.1.2_20240912\\esp-clang\\bin\\clang.exe   -v -MD -MT CMakeFiles/cmTC_b58e4.dir/CMakeCCompilerABI.c.obj -MF CMakeFiles\\cmTC_b58e4.dir\\CMakeCCompilerABI.c.obj.d -o CMakeFiles\\cmTC_b58e4.dir\\CMakeCCompilerABI.c.obj -c D:\\Espressif\\Espressif\\tools\\cmake\\3.30.2\\share\\cmake-3.30\\Modules\\CMakeCCompilerABI.c
+        clang version 18.1.2 (https://github.com/espressif/llvm-project.git esp-18.1.2_20240912)
+        Target: riscv32-esp-unknown-elf
+        Thread model: posix
+        InstalledDir: D:/Espressif/Espressif/tools/esp-clang/esp-18.1.2_20240912/esp-clang/bin
+         (in-process)
+         "D:/Espressif/Espressif/tools/esp-clang/esp-18.1.2_20240912/esp-clang/bin/clang.exe" -cc1 -triple riscv32-esp-unknown-elf -emit-obj -mrelax-all -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCCompilerABI.c -mrelocation-model static -mframe-pointer=all -fmath-errno -ffp-contract=on -fno-rounding-math -mconstructor-aliases -nostdsysteminc -target-cpu generic-rv32 -target-feature +m -target-feature +a -target-feature +c -target-feature -d -target-feature -e -target-feature -f -target-feature -h -target-feature -smaia -target-feature -smepmp -target-feature -ssaia -target-feature -svinval -target-feature -svnapot -target-feature -svpbmt -target-feature -v -target-feature -xcvalu -target-feature -xcvbi -target-feature -xcvbitmanip -target-feature -xcvelw -target-feature -xcvmac -target-feature -xcvmem -target-feature -xcvsimd -target-feature -xesppie -target-feature -xsfvcp -target-feature -xsfvfnrclipxfqf -target-feature -xsfvfwmaccqqq -target-feature -xsfvqmaccdod -target-feature -xsfvqmaccqoq -target-feature -xtheadba -target-feature -xtheadbb -target-feature -xtheadbs -target-feature -xtheadcmo -target-feature -xtheadcondmov -target-feature -xtheadfmemidx -target-feature -xtheadmac -target-feature -xtheadmemidx -target-feature -xtheadmempair -target-feature -xtheadsync -target-feature -xtheadvdot -target-feature -xventanacondops -target-feature -za128rs -target-feature -za64rs -target-feature -zawrs -target-feature -zba -target-feature -zbb -target-feature -zbc -target-feature -zbkb -target-feature -zbkc -target-feature -zbkx -target-feature -zbs -target-feature -zca -target-feature -zcb -target-feature -zcd -target-feature -zce -target-feature -zcf -target-feature -zcmp -target-feature -zcmt -target-feature -zdinx -target-feature -zfa -target-feature -zfh -target-feature -zfhmin -target-feature -zfinx -target-feature -zhinx -target-feature -zhinxmin -target-feature -zic64b -target-feature -zicbom -target-feature -zicbop -target-feature -zicboz -target-feature -ziccamoa -target-feature -ziccif -target-feature -zicclsm -target-feature -ziccrse -target-feature -zicntr -target-feature -zicond -target-feature -zicsr -target-feature -zifencei -target-feature -zihintntl -target-feature -zihintpause -target-feature -zihpm -target-feature -zk -target-feature -zkn -target-feature -zknd -target-feature -zkne -target-feature -zknh -target-feature -zkr -target-feature -zks -target-feature -zksed -target-feature -zksh -target-feature -zkt -target-feature -zmmul -target-feature -zvbb -target-feature -zvbc -target-feature -zve32f -target-feature -zve32x -target-feature -zve64d -target-feature -zve64f -target-feature -zve64x -target-feature -zvfh -target-feature -zvfhmin -target-feature -zvkb -target-feature -zvkg -target-feature -zvkn -target-feature -zvknc -target-feature -zvkned -target-feature -zvkng -target-feature -zvknha -target-feature -zvknhb -target-feature -zvks -target-feature -zvksc -target-feature -zvksed -target-feature -zvksg -target-feature -zvksh -target-feature -zvkt -target-feature -zvl1024b -target-feature -zvl128b -target-feature -zvl16384b -target-feature -zvl2048b -target-feature -zvl256b -target-feature -zvl32768b -target-feature -zvl32b -target-feature -zvl4096b -target-feature -zvl512b -target-feature -zvl64b -target-feature -zvl65536b -target-feature -zvl8192b -target-feature -experimental-zacas -target-feature -experimental-zcmop -target-feature -experimental-zfbfmin -target-feature -experimental-zicfilp -target-feature -experimental-zicfiss -target-feature -experimental-zimop -target-feature -experimental-ztso -target-feature -experimental-zvfbfmin -target-feature -experimental-zvfbfwma -target-feature +relax -target-abi ilp32 -msmall-data-limit 8 -debugger-tuning=gdb -fdebug-compilation-dir=D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/esp32_to_stm32/main/build/default/CMakeFiles/CMakeScratch/TryCompile-49e33f -v -fcoverage-compilation-dir=D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/esp32_to_stm32/main/build/default/CMakeFiles/CMakeScratch/TryCompile-49e33f -resource-dir D:/Espressif/Espressif/tools/esp-clang/esp-18.1.2_20240912/esp-clang/lib/clang/18 -dependency-file "CMakeFiles\\\\cmTC_b58e4.dir\\\\CMakeCCompilerABI.c.obj.d" -MT CMakeFiles/cmTC_b58e4.dir/CMakeCCompilerABI.c.obj -sys-header-deps -internal-isystem D:/Espressif/Espressif/tools/esp-clang/esp-18.1.2_20240912/esp-clang/lib/clang/18/include -internal-isystem D:/Espressif/Espressif/tools/esp-clang/esp-18.1.2_20240912/esp-clang/bin/../lib/clang-runtimes/riscv32-esp-unknown-elf/rv32imac-zicsr-zifencei_ilp32/include -ferror-limit 19 -fno-signed-char -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -faddrsig -o "CMakeFiles\\\\cmTC_b58e4.dir\\\\CMakeCCompilerABI.c.obj" -x c "D:\\\\Espressif\\\\Espressif\\\\tools\\\\cmake\\\\3.30.2\\\\share\\\\cmake-3.30\\\\Modules\\\\CMakeCCompilerABI.c"
+        clang -cc1 version 18.1.2 based upon LLVM 18.1.2 default target riscv32-esp-elf
+        ignoring duplicate directory "D:/Espressif/Espressif/tools/esp-clang/esp-18.1.2_20240912/esp-clang/lib/clang/18/include"
+        #include "..." search starts here:
+        #include <...> search starts here:
+         D:/Espressif/Espressif/tools/esp-clang/esp-18.1.2_20240912/esp-clang/lib/clang/18/include
+         D:/Espressif/Espressif/tools/esp-clang/esp-18.1.2_20240912/esp-clang/bin/../lib/clang-runtimes/riscv32-esp-unknown-elf/rv32imac-zicsr-zifencei_ilp32/include
+        End of search list.
+        Linking C executable cmTC_b58e4.exe
+        D:\\Espressif\\Espressif\\tools\\cmake\\3.30.2\\bin\\cmake.exe -E cmake_link_script CMakeFiles\\cmTC_b58e4.dir\\link.txt --verbose=1
+        D:\\Espressif\\Espressif\\tools\\cmake\\3.30.2\\bin\\cmake.exe -E rm -f CMakeFiles\\cmTC_b58e4.dir/objects.a
+        D:\\Espressif\\Espressif\\tools\\esp-clang\\esp-18.1.2_20240912\\esp-clang\\bin\\llvm-ar.exe qc CMakeFiles\\cmTC_b58e4.dir/objects.a @CMakeFiles\\cmTC_b58e4.dir\\objects1.rsp
+        D:\\Espressif\\Espressif\\tools\\esp-clang\\esp-18.1.2_20240912\\esp-clang\\bin\\clang.exe  -v -Wl,-v -Wl,--whole-archive CMakeFiles\\cmTC_b58e4.dir/objects.a -Wl,--no-whole-archive -o cmTC_b58e4.exe -Wl,--out-implib,libcmTC_b58e4.dll.a -Wl,--major-image-version,0,--minor-image-version,0
+        clang version 18.1.2 (https://github.com/espressif/llvm-project.git esp-18.1.2_20240912)
+        Target: riscv32-esp-unknown-elf
+        Thread model: posix
+        InstalledDir: D:/Espressif/Espressif/tools/esp-clang/esp-18.1.2_20240912/esp-clang/bin
+         "D:/Espressif/Espressif/tools/esp-clang/esp-18.1.2_20240912/esp-clang/bin/ld.lld" -m elf32lriscv -o cmTC_b58e4.exe -X D:/Espressif/Espressif/tools/esp-clang/esp-18.1.2_20240912/esp-clang/bin/../lib/clang-runtimes/riscv32-esp-unknown-elf/rv32imac-zicsr-zifencei_ilp32/lib/crt0.o -v --whole-archive "CMakeFiles\\\\cmTC_b58e4.dir/objects.a" --no-whole-archive --out-implib libcmTC_b58e4.dll.a --major-image-version 0 --minor-image-version 0 -LD:/Espressif/Espressif/tools/esp-clang/esp-18.1.2_20240912/esp-clang/bin/../lib/clang-runtimes/riscv32-esp-unknown-elf/rv32imac-zicsr-zifencei_ilp32/lib -lm --start-group -lc -lgloss -lnosys --end-group -lclang_rt.builtins
+        ld.lld: error: unknown argument '--major-image-version'
+        ld.lld: error: unknown argument '--minor-image-version'
+        LLD 18.1.2 (compatible with GNU linkers)
+        ld.lld: error: cannot open 0: No such file or directory
+        ld.lld: error: cannot open 0: No such file or directory
+        clang: error: ld command failed with exit code 1 (use -v to see invocation)
+        CMakeFiles\\cmTC_b58e4.dir\\build.make:99: recipe for target 'cmTC_b58e4.exe' failed
+        mingw32-make.exe[1]: *** [cmTC_b58e4.exe] Error 1
+        mingw32-make.exe[1]: Leaving directory 'D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/esp32_to_stm32/main/build/default/CMakeFiles/CMakeScratch/TryCompile-49e33f'
+        Makefile:126: recipe for target 'cmTC_b58e4/fast' failed
+        mingw32-make.exe: *** [cmTC_b58e4/fast] Error 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "D:/Espressif/Espressif/tools/cmake/3.30.2/share/cmake-3.30/Modules/CMakeTestCCompiler.cmake:56 (try_compile)"
+      - "CMakeLists.txt:2 (project)"
+    checks:
+      - "Check for working C compiler: D:/Espressif/Espressif/tools/esp-clang/esp-18.1.2_20240912/esp-clang/bin/clang.exe"
+    directories:
+      source: "D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/esp32_to_stm32/main/build/default/CMakeFiles/CMakeScratch/TryCompile-eo9avc"
+      binary: "D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/esp32_to_stm32/main/build/default/CMakeFiles/CMakeScratch/TryCompile-eo9avc"
+    cmakeVariables:
+      CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS-NOTFOUND"
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "CMAKE_C_COMPILER_WORKS"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/esp32_to_stm32/main/build/default/CMakeFiles/CMakeScratch/TryCompile-eo9avc'
+        
+        Run Build Command(s): D:/Espressif/Espressif/tools/cmake/3.30.2/bin/cmake.exe -E env VERBOSE=1 C:/MinGW/bin/mingw32-make.exe -f Makefile cmTC_0de61/fast
+        C:/MinGW/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_0de61.dir\\build.make CMakeFiles/cmTC_0de61.dir/build
+        mingw32-make.exe[1]: Entering directory 'D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/esp32_to_stm32/main/build/default/CMakeFiles/CMakeScratch/TryCompile-eo9avc'
+        Building C object CMakeFiles/cmTC_0de61.dir/testCCompiler.c.obj
+        D:\\Espressif\\Espressif\\tools\\esp-clang\\esp-18.1.2_20240912\\esp-clang\\bin\\clang.exe    -MD -MT CMakeFiles/cmTC_0de61.dir/testCCompiler.c.obj -MF CMakeFiles\\cmTC_0de61.dir\\testCCompiler.c.obj.d -o CMakeFiles\\cmTC_0de61.dir\\testCCompiler.c.obj -c D:\\File_dai_hoc_UIT\\Thuc_Tap_FSOFT\\INTERN_PROJECT\\esp32_to_stm32\\main\\build\\default\\CMakeFiles\\CMakeScratch\\TryCompile-eo9avc\\testCCompiler.c
+        Linking C executable cmTC_0de61.exe
+        D:\\Espressif\\Espressif\\tools\\cmake\\3.30.2\\bin\\cmake.exe -E cmake_link_script CMakeFiles\\cmTC_0de61.dir\\link.txt --verbose=1
+        D:\\Espressif\\Espressif\\tools\\cmake\\3.30.2\\bin\\cmake.exe -E rm -f CMakeFiles\\cmTC_0de61.dir/objects.a
+        D:\\Espressif\\Espressif\\tools\\esp-clang\\esp-18.1.2_20240912\\esp-clang\\bin\\llvm-ar.exe qc CMakeFiles\\cmTC_0de61.dir/objects.a @CMakeFiles\\cmTC_0de61.dir\\objects1.rsp
+        D:\\Espressif\\Espressif\\tools\\esp-clang\\esp-18.1.2_20240912\\esp-clang\\bin\\clang.exe -Wl,--whole-archive CMakeFiles\\cmTC_0de61.dir/objects.a -Wl,--no-whole-archive -o cmTC_0de61.exe -Wl,--out-implib,libcmTC_0de61.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\\cmTC_0de61.dir\\linkLibs.rsp
+        ld.lld: error: unknown argument '--major-image-version'
+        ld.lld: error: unknown argument '--minor-image-version'
+        ld.lld: error: cannot open 0: No such file or directory
+        ld.lld: error: cannot open 0: No such file or directory
+        ld.lld: error: unable to find library -lkernel32
+        ld.lld: error: unable to find library -luser32
+        ld.lld: error: unable to find library -lgdi32
+        ld.lld: error: unable to find library -lwinspool
+        ld.lld: error: unable to find library -lshell32
+        ld.lld: error: unable to find library -lole32
+        ld.lld: error: unable to find library -loleaut32
+        ld.lld: error: unable to find library -luuid
+        ld.lld: error: unable to find library -lcomdlg32
+        ld.lld: error: unable to find library -ladvapi32
+        clang: error: ld command failed with exit code 1 (use -v to see invocation)
+        CMakeFiles\\cmTC_0de61.dir\\build.make:100: recipe for target 'cmTC_0de61.exe' failed
+        mingw32-make.exe[1]: *** [cmTC_0de61.exe] Error 1
+        mingw32-make.exe[1]: Leaving directory 'D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/esp32_to_stm32/main/build/default/CMakeFiles/CMakeScratch/TryCompile-eo9avc'
+        Makefile:126: recipe for target 'cmTC_0de61/fast' failed
+        mingw32-make.exe: *** [cmTC_0de61/fast] Error 2
+        
+      exitCode: 2
+...
+
+---
+events:
+  -
+    kind: "message-v1"
+    backtrace:
+      - "D:/Espressif/Espressif/tools/cmake/3.30.2/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "D:/Espressif/Espressif/tools/cmake/3.30.2/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "D:/Espressif/Espressif/tools/cmake/3.30.2/share/cmake-3.30/Modules/CMakeDetermineCCompiler.cmake:123 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+      Compiler: D:/Espressif/Espressif/tools/esp-clang/esp-18.1.2_20240912/esp-clang/bin/clang.exe 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+      
+      The C compiler identification is Clang, found in:
+        D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/esp32_to_stm32/main/build/default/CMakeFiles/3.30.2/CompilerIdC/a.out
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "D:/Espressif/Espressif/tools/cmake/3.30.2/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "D:/Espressif/Espressif/tools/cmake/3.30.2/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "D:/Espressif/Espressif/tools/cmake/3.30.2/share/cmake-3.30/Modules/CMakeDetermineCXXCompiler.cmake:126 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+      Compiler: D:/Espressif/Espressif/tools/esp-clang/esp-18.1.2_20240912/esp-clang/bin/clang++.exe 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
+      
+      The CXX compiler identification is Clang, found in:
+        D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/esp32_to_stm32/main/build/default/CMakeFiles/3.30.2/CompilerIdCXX/a.out
+      
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "D:/Espressif/Espressif/tools/cmake/3.30.2/share/cmake-3.30/Modules/CMakeDetermineCompilerABI.cmake:74 (try_compile)"
+      - "D:/Espressif/Espressif/tools/cmake/3.30.2/share/cmake-3.30/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    checks:
+      - "Detecting C compiler ABI info"
+    directories:
+      source: "D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/esp32_to_stm32/main/build/default/CMakeFiles/CMakeScratch/TryCompile-3at26s"
+      binary: "D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/esp32_to_stm32/main/build/default/CMakeFiles/CMakeScratch/TryCompile-3at26s"
+    cmakeVariables:
+      CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS-NOTFOUND"
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "CMAKE_C_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/esp32_to_stm32/main/build/default/CMakeFiles/CMakeScratch/TryCompile-3at26s'
+        
+        Run Build Command(s): D:/Espressif/Espressif/tools/cmake/3.30.2/bin/cmake.exe -E env VERBOSE=1 C:/MinGW/bin/mingw32-make.exe -f Makefile cmTC_01196/fast
+        C:/MinGW/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_01196.dir\\build.make CMakeFiles/cmTC_01196.dir/build
+        mingw32-make.exe[1]: Entering directory 'D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/esp32_to_stm32/main/build/default/CMakeFiles/CMakeScratch/TryCompile-3at26s'
+        Building C object CMakeFiles/cmTC_01196.dir/CMakeCCompilerABI.c.obj
+        D:\\Espressif\\Espressif\\tools\\esp-clang\\esp-18.1.2_20240912\\esp-clang\\bin\\clang.exe   -v -MD -MT CMakeFiles/cmTC_01196.dir/CMakeCCompilerABI.c.obj -MF CMakeFiles\\cmTC_01196.dir\\CMakeCCompilerABI.c.obj.d -o CMakeFiles\\cmTC_01196.dir\\CMakeCCompilerABI.c.obj -c D:\\Espressif\\Espressif\\tools\\cmake\\3.30.2\\share\\cmake-3.30\\Modules\\CMakeCCompilerABI.c
+        clang version 18.1.2 (https://github.com/espressif/llvm-project.git esp-18.1.2_20240912)
+        Target: riscv32-esp-unknown-elf
+        Thread model: posix
+        InstalledDir: D:/Espressif/Espressif/tools/esp-clang/esp-18.1.2_20240912/esp-clang/bin
+         (in-process)
+         "D:/Espressif/Espressif/tools/esp-clang/esp-18.1.2_20240912/esp-clang/bin/clang.exe" -cc1 -triple riscv32-esp-unknown-elf -emit-obj -mrelax-all -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCCompilerABI.c -mrelocation-model static -mframe-pointer=all -fmath-errno -ffp-contract=on -fno-rounding-math -mconstructor-aliases -nostdsysteminc -target-cpu generic-rv32 -target-feature +m -target-feature +a -target-feature +c -target-feature -d -target-feature -e -target-feature -f -target-feature -h -target-feature -smaia -target-feature -smepmp -target-feature -ssaia -target-feature -svinval -target-feature -svnapot -target-feature -svpbmt -target-feature -v -target-feature -xcvalu -target-feature -xcvbi -target-feature -xcvbitmanip -target-feature -xcvelw -target-feature -xcvmac -target-feature -xcvmem -target-feature -xcvsimd -target-feature -xesppie -target-feature -xsfvcp -target-feature -xsfvfnrclipxfqf -target-feature -xsfvfwmaccqqq -target-feature -xsfvqmaccdod -target-feature -xsfvqmaccqoq -target-feature -xtheadba -target-feature -xtheadbb -target-feature -xtheadbs -target-feature -xtheadcmo -target-feature -xtheadcondmov -target-feature -xtheadfmemidx -target-feature -xtheadmac -target-feature -xtheadmemidx -target-feature -xtheadmempair -target-feature -xtheadsync -target-feature -xtheadvdot -target-feature -xventanacondops -target-feature -za128rs -target-feature -za64rs -target-feature -zawrs -target-feature -zba -target-feature -zbb -target-feature -zbc -target-feature -zbkb -target-feature -zbkc -target-feature -zbkx -target-feature -zbs -target-feature -zca -target-feature -zcb -target-feature -zcd -target-feature -zce -target-feature -zcf -target-feature -zcmp -target-feature -zcmt -target-feature -zdinx -target-feature -zfa -target-feature -zfh -target-feature -zfhmin -target-feature -zfinx -target-feature -zhinx -target-feature -zhinxmin -target-feature -zic64b -target-feature -zicbom -target-feature -zicbop -target-feature -zicboz -target-feature -ziccamoa -target-feature -ziccif -target-feature -zicclsm -target-feature -ziccrse -target-feature -zicntr -target-feature -zicond -target-feature -zicsr -target-feature -zifencei -target-feature -zihintntl -target-feature -zihintpause -target-feature -zihpm -target-feature -zk -target-feature -zkn -target-feature -zknd -target-feature -zkne -target-feature -zknh -target-feature -zkr -target-feature -zks -target-feature -zksed -target-feature -zksh -target-feature -zkt -target-feature -zmmul -target-feature -zvbb -target-feature -zvbc -target-feature -zve32f -target-feature -zve32x -target-feature -zve64d -target-feature -zve64f -target-feature -zve64x -target-feature -zvfh -target-feature -zvfhmin -target-feature -zvkb -target-feature -zvkg -target-feature -zvkn -target-feature -zvknc -target-feature -zvkned -target-feature -zvkng -target-feature -zvknha -target-feature -zvknhb -target-feature -zvks -target-feature -zvksc -target-feature -zvksed -target-feature -zvksg -target-feature -zvksh -target-feature -zvkt -target-feature -zvl1024b -target-feature -zvl128b -target-feature -zvl16384b -target-feature -zvl2048b -target-feature -zvl256b -target-feature -zvl32768b -target-feature -zvl32b -target-feature -zvl4096b -target-feature -zvl512b -target-feature -zvl64b -target-feature -zvl65536b -target-feature -zvl8192b -target-feature -experimental-zacas -target-feature -experimental-zcmop -target-feature -experimental-zfbfmin -target-feature -experimental-zicfilp -target-feature -experimental-zicfiss -target-feature -experimental-zimop -target-feature -experimental-ztso -target-feature -experimental-zvfbfmin -target-feature -experimental-zvfbfwma -target-feature +relax -target-abi ilp32 -msmall-data-limit 8 -debugger-tuning=gdb -fdebug-compilation-dir=D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/esp32_to_stm32/main/build/default/CMakeFiles/CMakeScratch/TryCompile-3at26s -v -fcoverage-compilation-dir=D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/esp32_to_stm32/main/build/default/CMakeFiles/CMakeScratch/TryCompile-3at26s -resource-dir D:/Espressif/Espressif/tools/esp-clang/esp-18.1.2_20240912/esp-clang/lib/clang/18 -dependency-file "CMakeFiles\\\\cmTC_01196.dir\\\\CMakeCCompilerABI.c.obj.d" -MT CMakeFiles/cmTC_01196.dir/CMakeCCompilerABI.c.obj -sys-header-deps -internal-isystem D:/Espressif/Espressif/tools/esp-clang/esp-18.1.2_20240912/esp-clang/lib/clang/18/include -internal-isystem D:/Espressif/Espressif/tools/esp-clang/esp-18.1.2_20240912/esp-clang/bin/../lib/clang-runtimes/riscv32-esp-unknown-elf/rv32imac-zicsr-zifencei_ilp32/include -ferror-limit 19 -fno-signed-char -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -faddrsig -o "CMakeFiles\\\\cmTC_01196.dir\\\\CMakeCCompilerABI.c.obj" -x c "D:\\\\Espressif\\\\Espressif\\\\tools\\\\cmake\\\\3.30.2\\\\share\\\\cmake-3.30\\\\Modules\\\\CMakeCCompilerABI.c"
+        clang -cc1 version 18.1.2 based upon LLVM 18.1.2 default target riscv32-esp-elf
+        ignoring duplicate directory "D:/Espressif/Espressif/tools/esp-clang/esp-18.1.2_20240912/esp-clang/lib/clang/18/include"
+        #include "..." search starts here:
+        #include <...> search starts here:
+         D:/Espressif/Espressif/tools/esp-clang/esp-18.1.2_20240912/esp-clang/lib/clang/18/include
+         D:/Espressif/Espressif/tools/esp-clang/esp-18.1.2_20240912/esp-clang/bin/../lib/clang-runtimes/riscv32-esp-unknown-elf/rv32imac-zicsr-zifencei_ilp32/include
+        End of search list.
+        Linking C executable cmTC_01196.exe
+        D:\\Espressif\\Espressif\\tools\\cmake\\3.30.2\\bin\\cmake.exe -E cmake_link_script CMakeFiles\\cmTC_01196.dir\\link.txt --verbose=1
+        D:\\Espressif\\Espressif\\tools\\cmake\\3.30.2\\bin\\cmake.exe -E rm -f CMakeFiles\\cmTC_01196.dir/objects.a
+        D:\\Espressif\\Espressif\\tools\\esp-clang\\esp-18.1.2_20240912\\esp-clang\\bin\\llvm-ar.exe qc CMakeFiles\\cmTC_01196.dir/objects.a @CMakeFiles\\cmTC_01196.dir\\objects1.rsp
+        D:\\Espressif\\Espressif\\tools\\esp-clang\\esp-18.1.2_20240912\\esp-clang\\bin\\clang.exe  -v -Wl,-v -Wl,--whole-archive CMakeFiles\\cmTC_01196.dir/objects.a -Wl,--no-whole-archive -o cmTC_01196.exe -Wl,--out-implib,libcmTC_01196.dll.a -Wl,--major-image-version,0,--minor-image-version,0
+        clang version 18.1.2 (https://github.com/espressif/llvm-project.git esp-18.1.2_20240912)
+        Target: riscv32-esp-unknown-elf
+        Thread model: posix
+        InstalledDir: D:/Espressif/Espressif/tools/esp-clang/esp-18.1.2_20240912/esp-clang/bin
+         "D:/Espressif/Espressif/tools/esp-clang/esp-18.1.2_20240912/esp-clang/bin/ld.lld" -m elf32lriscv -o cmTC_01196.exe -X D:/Espressif/Espressif/tools/esp-clang/esp-18.1.2_20240912/esp-clang/bin/../lib/clang-runtimes/riscv32-esp-unknown-elf/rv32imac-zicsr-zifencei_ilp32/lib/crt0.o -v --whole-archive "CMakeFiles\\\\cmTC_01196.dir/objects.a" --no-whole-archive --out-implib libcmTC_01196.dll.a --major-image-version 0 --minor-image-version 0 -LD:/Espressif/Espressif/tools/esp-clang/esp-18.1.2_20240912/esp-clang/bin/../lib/clang-runtimes/riscv32-esp-unknown-elf/rv32imac-zicsr-zifencei_ilp32/lib -lm --start-group -lc -lgloss -lnosys --end-group -lclang_rt.builtins
+        ld.lld: error: unknown argument '--major-image-version'
+        ld.lld: error: unknown argument '--minor-image-version'
+        LLD 18.1.2 (compatible with GNU linkers)
+        ld.lld: error: cannot open 0: No such file or directory
+        ld.lld: error: cannot open 0: No such file or directory
+        clang: error: ld command failed with exit code 1 (use -v to see invocation)
+        CMakeFiles\\cmTC_01196.dir\\build.make:99: recipe for target 'cmTC_01196.exe' failed
+        mingw32-make.exe[1]: *** [cmTC_01196.exe] Error 1
+        mingw32-make.exe[1]: Leaving directory 'D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/esp32_to_stm32/main/build/default/CMakeFiles/CMakeScratch/TryCompile-3at26s'
+        Makefile:126: recipe for target 'cmTC_01196/fast' failed
+        mingw32-make.exe: *** [cmTC_01196/fast] Error 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "D:/Espressif/Espressif/tools/cmake/3.30.2/share/cmake-3.30/Modules/CMakeTestCCompiler.cmake:56 (try_compile)"
+      - "CMakeLists.txt:2 (project)"
+    checks:
+      - "Check for working C compiler: D:/Espressif/Espressif/tools/esp-clang/esp-18.1.2_20240912/esp-clang/bin/clang.exe"
+    directories:
+      source: "D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/esp32_to_stm32/main/build/default/CMakeFiles/CMakeScratch/TryCompile-9xfefo"
+      binary: "D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/esp32_to_stm32/main/build/default/CMakeFiles/CMakeScratch/TryCompile-9xfefo"
+    cmakeVariables:
+      CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS-NOTFOUND"
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "CMAKE_C_COMPILER_WORKS"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/esp32_to_stm32/main/build/default/CMakeFiles/CMakeScratch/TryCompile-9xfefo'
+        
+        Run Build Command(s): D:/Espressif/Espressif/tools/cmake/3.30.2/bin/cmake.exe -E env VERBOSE=1 C:/MinGW/bin/mingw32-make.exe -f Makefile cmTC_cb7cc/fast
+        C:/MinGW/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_cb7cc.dir\\build.make CMakeFiles/cmTC_cb7cc.dir/build
+        mingw32-make.exe[1]: Entering directory 'D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/esp32_to_stm32/main/build/default/CMakeFiles/CMakeScratch/TryCompile-9xfefo'
+        Building C object CMakeFiles/cmTC_cb7cc.dir/testCCompiler.c.obj
+        D:\\Espressif\\Espressif\\tools\\esp-clang\\esp-18.1.2_20240912\\esp-clang\\bin\\clang.exe    -MD -MT CMakeFiles/cmTC_cb7cc.dir/testCCompiler.c.obj -MF CMakeFiles\\cmTC_cb7cc.dir\\testCCompiler.c.obj.d -o CMakeFiles\\cmTC_cb7cc.dir\\testCCompiler.c.obj -c D:\\File_dai_hoc_UIT\\Thuc_Tap_FSOFT\\INTERN_PROJECT\\esp32_to_stm32\\main\\build\\default\\CMakeFiles\\CMakeScratch\\TryCompile-9xfefo\\testCCompiler.c
+        Linking C executable cmTC_cb7cc.exe
+        D:\\Espressif\\Espressif\\tools\\cmake\\3.30.2\\bin\\cmake.exe -E cmake_link_script CMakeFiles\\cmTC_cb7cc.dir\\link.txt --verbose=1
+        D:\\Espressif\\Espressif\\tools\\cmake\\3.30.2\\bin\\cmake.exe -E rm -f CMakeFiles\\cmTC_cb7cc.dir/objects.a
+        D:\\Espressif\\Espressif\\tools\\esp-clang\\esp-18.1.2_20240912\\esp-clang\\bin\\llvm-ar.exe qc CMakeFiles\\cmTC_cb7cc.dir/objects.a @CMakeFiles\\cmTC_cb7cc.dir\\objects1.rsp
+        D:\\Espressif\\Espressif\\tools\\esp-clang\\esp-18.1.2_20240912\\esp-clang\\bin\\clang.exe -Wl,--whole-archive CMakeFiles\\cmTC_cb7cc.dir/objects.a -Wl,--no-whole-archive -o cmTC_cb7cc.exe -Wl,--out-implib,libcmTC_cb7cc.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\\cmTC_cb7cc.dir\\linkLibs.rsp
+        ld.lld: error: unknown argument '--major-image-version'
+        ld.lld: error: unknown argument '--minor-image-version'
+        ld.lld: error: cannot open 0: No such file or directory
+        ld.lld: error: cannot open 0: No such file or directory
+        ld.lld: error: unable to find library -lkernel32
+        ld.lld: error: unable to find library -luser32
+        ld.lld: error: unable to find library -lgdi32
+        ld.lld: error: unable to find library -lwinspool
+        ld.lld: error: unable to find library -lshell32
+        ld.lld: error: unable to find library -lole32
+        ld.lld: error: unable to find library -loleaut32
+        ld.lld: error: unable to find library -luuid
+        ld.lld: error: unable to find library -lcomdlg32
+        ld.lld: error: unable to find library -ladvapi32
+        clang: error: ld command failed with exit code 1 (use -v to see invocation)
+        CMakeFiles\\cmTC_cb7cc.dir\\build.make:100: recipe for target 'cmTC_cb7cc.exe' failed
+        mingw32-make.exe[1]: *** [cmTC_cb7cc.exe] Error 1
+        mingw32-make.exe[1]: Leaving directory 'D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/esp32_to_stm32/main/build/default/CMakeFiles/CMakeScratch/TryCompile-9xfefo'
+        Makefile:126: recipe for target 'cmTC_cb7cc/fast' failed
+        mingw32-make.exe: *** [cmTC_cb7cc/fast] Error 2
+        
+      exitCode: 2
+...
