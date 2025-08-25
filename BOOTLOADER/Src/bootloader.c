@@ -1,387 +1,311 @@
-/*
- * Robust two-slot bootloader for STM32F103C8T6
- * - Blocking UART protocol with command IDs
- * - Length check, CRC32 check (whole image)
- * - Copy Current -> Old before update; restore on failure
- * - Footer (magic, valid, size, crc32, version), BCB (boot target/pending/trials)
- */
-
 #include "bootloader.h"
-#include "flash_if.h"
-#include "bl_meta.h"
-#include "stm32f103xx.h"
+#include <stdlib.h>
 
-// ---------------- Protocol IDs ----------------
-enum {
-    CMD_FW_ERR        = 0,
-    CMD_FW_OK         = 1,
-    CMD_FW_REQUEST    = 2,
-    CMD_FW_LENGTH     = 3,
-    CMD_FW_RECEIVED   = 4,
-    CMD_CHECKSUM_DATA = 5,
-    CMD_CHECKSUM_OK   = 6,
-    CMD_CHECKSUM_ERR  = 7
-};
+USART_Handle_t husart1;
+GPIO_Handle_t hgpio_led;
+uint8_t rx_buffer[RX_BUFFER_SIZE];
+uint8_t cmd_buffer[CMD_BUFFER_SIZE];
+volatile uint16_t rx_index = 0;
+volatile bool cmd_ready = false;
+volatile Bootloader_State_t bl_state = BL_STATE_IDLE;
+uint32_t fw_size = 0;
+uint32_t fw_received = 0;
+uint32_t fw_checksum = 0;
+uint32_t calculated_checksum = 0;
+uint32_t current_flash_addr = APP_CURRENT_START;
 
-// ---------------- Tunables ----------------
-//#define CHUNK_SIZE        256U
-#define UART_BAUD         115200U
-#define MAX_IMAGE_SIZE    (CUR_SIZE - PAGE_SIZE) // 55 KB
+/* --- Cortex-M3 system registers (STM32F103) --- */
+#define SCS_BASE        (0xE000E000UL)
+#define SCB_BASE        (SCS_BASE +  0x0D00UL)
 
-// Minimal SCB for VTOR
-typedef struct {
-    volatile uint32_t CPUID;
-    volatile uint32_t ICSR;
-    volatile uint32_t VTOR;
-    volatile uint32_t AIRCR;
-    volatile uint32_t SCR;
-    volatile uint32_t CCR;
-    volatile uint8_t  SHP[12];
-    volatile uint32_t SHCSR;
-} SCB_Type;
-#define SCB ((SCB_Type*)0xE000ED00UL)
+#define SCB_VTOR        (*(volatile uint32_t*)(SCB_BASE + 0x08))
 
-// ---------------- CRC32 (bitwise, streaming) ----------------
-static uint32_t crc32_update(uint32_t crc, const uint8_t* p, uint32_t n) {
-    crc ^= 0xFFFFFFFFu;
-    for (uint32_t i = 0; i < n; i++) {
-        crc ^= p[i];
-        for (int j = 0; j < 8; j++) {
-            if (crc & 1U) crc = (crc >> 1) ^ 0xEDB88320u;
-            else          crc >>= 1;
-        }
-    }
-    return crc ^ 0xFFFFFFFFu;
-}
+#define SYSTICK_BASE    (SCS_BASE + 0x0010UL)
+#define SYSTICK_CTRL    (*(volatile uint32_t*)(SYSTICK_BASE + 0x00))
 
-// ---------------- Partition helpers ----------------
-static inline uint32_t part_base(part_t p) {
-    return (p == PART_CURRENT) ? CUR_START : OLD_START;
-}
+/* AIRCR for reset/system control if needed */
+#define SCB_AIRCR       (*(volatile uint32_t*)(SCB_BASE + 0x0C))
 
-static inline uint32_t part_footer(part_t p) {
-    return (p == PART_CURRENT) ? CUR_FOOTER_ADDR : OLD_FOOTER_ADDR;
-}
-
-static int read_valid_footer(part_t p, app_footer_t* f) {
-    read_footer(part_footer(p), f);
-    if (f->magic != FOOTER_MAGIC || f->valid == 0) return 0;
-    return 1;
-}
-
-static int is_partition_valid(part_t p) {
-    app_footer_t f;
-    return read_valid_footer(p, &f);
-}
-
-static void invalidate_footer(part_t p) {
-    app_footer_t f = {0};
-    write_footer(part_footer(p), &f); // clear magic/valid
-}
-
-// Copy used image bytes from src to dst (size from src footer)
-static int copy_partition(part_t src, part_t dst) {
-    app_footer_t fs;
-    if (!read_valid_footer(src, &fs)) return -1;
-
-    uint32_t src_addr = part_base(src);
-    uint32_t dst_addr = part_base(dst);
-    uint32_t size     = fs.size;
-
-    // Erase destination app region (excluding footer page at end)
-    if (flash_erase_range(dst_addr, (dst == PART_CURRENT ? CUR_SIZE : OLD_SIZE) - PAGE_SIZE) != 0) return -1;
-
-    uint8_t buf[CHUNK_SIZE];
-    uint32_t remaining = size;
-    while (remaining) {
-        uint32_t len = (remaining > CHUNK_SIZE) ? CHUNK_SIZE : remaining;
-        for (uint32_t i = 0; i < len; i++) buf[i] = *(volatile uint8_t*)(src_addr + i);
-        if (flash_write(dst_addr, buf, len) != 0) return -1;
-        src_addr += len;
-        dst_addr += len;
-        remaining -= len;
-    }
-
-    // Copy footer (preserve validity)
-    write_footer(part_footer(dst), &fs);
-    return 0;
-}
-
-// ---------------- UART helpers (blocking) ----------------
-USART_Handle_t husart1 = {
-    .pUSARTx = USART1,
-    .USART_Config = {
-        .USART_Mode              = USART_MODE_TXRX,
-        .USART_Baudrate          = USART_STD_BAUD_115200,
-        .USART_NumberOfStopBits  = USART_STOPBITS_1,
-        .USART_WordLength        = USART_WORDLEN_8BITS,
-        .USART_ParityControl     = USART_PARITY_DISABLE,
-        .USART_HWFLowControl     = USART_HW_FLOW_CTRL_NONE
-    }
-};
-
-static void uart1_pins_init(void)
-{
+void UART_Init(void) {
     GPIO_Handle_t hgpio;
 
-    // TX: PA9, AF push-pull, 50 MHz
+    GPIOA_PCLK_EN();
+    USART1_PCLK_EN();
+
     hgpio.pGPIOx = GPIOA;
-    hgpio.GPIO_PinConfig.GPIO_PinNumber      = GPIO_PIN_NO_9;
-    hgpio.GPIO_PinConfig.GPIO_PinMode        = GPIO_MODE_ALTFN;
-    hgpio.GPIO_PinConfig.GPIO_PinAltFunMode  = GPIO_ALT_MODE_USART_TX_FULLDUP; // AF out push-pull
-    hgpio.GPIO_PinConfig.GPIO_PinSpeed       = GPIO_SPEED_FAST;                // 50 MHz
-    hgpio.GPIO_PinConfig.GPIO_PinPuPdControl = 0;                              // not used for AF PP
+    hgpio.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_9;
+    hgpio.GPIO_PinConfig.GPIO_PinMode = GPIO_MODE_ALTFN;
+    hgpio.GPIO_PinConfig.GPIO_PinAltFunMode = GPIO_ALT_MODE_USART_TX_FULLDUP;
+    hgpio.GPIO_PinConfig.GPIO_PinSpeed = GPIO_SPEED_FAST;
+    hgpio.GPIO_PinConfig.GPIO_PinPuPdControl = 0;
     GPIO_Init(&hgpio);
 
-    // RX: PA10, input floating (no pull)
-    hgpio.pGPIOx = GPIOA;
-    hgpio.GPIO_PinConfig.GPIO_PinNumber      = GPIO_PIN_NO_10;
-    hgpio.GPIO_PinConfig.GPIO_PinMode        = GPIO_MODE_ALTFN;
-    hgpio.GPIO_PinConfig.GPIO_PinAltFunMode  = GPIO_ALT_MODE_USART_RX_FULLDUP; // AF input floating
-    hgpio.GPIO_PinConfig.GPIO_PinSpeed       = 0;                               // ignored for input
-    hgpio.GPIO_PinConfig.GPIO_PinPuPdControl = 0;                               // no pull
+    hgpio.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_10;
+    hgpio.GPIO_PinConfig.GPIO_PinAltFunMode = GPIO_ALT_MODE_USART_RX_FULLDUP;
+    hgpio.GPIO_PinConfig.GPIO_PinSpeed = 0;
     GPIO_Init(&hgpio);
-}
-
-
-static void uart1_init(void) {
-    uart1_pins_init();
 
     husart1.pUSARTx = USART1;
-    husart1.USART_Config.USART_Mode            = USART_MODE_TXRX;
-    husart1.USART_Config.USART_Baudrate        = UART_BAUD;
-    husart1.USART_Config.USART_WordLength      = USART_WORDLEN_8BITS;
-    husart1.USART_Config.USART_ParityControl   = USART_PARITY_DISABLE;
-    husart1.USART_Config.USART_NumberOfStopBits= USART_STOPBITS_1;
-    husart1.USART_Config.USART_HWFLowControl   = USART_HW_FLOW_CTRL_NONE;
-
+    husart1.USART_Config.USART_Mode = USART_MODE_TXRX;
+    husart1.USART_Config.USART_Baudrate = USART_STD_BAUD_115200;
+    husart1.USART_Config.USART_NumberOfStopBits = USART_STOPBITS_1;
+    husart1.USART_Config.USART_WordLength = USART_WORDLEN_8BITS;
+    husart1.USART_Config.USART_ParityControl = USART_PARITY_DISABLE;
+    husart1.USART_Config.USART_HWFLowControl = USART_HW_FLOW_CTRL_NONE;
     USART_Init(&husart1);
+    USART_ReceiveDataIT(&husart1, rx_buffer, RX_BUFFER_SIZE);
     USART_Start(husart1.pUSARTx);
 }
 
-static void uart_write_bytes(const uint8_t* p, uint32_t n) {
-    USART_SendData(&husart1, (uint8_t*)p, n);
+void GPIO_Init_LED(void) {
+    GPIOC_PCLK_EN();
+    hgpio_led.pGPIOx = GPIOC;
+    hgpio_led.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_13;
+    hgpio_led.GPIO_PinConfig.GPIO_PinMode = GPIO_MODE_OUT;
+    hgpio_led.GPIO_PinConfig.GPIO_PinCfgMode = GPIO_CFG_OUT_GE_PP;
+    hgpio_led.GPIO_PinConfig.GPIO_PinSpeed = GPIO_SPEED_MEDIUM;
+    hgpio_led.GPIO_PinConfig.GPIO_PinPuPdControl = 0;
+    GPIO_Init(&hgpio_led);
+    GPIO_WritePin(GPIOC, GPIO_PIN_NO_13, 1);
 }
 
-static void uart_write_u8(uint8_t b) {
-    uart_write_bytes(&b, 1);
+void LED_Toggle(void) {
+    GPIO_Toggle(GPIOC, GPIO_PIN_NO_13);
 }
 
-static void uart_read_bytes(uint8_t* p, uint32_t n) {
-    USART_ReceiveData(&husart1, p, n);
+void Bootloader_Init(void) {
+    UART_Init();
+    GPIO_Init_LED();
+    bl_state = BL_STATE_IDLE;
+    rx_index = 0;
+    cmd_ready = false;
 }
 
-static uint8_t uart_read_u8(void) {
-    uint8_t b;
-    uart_read_bytes(&b, 1);
-    return b;
+void Send_Response(const char* response) {
+    USART_SendData(&husart1, (uint8_t*)response, strlen(response));
 }
 
-// Try read a byte with a crude timeout loop (approx, HSI 8MHz)
-static int uart_try_read_u8(uint8_t* out, uint32_t spin_max) {
-    while (spin_max--) {
-        if ((husart1.pUSARTx->SR >> USART_SR_RXNE) & 1) {
-            *out = (uint8_t)(husart1.pUSARTx->DR & 0xFF);
-            return 1;
+bool Check_App_Valid(uint32_t addr) {
+    uint32_t sp = *(volatile uint32_t*)(addr);
+    app_footer_t footer;
+    read_footer(&footer);
+    return (sp >= SRAM_BASEADDR && sp <= SRAM_BASEADDR + 0x5000 && footer.valid == 1);
+}
+
+void Erase_App_Current(void) {
+    uint32_t addr = APP_CURRENT_START;
+    for (uint32_t i = 0; i < APP_CURRENT_SIZE; i += FLASH_PAGE_SIZE) {
+        FLASH_Erase(addr + i);
+    }
+}
+
+uint32_t Calculate_Checksum(uint32_t start_addr, uint32_t size) {
+    uint32_t checksum = 0;
+    uint8_t buffer[FLASH_PAGE_SIZE];
+    for (uint32_t i = 0; i < size; i += FLASH_PAGE_SIZE) {
+        uint32_t len = (size - i < FLASH_PAGE_SIZE) ? (size - i) : FLASH_PAGE_SIZE;
+        FLASH_Read_Data(start_addr + i, (uint32_t*)buffer, len / 4);
+        for (uint32_t j = 0; j < len; j++) {
+            checksum += buffer[j];
         }
     }
-    return 0;
+    return checksum;
 }
 
-// ---------------- Jump to app ----------------
-static void jump_to_app(part_t p) {
-    uint32_t app_addr = part_base(p);
-    uint32_t sp = *(volatile uint32_t*)(app_addr + 0);
-    uint32_t rv = *(volatile uint32_t*)(app_addr + 4);
-
-    // Deinit clocks and peripherals
-    USART_Stop(husart1.pUSARTx);
-    RCC_DeInit();
-
-    // Relocate vector table
-    SCB->VTOR = app_addr;
-
-    // Disable interrupts
-    __asm volatile ("cpsid i");
-
-    // Set MSP and jump
-    __asm volatile ("msr msp, %0" : : "r" (sp) : );
-    ((void (*)(void))rv)();
-    while(1);
-}
-
-// ---------------- OTA receive ----------------
-static int receive_firmware(uint32_t fw_len, uint32_t* out_crc32) {
-    // Length check
-    if (fw_len == 0 || fw_len > MAX_IMAGE_SIZE) {
-        uart_write_u8(CMD_FW_ERR);
-        return -1;
-    }
-
-    // If Current valid, back it up to Old
-    if (is_partition_valid(PART_CURRENT)) {
-        if (copy_partition(PART_CURRENT, PART_OLD) != 0) {
-            uart_write_u8(CMD_FW_ERR);
-            return -1;
-        }
-    }
-
-    // Prepare Current for new image
-    // Invalidate footer first (so power-loss leaves it invalid)
-    invalidate_footer(PART_CURRENT);
-    if (flash_erase_range(CUR_START, CUR_SIZE - PAGE_SIZE) != 0) {
-        uart_write_u8(CMD_FW_ERR);
-        return -1;
-    }
-
-    uart_write_u8(CMD_FW_OK);
-
-    uint8_t buf[CHUNK_SIZE];
-    uint32_t addr = CUR_START;
-    uint32_t remaining = fw_len;
-    uint32_t crc = 0;
-
-    while (remaining > 0) {
-        uint32_t chunk = (remaining > CHUNK_SIZE) ? CHUNK_SIZE : remaining;
-        uart_read_bytes(buf, chunk);
-        crc = crc32_update(crc, buf, chunk);
-
-        if (flash_write(addr, buf, chunk) != 0) {
-            // Restore from Old if we have a valid Old
-            if (is_partition_valid(PART_OLD)) {
-                copy_partition(PART_OLD, PART_CURRENT);
-            }
-            uart_write_u8(CMD_FW_ERR);
-            return -1;
-        }
-
-        addr += chunk;
-        remaining -= chunk;
-
-        // Acknowledge chunk
-        uart_write_u8(CMD_FW_RECEIVED);
-    }
-
-    // Expect checksum command next
-    uint8_t cmd = uart_read_u8();
-    if (cmd != CMD_CHECKSUM_DATA) {
-        uart_write_u8(CMD_FW_ERR);
-        return -1;
-    }
-
-    uint8_t crcraw[4];
-    uart_read_bytes(crcraw, 4);
-    uint32_t fw_crc = (uint32_t)crcraw[0] |
-                      ((uint32_t)crcraw[1] << 8) |
-                      ((uint32_t)crcraw[2] << 16) |
-                      ((uint32_t)crcraw[3] << 24);
-
-    *out_crc32 = crc;
-
-    if (crc != fw_crc) {
-        // Bad CRC: erase broken Current and restore from Old
-        flash_erase_range(CUR_START, CUR_SIZE - PAGE_SIZE);
-        if (is_partition_valid(PART_OLD)) {
-            copy_partition(PART_OLD, PART_CURRENT);
-        }
-        uart_write_u8(CMD_CHECKSUM_ERR);
-        return -1;
-    }
-
-    uart_write_u8(CMD_CHECKSUM_OK);
-
-    // Finalize: write a valid footer
-    app_footer_t foot = {
-        .magic   = FOOTER_MAGIC,
-        .valid   = 1,
-        .size    = fw_len,
-        .crc32   = fw_crc,
-        .version = 0x00010000u
-    };
-    write_footer(CUR_FOOTER_ADDR, &foot);
-
-    // Mark BCB pending/trial (optional: app should clear pending after self-test)
-    boot_ctrl_t bcb;
-    read_bcb(&bcb);
-    if (bcb.magic != BCB_MAGIC) {
-        bcb.magic = BCB_MAGIC;
-    }
-    bcb.boot_target = PART_CURRENT;
-    bcb.pending     = 1;
-    bcb.trial_count = 3;
-    write_bcb(&bcb);
-
-    return 0;
-}
-
-// ---------------- Boot selection ----------------
-static void ensure_bcb(void) {
-    boot_ctrl_t bcb;
-    read_bcb(&bcb);
-    if (bcb.magic != BCB_MAGIC) {
-        bcb.magic = BCB_MAGIC;
-        bcb.boot_target = PART_CURRENT;
-        bcb.pending = 0;
-        bcb.trial_count = 0;
-        write_bcb(&bcb);
-    }
-}
-
-void bootloader_main(void) {
-    // Keep default HSI/8MHz. Init UART.
-    uart1_init();
-    ensure_bcb();
-
-    // Optional small window to accept immediate FW_REQUEST
-    uint8_t first;
-    if (uart_try_read_u8(&first, 800000)) { // rough spin timeout
-        if (first == CMD_FW_REQUEST) {
-            // Expect FW_LENGTH + 4 bytes
-            uint8_t cmd = uart_read_u8();
-            if (cmd != CMD_FW_LENGTH) {
-                uart_write_u8(CMD_FW_ERR);
-            } else {
-                uint8_t lenraw[4];
-                uart_read_bytes(lenraw, 4);
-                uint32_t fw_len = (uint32_t)lenraw[0] |
-                                  ((uint32_t)lenraw[1] << 8) |
-                                  ((uint32_t)lenraw[2] << 16) |
-                                  ((uint32_t)lenraw[3] << 24);
-                uint32_t crc;
-                if (receive_firmware(fw_len, &crc) == 0) {
-                    // Successful OTA: jump to Current
-                    jump_to_app(PART_CURRENT);
-                }
-            }
-        }
-    }
-
-    // No OTA request (or OTA failed): normal boot selection
-    if (is_partition_valid(PART_CURRENT)) {
-        jump_to_app(PART_CURRENT);
-    } else if (is_partition_valid(PART_OLD)) {
-        jump_to_app(PART_OLD);
+void Process_FW_Request(void) {
+    if (strcmp((char*)cmd_buffer, CMD_FW_REQUEST) == 0) {
+        Send_Response(RESP_FW_READY);
+        bl_state = BL_STATE_WAIT_LENGTH;
     } else {
-        // Stay in OTA mode: wait indefinitely for a proper request
-        while (1) {
-            uint8_t b = uart_read_u8();
-            if (b == CMD_FW_REQUEST) {
-                uint8_t cmd = uart_read_u8();
-                if (cmd == CMD_FW_LENGTH) {
-                    uint8_t lenraw[4];
-                    uart_read_bytes(lenraw, 4);
-                    uint32_t fw_len = (uint32_t)lenraw[0] |
-                                      ((uint32_t)lenraw[1] << 8) |
-                                      ((uint32_t)lenraw[2] << 16) |
-                                      ((uint32_t)lenraw[3] << 24);
-                    uint32_t crc;
-                    if (receive_firmware(fw_len, &crc) == 0) {
-                        jump_to_app(PART_CURRENT);
-                    }
-                } else {
-                    uart_write_u8(CMD_FW_ERR);
-                }
+        Send_Response(RESP_ERROR);
+    }
+}
+
+void Process_FW_Length(char* length_str) {
+    fw_size = strtoul(length_str + strlen(CMD_FW_LENGTH), NULL, 10);
+    if (fw_size <= (APP_CURRENT_SIZE - FLASH_PAGE_SIZE)) {
+        Send_Response(RESP_FW_OK);
+        bl_state = BL_STATE_WAIT_DATA;
+        fw_received = 0;
+        calculated_checksum = 0;
+        current_flash_addr = APP_CURRENT_START;
+        Erase_App_Current();
+    } else {
+        Send_Response(RESP_ERROR);
+    }
+}
+
+// Đệm 1 byte lẻ
+static bool     s_have_lo_byte = false;
+static uint8_t  s_lo_byte = 0;
+
+/* Ghi half-word, KHÔNG erase trang (trang đã erase trước đó) */
+static inline int flash_program_halfword(uint32_t addr, uint16_t half)
+{
+    // Wait not busy
+    while (FLASH->SR & (1 << FLASH_SR_BSY));
+    // Clear flags
+    FLASH->SR |= (1 << FLASH_SR_EOP) | (1 << FLASH_SR_PGERR) | (1 << FLASH_SR_WRPRTERR);
+    // Program
+    FLASH->CR |= (1 << FLASH_CR_PG);
+    *(volatile uint16_t*)addr = half;
+    while (FLASH->SR & (1 << FLASH_SR_BSY));
+    FLASH->CR &= ~(1 << FLASH_CR_PG);
+    return (FLASH->SR & (1 << FLASH_SR_PGERR)) ? -1 : 0;
+}
+
+void Process_FW_Data(uint8_t* data, uint16_t length)
+{
+    if (length != 1 || fw_received >= fw_size) {
+        Send_Response(RESP_ERROR);
+        return;
+    }
+
+    uint8_t b = data[0];
+
+    // Cộng checksum theo byte
+    calculated_checksum += b;
+
+    if (!s_have_lo_byte) {
+        // Lưu byte thấp, chưa ghi flash
+        s_lo_byte = b;
+        s_have_lo_byte = true;
+    } else {
+        // Có đủ 2 byte -> ghép half-word và ghi
+        uint16_t half = (uint16_t)(s_lo_byte | ((uint16_t)b << 8));
+        if (flash_program_halfword(current_flash_addr, half) != 0) {
+            Send_Response(RESP_ERROR);
+            bl_state = BL_STATE_IDLE;
+            return;
+        }
+        current_flash_addr += 2;
+        s_have_lo_byte = false;
+    }
+
+    fw_received += 1;
+    Send_Response(RESP_FW_RECEIVED);
+
+    if (fw_received >= fw_size) {
+        // Nếu tổng byte là số lẻ -> pad 0xFF để hoàn tất half-word cuối
+        if (s_have_lo_byte) {
+            uint16_t half = (uint16_t)(s_lo_byte | ((uint16_t)0xFF << 8));
+            if (flash_program_halfword(current_flash_addr, half) != 0) {
+                Send_Response(RESP_ERROR);
+                bl_state = BL_STATE_IDLE;
+                return;
             }
+            current_flash_addr += 2;
+            s_have_lo_byte = false;
+        }
+        bl_state = BL_STATE_WAIT_CHECKSUM;
+    }
+}
+
+void Process_FW_Checksum(char* checksum_str) {
+    fw_checksum = strtoul(checksum_str + strlen(CMD_CHECKSUM), NULL, 10);
+    if (fw_checksum == calculated_checksum) {
+        app_footer_t footer = {1, 0x00010000};
+        write_footer(&footer);
+        Send_Response(RESP_CHECKSUM_OK);
+        bl_state = BL_STATE_COMPLETE;
+    } else {
+        Send_Response(RESP_CHECKSUM_ERR);
+        bl_state = BL_STATE_IDLE;
+    }
+}
+
+void Process_Command(void) {
+    if (!cmd_ready) return;
+
+    cmd_buffer[rx_index] = '\0';
+    cmd_ready = false;
+    rx_index = 0;
+
+    switch (bl_state) {
+        case BL_STATE_IDLE:
+            Process_FW_Request();
+            break;
+        case BL_STATE_WAIT_LENGTH:
+            if (strncmp((char*)cmd_buffer, CMD_FW_LENGTH, strlen(CMD_FW_LENGTH)) == 0) {
+                Process_FW_Length((char*)cmd_buffer);
+            } else {
+                Send_Response(RESP_ERROR);
+            }
+            break;
+        case BL_STATE_WAIT_DATA:
+            if (strncmp((char*)cmd_buffer, CMD_FW_DATA, strlen(CMD_FW_DATA)) == 0) {
+                Process_FW_Data(cmd_buffer + strlen(CMD_FW_DATA), 1);
+            } else {
+                Send_Response(RESP_ERROR);
+            }
+            break;
+        case BL_STATE_WAIT_CHECKSUM:
+            if (strncmp((char*)cmd_buffer, CMD_CHECKSUM, strlen(CMD_CHECKSUM)) == 0) {
+                Process_FW_Checksum((char*)cmd_buffer);
+            } else {
+                Send_Response(RESP_ERROR);
+            }
+            break;
+        default:
+            Send_Response(RESP_ERROR);
+            bl_state = BL_STATE_IDLE;
+            break;
+    }
+}
+
+typedef void (*pFunction)(void);
+
+void Jump_To_App(uint32_t addr)
+{
+    uint32_t sp = *(volatile uint32_t*)(addr);      /* Initial MSP */
+    uint32_t rv = *(volatile uint32_t*)(addr + 4);  /* Reset_Handler */
+
+    /* Stop SysTick */
+    SYSTICK_CTRL = 0;
+
+    /* Remap vector table */
+    SCB_VTOR = addr;
+
+    /* Set MSP directly */
+    asm volatile ("msr msp, %0" :: "r" (sp) : );
+
+    /* Jump to Reset_Handler of the application */
+    pFunction Jump = (pFunction)rv;
+    Jump();
+}
+
+void USART_ReceptionEventsCallback(USART_Handle_t *pUSARTHandle) {
+    if (rx_index < RX_BUFFER_SIZE - 1) {
+        rx_buffer[rx_index++] = pUSARTHandle->pRxBuffer[0];
+        if (rx_buffer[rx_index - 1] == '\n') {
+            memcpy(cmd_buffer, rx_buffer, rx_index);
+            cmd_ready = true;
+            rx_index = 0;
+        }
+    } else {
+        rx_index = 0;
+    }
+    USART_ReceiveDataIT(pUSARTHandle, rx_buffer, RX_BUFFER_SIZE);
+}
+
+void Bootloader_Main(void) {
+    Bootloader_Init();
+
+    if (Check_App_Valid(APP_CURRENT_START)) {
+        Jump_To_App(APP_CURRENT_START);
+        LED_Toggle();
+    }
+
+    while (1) {
+        Process_Command();
+
+        for (volatile uint32_t i = 0; i < 500000; i++);
+        if (bl_state == BL_STATE_COMPLETE) {
+            if (Check_App_Valid(APP_CURRENT_START)) {
+                Jump_To_App(APP_CURRENT_START);
+                LED_Toggle();
+            }
+            bl_state = BL_STATE_IDLE;
         }
     }
 }

@@ -1,0 +1,15 @@
+#include "bootloader.h"
+
+int main(void) {
+    // Initialize system clock and peripherals
+    RCC->CR |= (1 << 0); // Enable HSE
+    while (!(RCC->CR & (1 << 1))); // Wait for HSE ready
+    RCC->CFGR = (0x1 << 0); // HSE as system clock
+    RCC->APB2ENR |= (1 << 0); // Enable AFIO clock
+
+    // Call bootloader main function
+    Bootloader_Main();
+
+    // Should not reach here
+    while (1);
+}

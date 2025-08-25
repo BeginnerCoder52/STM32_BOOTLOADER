@@ -1,9 +1,7 @@
-../Src/flash_if.c:5:6:flash_unlock	1
-../Src/flash_if.c:11:6:flash_lock	1
-../Src/flash_if.c:15:5:flash_erase_range	2
-../Src/flash_if.c:24:5:flash_write	3
-../Src/flash_if.c:31:10:crc32_calc	4
-../Src/flash_if.c:43:6:read_bcb	1
-../Src/flash_if.c:47:6:write_bcb	1
-../Src/flash_if.c:53:6:read_footer	1
-../Src/flash_if.c:57:6:write_footer	1
+../Src/flash_if.c:6:6:flash_unlock	1
+../Src/flash_if.c:12:6:flash_lock	1
+../Src/flash_if.c:16:5:flash_erase_range	2
+../Src/flash_if.c:25:5:flash_write	3
+../Src/flash_if.c:31:10:calculate_checksum	2
+../Src/flash_if.c:39:6:write_footer	1
+../Src/flash_if.c:45:6:read_footer	1

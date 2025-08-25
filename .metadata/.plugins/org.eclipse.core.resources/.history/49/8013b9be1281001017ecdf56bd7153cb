@@ -1,0 +1,35 @@
+#include "flash_if.h"
+#include "stm32f103xx.h"
+
+void flash_unlock(void) {
+    FLASH->CR &= ~(1 << FLASH_CR_LOCK);
+    FLASH->KEYR = 0x45670123;
+    FLASH->KEYR = 0xCDEF89AB;
+}
+
+void flash_lock(void) {
+    FLASH->CR |= (1 << FLASH_CR_LOCK);
+}
+
+int flash_erase_range(uint32_t addr, uint32_t len) {
+    uint32_t page_addr = addr & ~(FLASH_PAGE_SIZE - 1);
+    while (page_addr < addr + len) {
+        FLASH_Erase(page_addr);
+        page_addr += FLASH_PAGE_SIZE;
+    }
+    return FLASH_OK;
+}
+
+int flash_write(uint32_t addr, const uint8_t* data, uint32_t len) {
+    uint32_t* data32 = (uint32_t*)data;
+    uint16_t len32 = len / 4 + (len % 4 ? 1 : 0);
+    return FLASH_Write_Data(addr, data32, len32) == FLASH_OK ? 0 : -1;
+}
+
+uint32_t calculate_checksum(const uint8_t* data, uint32_t len) {
+    uint32_t checksum = 0;
+    for (uint32_t i = 0; i < len; i++) {
+        checksum += data[i];
+    }
+    return checksum;
+}

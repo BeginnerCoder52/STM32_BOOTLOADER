@@ -1,9 +1,6 @@
-../Src/main.c:41:5:main	2
-../Src/main.c:84:13:set_vector_table	1
-../Src/main.c:94:13:gpio_init_pa7	1
-../Src/main.c:108:13:usart1_pins_init	1
-../Src/main.c:132:13:usart1_init	1
-../Src/main.c:147:13:delay_ms	2
-../Src/main.c:155:12:uart_getc_nonblock	2
-../Src/main.c:165:13:system_soft_reset	1
-../Src/main.c:172:12:check_fw_request	6
+../Src/main.c:206:13:clock_init	2
+../Src/main.c:215:13:led_init	1
+../Src/main.c:228:13:led_toggle	2
+../Src/main.c:237:13:delay	2
+../Src/main.c:242:13:ensure_footer_valid	2
+../Src/main.c:260:5:main	1

@@ -1,24 +1,41 @@
-16:20:54 **** Incremental Build of configuration Debug for project APP_OLD ****
-make -j12 all 
-arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -I"D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/STM32_BOOTLOADER/APP_OLD/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
-arm-none-eabi-gcc -o "APP_OLD.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\File_dai_hoc_UIT\Thuc_Tap_FSOFT\INTERN_PROJECT\STM32_BOOTLOADER\APP_OLD\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="APP_OLD.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: APP_OLD.elf
+01:25:33 **** Clean-only build of configuration Debug for project APP_CURRENT ****
+make -j12 clean 
+rm -rf ./drivers/Src/stm32f103xx_flash_driver.cyclo ./drivers/Src/stm32f103xx_flash_driver.d ./drivers/Src/stm32f103xx_flash_driver.o ./drivers/Src/stm32f103xx_flash_driver.su ./drivers/Src/stm32f103xx_gpio_drivers.cyclo ./drivers/Src/stm32f103xx_gpio_drivers.d ./drivers/Src/stm32f103xx_gpio_drivers.o ./drivers/Src/stm32f103xx_gpio_drivers.su ./drivers/Src/stm32f103xx_it_driver.cyclo ./drivers/Src/stm32f103xx_it_driver.d ./drivers/Src/stm32f103xx_it_driver.o ./drivers/Src/stm32f103xx_it_driver.su ./drivers/Src/stm32f103xx_rcc_driver.cyclo ./drivers/Src/stm32f103xx_rcc_driver.d ./drivers/Src/stm32f103xx_rcc_driver.o ./drivers/Src/stm32f103xx_rcc_driver.su ./drivers/Src/stm32f103xx_spi_driver.cyclo ./drivers/Src/stm32f103xx_spi_driver.d ./drivers/Src/stm32f103xx_spi_driver.o ./drivers/Src/stm32f103xx_spi_driver.su ./drivers/Src/stm32f103xx_usart_driver.cyclo ./drivers/Src/stm32f103xx_usart_driver.d ./drivers/Src/stm32f103xx_usart_driver.o ./drivers/Src/stm32f103xx_usart_driver.su
+rm -rf ./Startup/startup_stm32f103c8tx.d ./Startup/startup_stm32f103c8tx.o
+rm -rf ./Src/app_meta.cyclo ./Src/app_meta.d ./Src/app_meta.o ./Src/app_meta.su ./Src/main.cyclo ./Src/main.d ./Src/main.o ./Src/main.su ./Src/syscalls.cyclo ./Src/syscalls.d ./Src/syscalls.o ./Src/syscalls.su ./Src/sysmem.cyclo ./Src/sysmem.d ./Src/sysmem.o ./Src/sysmem.su
+rm -rf APP_CURRENT.bin APP_CURRENT.elf APP_CURRENT.list APP_CURRENT.map default.size.stdout
  
-arm-none-eabi-size  APP_OLD.elf 
-arm-none-eabi-objdump -h -S APP_OLD.elf  > "APP_OLD.list"
+01:25:34 **** Incremental Build of configuration Debug for project APP_CURRENT ****
+make -j12 all 
+arm-none-eabi-gcc "../drivers/Src/stm32f103xx_flash_driver.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -I"D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/STM32_BOOTLOADER/APP_CURRENT/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"drivers/Src/stm32f103xx_flash_driver.d" -MT"drivers/Src/stm32f103xx_flash_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f103xx_flash_driver.o"
+arm-none-eabi-gcc "../drivers/Src/stm32f103xx_gpio_drivers.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -I"D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/STM32_BOOTLOADER/APP_CURRENT/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"drivers/Src/stm32f103xx_gpio_drivers.d" -MT"drivers/Src/stm32f103xx_gpio_drivers.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f103xx_gpio_drivers.o"
+arm-none-eabi-gcc "../drivers/Src/stm32f103xx_it_driver.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -I"D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/STM32_BOOTLOADER/APP_CURRENT/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"drivers/Src/stm32f103xx_it_driver.d" -MT"drivers/Src/stm32f103xx_it_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f103xx_it_driver.o"
+arm-none-eabi-gcc "../drivers/Src/stm32f103xx_rcc_driver.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -I"D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/STM32_BOOTLOADER/APP_CURRENT/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"drivers/Src/stm32f103xx_rcc_driver.d" -MT"drivers/Src/stm32f103xx_rcc_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f103xx_rcc_driver.o"
+arm-none-eabi-gcc "../drivers/Src/stm32f103xx_spi_driver.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -I"D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/STM32_BOOTLOADER/APP_CURRENT/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"drivers/Src/stm32f103xx_spi_driver.d" -MT"drivers/Src/stm32f103xx_spi_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f103xx_spi_driver.o"
+arm-none-eabi-gcc "../drivers/Src/stm32f103xx_usart_driver.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -I"D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/STM32_BOOTLOADER/APP_CURRENT/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"drivers/Src/stm32f103xx_usart_driver.d" -MT"drivers/Src/stm32f103xx_usart_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f103xx_usart_driver.o"
+arm-none-eabi-gcc -mcpu=cortex-m3 -g3 -DDEBUG -c -x assembler-with-cpp -MMD -MP -MF"Startup/startup_stm32f103c8tx.d" -MT"Startup/startup_stm32f103c8tx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Startup/startup_stm32f103c8tx.o" "../Startup/startup_stm32f103c8tx.s"
+arm-none-eabi-gcc "../Src/app_meta.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -I"D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/STM32_BOOTLOADER/APP_CURRENT/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/app_meta.d" -MT"Src/app_meta.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/app_meta.o"
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -I"D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/STM32_BOOTLOADER/APP_CURRENT/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc "../Src/syscalls.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -I"D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/STM32_BOOTLOADER/APP_CURRENT/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/syscalls.d" -MT"Src/syscalls.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/syscalls.o"
+arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -I"D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/STM32_BOOTLOADER/APP_CURRENT/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/sysmem.o"
+arm-none-eabi-gcc -o "APP_CURRENT.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\File_dai_hoc_UIT\Thuc_Tap_FSOFT\INTERN_PROJECT\STM32_BOOTLOADER\APP_CURRENT\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="APP_CURRENT.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: APP_CURRENT.elf
+ 
+arm-none-eabi-size  APP_CURRENT.elf 
+arm-none-eabi-objdump -h -S APP_CURRENT.elf  > "APP_CURRENT.list"
    text	   data	    bss	    dec	    hex	filename
-   4368	      0	   1616	   5984	   1760	APP_OLD.elf
-arm-none-eabi-objcopy  -O binary APP_OLD.elf  "APP_OLD.bin"
+   1528	      0	   1568	   3096	    c18	APP_CURRENT.elf
+arm-none-eabi-objcopy  -O binary APP_CURRENT.elf  "APP_CURRENT.bin"
 Finished building: default.size.stdout
  
-Finished building: APP_OLD.bin
-Finished building: APP_OLD.list
+Finished building: APP_CURRENT.bin
+Finished building: APP_CURRENT.list
  
  
-16:21:22 **** Incremental Build of configuration Debug for project APP_OLD ****
+01:26:13 **** Incremental Build of configuration Debug for project APP_CURRENT ****
 make -j12 all 
-arm-none-eabi-size  APP_OLD.elf 
+arm-none-eabi-size  APP_CURRENT.elf 
    text	   data	    bss	    dec	    hex	filename
-   4368	      0	   1616	   5984	   1760	APP_OLD.elf
+   1528	      0	   1568	   3096	    c18	APP_CURRENT.elf
 Finished building: default.size.stdout
  

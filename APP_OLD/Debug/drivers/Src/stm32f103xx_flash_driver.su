@@ -1,5 +1,0 @@
-../drivers/Src/stm32f103xx_flash_driver.c:10:20:FLASH_Unlock	4	static
-../drivers/Src/stm32f103xx_flash_driver.c:15:20:FLASH_Lock	4	static
-../drivers/Src/stm32f103xx_flash_driver.c:19:9:FLASH_Write_Data	40	static
-../drivers/Src/stm32f103xx_flash_driver.c:61:6:FLASH_Read_Data	32	static
-../drivers/Src/stm32f103xx_flash_driver.c:78:6:FLASH_Erase	16	static

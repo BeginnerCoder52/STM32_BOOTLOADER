@@ -7,24 +7,13 @@
 
 #include <stdint.h>
 
+#define APP_FLAGS_ADDR         0x08011C00UL   // 1KB cuối phân vùng APP_CURRENT
+#define APP_VALID_FLAG_VALUE   0x00000001UL   // =1: app hợp lệ
+#define APP_VERSION_VALUE      0x00010000UL   // ví dụ v1.0.0
+
 typedef struct __attribute__((packed)) {
-    uint32_t magic;
-    uint32_t flag;
-    uint32_t version;
-    uint32_t crc32;
-} app_meta_t;
-
-/* Base addresses for metadata */
-#define APP_CURRENT_META_ADDR   0x08011C00UL
-#define APP_OLD_META_ADDR       0x0801FC00UL
-
-#define META_MAGIC              0x5A5A55AAUL
-#define META_FLAG_FW_READY      0x46575244UL
-#define META_FLAG_APP_OK        0x4150504FUL
-#define META_FLAG_EMPTY         0xFFFFFFFFUL
-
-/* Function prototypes */
-void app_meta_write(uint32_t addr, const app_meta_t *meta);
-void app_meta_read(uint32_t addr, app_meta_t *meta);
+    uint32_t valid;    // 1 = hợp lệ
+    uint32_t version;  // tuỳ ý
+} app_footer_t;
 
 #endif

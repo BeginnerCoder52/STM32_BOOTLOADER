@@ -3,6 +3,8 @@
 	<item key="hasShownOverlayPopupBefore" value="true"/>
 	<item key="replaceBarOpen" value="false"/>
 	<list key="searchhistory">
+		<item value="pass"/>
+		<item value="passsword"/>
 		<item value="set_vector_table"/>
 		<item value="APP_BASE_ADDR"/>
 		<item value="jump"/>

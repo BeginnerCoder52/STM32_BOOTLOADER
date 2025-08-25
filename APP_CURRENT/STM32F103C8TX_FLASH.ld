@@ -19,9 +19,9 @@ _Min_Stack_Size = 0x400; /* 1KB */
 MEMORY
 {
   /* 55KB code region */
-  FLASH_APP_CUR_CODE (rx) : ORIGIN = APP_CUR_START,           LENGTH = 55K
+  FLASH_APP_CUR_CODE (rx) : ORIGIN = APP_CUR_START,           LENGTH = 47K
   /* 1KB metadata region */
-  FLASH_APP_CUR_META (rx) : ORIGIN = APP_CUR_START + 55K,     LENGTH = 1K
+  FLASH_APP_CUR_META (rx) : ORIGIN = APP_CUR_START + 47K,     LENGTH = 1K
 
   /* 20KB RAM */
   RAM (xrw) : ORIGIN = 0x20000000, LENGTH = 20K

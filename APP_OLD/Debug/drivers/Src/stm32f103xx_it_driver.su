@@ -1,2 +1,0 @@
-../drivers/Src/stm32f103xx_it_driver.c:16:6:IRQInterruptConfig	16	static
-../drivers/Src/stm32f103xx_it_driver.c:24:6:IRQPriorityConfig	24	static

@@ -1,10 +1,10 @@
-16:18:49 **** Incremental Build of configuration Debug for project APP_CURRENT ****
+01:26:13 **** Incremental Build of configuration Debug for project APP_CURRENT ****
 make -j12 all 
 arm-none-eabi-size  APP_CURRENT.elf 
    text	   data	    bss	    dec	    hex	filename
-   4764	      0	   1648	   6412	   190c	APP_CURRENT.elf
+   1528	      0	   1568	   3096	    c18	APP_CURRENT.elf
 Finished building: default.size.stdout
  
 
-16:18:50 Build Finished. 0 errors, 0 warnings. (took 373ms)
+01:26:13 Build Finished. 0 errors, 0 warnings. (took 450ms)
 

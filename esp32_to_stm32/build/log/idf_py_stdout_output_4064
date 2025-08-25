@@ -1,0 +1,7 @@
+Command: D:\Espressif\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe D:\Espressif\Espressif\frameworks\esp-idf-v5.5\tools/idf_monitor.py -p COM4 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 D:\File_dai_hoc_UIT\Thuc_Tap_FSOFT\INTERN_PROJECT\STM32_BOOTLOADER\esp32_to_stm32\build\softap_sta.elf D:\File_dai_hoc_UIT\Thuc_Tap_FSOFT\INTERN_PROJECT\STM32_BOOTLOADER\esp32_to_stm32\build\bootloader\bootloader.elf --force-color -m 'D:\Espressif\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe' 'D:\Espressif\Espressif\frameworks\esp-idf-v5.5\tools\idf.py' '-p' 'COM4'
+ets Jul 29 2019 12:21��ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+c�ets Jul 29 2019 12:21ets Jul 29 2019 12:21:46
+
+rst:0x

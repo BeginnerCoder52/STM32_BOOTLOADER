@@ -1,0 +1,81 @@
+#ifndef __BOOTLOADER_H
+#define __BOOTLOADER_H
+
+#include "stm32f103xx.h"
+#include "stm32f103xx_usart_driver.h"
+#include "stm32f103xx_gpio_driver.h"
+#include "stm32f103xx_flash_driver.h"
+#include "stm32f103xx_it_driver.h"
+#include <stdint.h>
+#include <string.h>
+#include <stdbool.h>
+
+/* Memory Layout - STM32F103C8T6 */
+#define BOOTLOADER_START    0x08000000UL
+#define BOOTLOADER_SIZE     (16UL * 1024UL)    // 16KB
+#define APP_CURRENT_START   0x08004000UL       // 16KB offset
+#define APP_CURRENT_SIZE    (56UL * 1024UL)    // 56KB
+#define APP_FLAGS_ADDR      (APP_CURRENT_START + APP_CURRENT_SIZE - 1024UL) // 1KB flags
+#define FLASH_PAGE_SIZE     1024UL
+
+/* Protocol Commands */
+#define CMD_FW_REQUEST      "FW_REQUEST\r\n"
+#define CMD_FW_LENGTH       "FW_LENGTH:"
+#define CMD_FW_DATA         "FW_DATA:"
+#define CMD_CHECKSUM        "CHECKSUM:"
+
+/* Protocol Responses */
+#define RESP_FW_READY       "FW_READY\r\n"
+#define RESP_FW_OK          "FW_OK\r\n"
+#define RESP_FW_RECEIVED    "FW_RECEIVED\r\n"
+#define RESP_CHECKSUM_OK    "CHECKSUM_OK\r\n"
+#define RESP_CHECKSUM_ERR   "CHECKSUM_ERR\r\n"
+#define RESP_ERROR          "ERROR\r\n"
+
+/* Buffer Sizes */
+#define RX_BUFFER_SIZE      512
+#define CMD_BUFFER_SIZE     64
+#define DATA_BUFFER_SIZE    256
+
+/* Bootloader States */
+typedef enum {
+    BL_STATE_IDLE,
+    BL_STATE_WAIT_LENGTH,
+    BL_STATE_WAIT_DATA,
+    BL_STATE_WAIT_CHECKSUM,
+    BL_STATE_COMPLETE
+} Bootloader_State_t;
+
+/* Global Variables */
+extern USART_Handle_t husart1;
+extern GPIO_Handle_t hgpio_led;
+extern uint8_t rx_buffer[RX_BUFFER_SIZE];
+extern uint8_t cmd_buffer[CMD_BUFFER_SIZE];
+extern volatile uint16_t rx_index;
+extern volatile bool cmd_ready;
+extern volatile Bootloader_State_t bl_state;
+extern uint32_t fw_size;
+extern uint32_t fw_received;
+extern uint32_t fw_checksum;
+extern uint32_t calculated_checksum;
+extern uint32_t current_flash_addr;
+
+/* Function Prototypes */
+void Bootloader_Init(void);
+void Bootloader_Main(void);
+void UART_Init(void);
+void GPIO_Init_LED(void);
+void Process_Command(void);
+void Process_FW_Request(void);
+void Process_FW_Length(char* length_str);
+void Process_FW_Data(uint8_t* data, uint16_t length);
+void Process_FW_Checksum(char* checksum_str);
+void Send_Response(const char* response);
+void Jump_To_App(uint32_t addr);
+void LED_Toggle(void);
+bool Check_App_Valid(uint32_t addr);
+void Erase_App_Current(void);
+uint32_t Calculate_Checksum(uint32_t start_addr, uint32_t size);
+void USART_ReceptionEventsCallback(USART_Handle_t *pUSARTHandle);
+
+#endif

@@ -1,0 +1,278 @@
+#include "bootloader.h"
+#include "stm32f103xx_flash_driver.h"
+#include "stm32f103xx_usart_driver.h"
+#include "stm32f103xx_gpio_driver.h"
+#include <string.h>
+
+// Global variables
+USART_Handle_t husart1;
+GPIO_Handle_t hgpio_led;
+uint8_t rx_buffer[RX_BUFFER_SIZE];
+uint8_t cmd_buffer[CMD_BUFFER_SIZE];
+volatile uint16_t rx_index = 0;
+volatile bool cmd_ready = false;
+volatile Bootloader_State_t bl_state = BL_STATE_IDLE;
+uint32_t fw_size = 0;
+uint32_t fw_received = 0;
+uint32_t fw_checksum = 0;
+uint32_t calculated_checksum = 0;
+uint32_t current_flash_addr = APP_CURRENT_START;
+
+typedef struct {
+    uint32_t valid; // 1 = valid, 0 = invalid
+    uint32_t version; // e.g., 0x00010000
+} app_footer_t;
+
+// Initialize UART for communication
+void UART_Init(void) {
+    GPIO_Handle_t hgpio;
+
+    // Enable clocks
+    GPIOA_PCLK_EN();
+    USART1_PCLK_EN();
+
+    // Configure TX (PA9)
+    hgpio.pGPIOx = GPIOA;
+    hgpio.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_9;
+    hgpio.GPIO_PinConfig.GPIO_PinMode = GPIO_MODE_ALTFN;
+    hgpio.GPIO_PinConfig.GPIO_PinAltFunMode = GPIO_ALT_MODE_USART_TX_FULLDUP;
+    hgpio.GPIO_PinConfig.GPIO_PinSpeed = GPIO_SPEED_FAST;
+    hgpio.GPIO_PinConfig.GPIO_PinPuPdControl = 0;
+    GPIO_Init(&hgpio);
+
+    // Configure RX (PA10)
+    hgpio.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_10;
+    hgpio.GPIO_PinConfig.GPIO_PinAltFunMode = GPIO_ALT_MODE_USART_RX_FULLDUP;
+    hgpio.GPIO_PinConfig.GPIO_PinSpeed = 0;
+    GPIO_Init(&hgpio);
+
+    // Configure USART1
+    husart1.pUSARTx = USART1;
+    husart1.USART_Config.USART_Mode = USART_MODE_TXRX;
+    husart1.USART_Config.USART_Baudrate = USART_STD_BAUD_115200;
+    husart1.USART_Config.USART_NumberOfStopBits = USART_STOPBITS_1;
+    husart1.USART_Config.USART_WordLength = USART_WORDLEN_8BITS;
+    husart1.USART_Config.USART_ParityControl = USART_PARITY_DISABLE;
+    husart1.USART_Config.USART_HWFLowControl = USART_HW_FLOW_CTRL_NONE;
+    USART_Init(&husart1);
+    USART_ReceiveDataIT(&husart1, rx_buffer, RX_BUFFER_SIZE);
+    USART_Start(&husart1.pUSARTx);
+}
+
+// Initialize LED on PC13
+void GPIO_Init_LED(void) {
+    GPIOC_PCLK_EN();
+    hgpio_led.pGPIOx = GPIOC;
+    hgpio_led.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_13;
+    hgpio_led.GPIO_PinConfig.GPIO_PinMode = GPIO_MODE_OUT;
+    hgpio_led.GPIO_PinConfig.GPIO_PinCfgMode = GPIO_CFG_OUT_GE_PP;
+    hgpio_led.GPIO_PinConfig.GPIO_PinSpeed = GPIO_SPEED_MEDIUM;
+    hgpio_led.GPIO_PinConfig.GPIO_PinPuPdControl = 0;
+    GPIO_Init(&hgpio_led);
+    GPIO_WritePin(GPIOC, GPIO_PIN_NO_13, 1); // LED off
+}
+
+// Toggle LED
+void LED_Toggle(void) {
+    GPIO_Toggle(GPIOC, GPIO_PIN_NO_13);
+}
+
+// Initialize bootloader
+void Bootloader_Init(void) {
+    UART_Init();
+    GPIO_Init_LED();
+    bl_state = BL_STATE_IDLE;
+    rx_index = 0;
+    cmd_ready = false;
+}
+
+// Send response over UART
+void Send_Response(const char* response) {
+    USART_SendData(&husart1, (uint8_t*)response, strlen(response));
+}
+
+// Check if application is valid
+bool Check_App_Valid(uint32_t addr) {
+    uint32_t sp = *(volatile uint32_t*)(addr);
+    app_footer_t footer;
+    read_footer(&footer);
+    return (sp >= SRAM_BASEADDR && sp <= SRAM_BASEADDR + 0x5000 && footer.valid == 1);
+}
+
+// Erase current application partition
+void Erase_App_Current(void) {
+    uint32_t addr = APP_CURRENT_START;
+    for (uint32_t i = 0; i < APP_CURRENT_SIZE; i += FLASH_PAGE_SIZE) {
+        FLASH_Erase(addr + i);
+    }
+}
+
+// Calculate checksum (simple sum)
+uint32_t Calculate_Checksum(uint32_t start_addr, uint32_t size) {
+    uint32_t checksum = 0;
+    uint8_t buffer[FLASH_PAGE_SIZE];
+    for (uint32_t i = 0; i < size; i += FLASH_PAGE_SIZE) {
+        uint32_t len = (size - i < FLASH_PAGE_SIZE) ? (size - i) : FLASH_PAGE_SIZE;
+        FLASH_Read_Data(start_addr + i, (uint32_t*)buffer, len / 4);
+        for (uint32_t j = 0; j < len; j++) {
+            checksum += buffer[j];
+        }
+    }
+    return checksum;
+}
+
+// Process FW_REQUEST command
+void Process_FW_Request(void) {
+    if (strcmp((char*)cmd_buffer, CMD_FW_REQUEST) == 0) {
+        Send_Response(RESP_FW_READY);
+        bl_state = BL_STATE_WAIT_LENGTH;
+    } else {
+        Send_Response(RESP_ERROR);
+    }
+}
+
+// Process FW_LENGTH command
+void Process_FW_Length(char* length_str) {
+    fw_size = strtoul(length_str + strlen(CMD_FW_LENGTH), NULL, 10);
+    if (fw_size <= (APP_CURRENT_SIZE - FLASH_PAGE_SIZE)) {
+        Send_Response(RESP_FW_OK);
+        bl_state = BL_STATE_WAIT_DATA;
+        fw_received = 0;
+        calculated_checksum = 0;
+        current_flash_addr = APP_CURRENT_START;
+        Erase_App_Current();
+    } else {
+        Send_Response(RESP_FW_ERR);
+        bl_state = BL_STATE_IDLE;
+    }
+}
+
+// Process firmware data (single byte)
+void Process_FW_Data(uint8_t* data, uint16_t length) {
+    if (length == 1 && fw_received < fw_size) {
+        FLASH_Write_Data(current_flash_addr, (uint32_t*)data, 1);
+        calculated_checksum += data[0];
+        current_flash_addr += 1;
+        fw_received += 1;
+        Send_Response(RESP_FW_RECEIVED);
+        if (fw_received >= fw_size) {
+            bl_state = BL_STATE_WAIT_CHECKSUM;
+        }
+    } else {
+        Send_Response(RESP_FW_ERR);
+        bl_state = BL_STATE_IDLE;
+    }
+}
+
+// Process CHECKSUM command
+void Process_FW_Checksum(char* checksum_str) {
+    fw_checksum = strtoul(checksum_str + strlen(CMD_CHECKSUM), NULL, 16);
+    if (fw_checksum == calculated_checksum) {
+        app_footer_t footer = {1, 0x00010000}; // Mark as valid, set version
+        write_footer(&footer);
+        Send_Response(RESP_CHECKSUM_OK);
+        bl_state = BL_STATE_COMPLETE;
+    } else {
+        Send_Response(RESP_CHECKSUM_ERR);
+        bl_state = BL_STATE_IDLE;
+    }
+}
+
+// Process incoming command
+void Process_Command(void) {
+    if (!cmd_ready) return;
+
+    cmd_buffer[rx_index] = '\0';
+    cmd_ready = false;
+    rx_index = 0;
+
+    switch (bl_state) {
+        case BL_STATE_IDLE:
+            Process_FW_Request();
+            break;
+        case BL_STATE_WAIT_LENGTH:
+            if (strncmp((char*)cmd_buffer, CMD_FW_LENGTH, strlen(CMD_FW_LENGTH)) == 0) {
+                Process_FW_Length((char*)cmd_buffer);
+            } else {
+                Send_Response(RESP_ERROR);
+            }
+            break;
+        case BL_STATE_WAIT_DATA:
+            if (strncmp((char*)cmd_buffer, CMD_FW_DATA, strlen(CMD_FW_DATA)) == 0) {
+                Process_FW_Data(cmd_buffer + strlen(CMD_FW_DATA), 1);
+            } else {
+                Send_Response(RESP_ERROR);
+            }
+            break;
+        case BL_STATE_WAIT_CHECKSUM:
+            if (strncmp((char*)cmd_buffer, CMD_CHECKSUM, strlen(CMD_CHECKSUM)) == 0) {
+                Process_FW_Checksum((char*)cmd_buffer);
+            } else {
+                Send_Response(RESP_ERROR);
+            }
+            break;
+        default:
+            Send_Response(RESP_ERROR);
+            bl_state = BL_STATE_IDLE;
+            break;
+    }
+}
+
+// Jump to application
+void Jump_To_App(uint32_t addr) {
+    uint32_t sp = *(volatile uint32_t*)(addr);
+    uint32_t rv = *(volatile uint32_t*)(addr + 4);
+
+    // Reset peripherals
+    RCC->APB2RSTR = 0xFFFFFFFF;
+    RCC->APB2RSTR = 0;
+    RCC->APB1RSTR = 0xFFFFFFFF;
+    RCC->APB1RSTR = 0;
+
+    // Disable interrupts
+    __disable_irq();
+    SysTick->CTRL = 0;
+    SCB->VTOR = addr;
+    __set_MSP(sp);
+
+    // Jump to application
+    ((void (*)(void))rv)();
+}
+
+// UART reception callback
+void USART_ReceptionEventsCallback(USART_Handle_t *pUSARTHandle) {
+    if (rx_index < RX_BUFFER_SIZE - 1) {
+        rx_buffer[rx_index++] = pUSARTHandle->pRxBuffer[0];
+        if (rx_buffer[rx_index - 1] == '\n') {
+            memcpy(cmd_buffer, rx_buffer, rx_index);
+            cmd_ready = true;
+            rx_index = 0;
+        }
+    } else {
+        rx_index = 0;
+    }
+    USART_ReceiveDataIT(pUSARTHandle, rx_buffer, RX_BUFFER_SIZE);
+}
+
+// Main bootloader function
+void Bootloader_Main(void) {
+    Bootloader_Init();
+
+    // Check if current app is valid
+    if (Check_App_Valid(APP_CURRENT_START)) {
+        Jump_To_App(APP_CURRENT_START);
+    }
+
+    // Wait for OTA update
+    while (1) {
+        Process_Command();
+        LED_Toggle();
+        for (volatile uint32_t i = 0; i < 500000; i++); // Delay ~250ms
+        if (bl_state == BL_STATE_COMPLETE) {
+            if (Check_App_Valid(APP_CURRENT_START)) {
+                Jump_To_App(APP_CURRENT_START);
+            }
+            bl_state = BL_STATE_IDLE;
+        }
+    }
+}

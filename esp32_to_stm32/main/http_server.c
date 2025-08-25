@@ -46,15 +46,15 @@ extern const uint8_t style_css_end[]					asm("_binary_style_css_end");
 #define CMD_CHECKSUM_DATA   "CHECKSUM:"
 
 // Protocol Responses from STM32
-#define RESP_FW_READY       "FW_READY\r\n"
-#define RESP_FW_OK          "FW_OK\r\n"
-#define RESP_FW_RECEIVED    "FW_RECEIVED\r\n"
-#define RESP_CHECKSUM_OK    "CHECKSUM_OK\r\n"
+#define RESP_FW_READY       "FW_READY"
+#define RESP_FW_OK          "FW_OK"
+#define RESP_FW_RECEIVED    "FW_RECEIVED"
+#define RESP_CHECKSUM_OK    "CHECKSUM_OK"
 #define RESP_CHECKSUM_ERR   "CHECKSUM_ERR\r\n"
 
 // Protocol Settings
 #define PROTOCOL_TIMEOUT_MS     5000    // 5 seconds timeout for responses
-#define DATA_CHUNK_SIZE         1     // 1 byte per chunk
+#define DATA_CHUNK_SIZE         1       // 1 byte per chunk (CHANGED from 4 to 1)
 #define MAX_RESPONSE_SIZE       32      // Maximum response string size
 
 // Firmware file paths in SPIFFS
@@ -277,11 +277,21 @@ static esp_err_t wait_for_response(const char* expected_response, uint32_t timeo
     return ESP_ERR_TIMEOUT;
 }
 
+// OLD: Rotate left algorithm - not compatible with STM32
+// static uint32_t calculate_checksum(const uint8_t* data, size_t size) {
+//     uint32_t checksum = 0;
+//     for (size_t i = 0; i < size; i++) {
+//         checksum += data[i];
+//         checksum = (checksum << 1) | (checksum >> 31); // Rotate left
+//     }
+//     return checksum;
+// }
+
+// NEW: Simple sum algorithm - compatible with STM32
 static uint32_t calculate_checksum(const uint8_t* data, size_t size) {
     uint32_t checksum = 0;
     for (size_t i = 0; i < size; i++) {
         checksum += data[i];
-        checksum = (checksum << 1) | (checksum >> 31); // Rotate left
     }
     return checksum;
 }
@@ -814,28 +824,30 @@ static esp_err_t http_server_download_handler(httpd_req_t *req) {
         // Send newline to end the data chunk
         uart_write_bytes(UART_PORT_NUM, "\r\n", 2);
 
-        // Wait for FW_RECEIVED response
+        // Wait for FW_RECEIVED response (STM32 acknowledges each byte)
         if (wait_for_response(RESP_FW_RECEIVED, PROTOCOL_TIMEOUT_MS) != ESP_OK) {
-            ESP_LOGE(TAG, "STM32 did not acknowledge chunk at offset %zu", offset);
+            ESP_LOGE(TAG, "STM32 did not acknowledge byte at offset %zu", offset);
             free(firmware_data);
-            httpd_resp_send_err(req, HTTPD_500_INTERNAL_SERVER_ERROR, "STM32 did not acknowledge data chunk");
+            httpd_resp_send_err(req, HTTPD_500_INTERNAL_SERVER_ERROR, "STM32 did not acknowledge data byte");
             return ESP_FAIL;
         }
 
         offset += chunk_size;
         total_sent += chunk_size;
 
-        // Log progress
-        int progress = (total_sent * 100) / file_size;
-        ESP_LOGI(TAG, "Progress: %d%% (%zu/%ld bytes)", progress, total_sent, file_size);
+        // Log progress every 100 bytes to avoid spam
+        if (total_sent % 100 == 0 || total_sent == file_size) {
+            int progress = (total_sent * 100) / file_size;
+            ESP_LOGI(TAG, "Progress: %d%% (%zu/%ld bytes)", progress, total_sent, file_size);
+        }
     }
 
     ESP_LOGI(TAG, "Firmware data transmission completed. Total sent: %zu bytes", total_sent);
 
-    // Step 6: Send checksum for verification
+    // Step 6: Send checksum for verification (decimal format to match STM32)
     char checksum_command[64];
-    snprintf(checksum_command, sizeof(checksum_command), "%s0x%08lX\r\n", CMD_CHECKSUM_DATA, firmware_checksum);
-    ESP_LOGI(TAG, "Step 6: Sending checksum: 0x%08lX", firmware_checksum);
+    snprintf(checksum_command, sizeof(checksum_command), "%s%lu\r\n", CMD_CHECKSUM_DATA, firmware_checksum);
+    ESP_LOGI(TAG, "Step 6: Sending checksum: %lu (0x%08lX)", firmware_checksum, firmware_checksum);
     if (send_command(checksum_command) != ESP_OK) {
         free(firmware_data);
         httpd_resp_send_err(req, HTTPD_500_INTERNAL_SERVER_ERROR, "Failed to send checksum");

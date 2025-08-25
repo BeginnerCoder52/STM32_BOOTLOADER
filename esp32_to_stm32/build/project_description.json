@@ -1,7 +1,7 @@
 {
     "version":            "1.2",
     "project_name":       "softap_sta",
-    "project_version":    "4111f79-dirty",
+    "project_version":    "df1e9af-dirty",
     "project_path":       "D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/STM32_BOOTLOADER/esp32_to_stm32",
     "idf_path":           "D:/Espressif/Espressif/frameworks/esp-idf-v5.5",
     "build_dir":          "D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/STM32_BOOTLOADER/esp32_to_stm32/build",
