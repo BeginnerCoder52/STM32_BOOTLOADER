@@ -1,6 +1,4 @@
-../Src/main.c:206:13:clock_init	2
-../Src/main.c:215:13:led_init	1
-../Src/main.c:228:13:led_toggle	2
-../Src/main.c:237:13:delay	2
-../Src/main.c:242:13:ensure_footer_valid	2
-../Src/main.c:260:5:main	1
+../Src/main.c:21:6:SystemInit_Custom	1
+../Src/main.c:27:6:SystemClock_Setup_App	1
+../Src/main.c:31:6:GPIO_Setup_App	1
+../Src/main.c:44:5:main	2

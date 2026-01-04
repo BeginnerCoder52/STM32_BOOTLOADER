@@ -25,4 +25,5 @@ SUBDIRS := \
 Src \
 Startup \
 drivers/Src \
+drivers_2/Src \
 

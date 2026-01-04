@@ -10,6 +10,7 @@ C_SRCS :=
 S_UPPER_SRCS := 
 O_SRCS := 
 CYCLO_FILES := 
+OBJCOPY_HEX := 
 SIZE_OUTPUT := 
 OBJDUMP_LIST := 
 SU_FILES := 
@@ -25,5 +26,4 @@ OBJCOPY_BIN :=
 SUBDIRS := \
 Src \
 Startup \
-drivers/Src \
 

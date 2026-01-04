@@ -9,7 +9,6 @@ RM := rm -rf
 
 # All of the sources participating in the build are defined here
 -include sources.mk
--include drivers/Src/subdir.mk
 -include Startup/subdir.mk
 -include Src/subdir.mk
 -include objects.mk
@@ -52,6 +51,9 @@ default.size.stdout \
 OBJDUMP_LIST += \
 APP_CURRENT.list \
 
+OBJCOPY_HEX += \
+APP_CURRENT.hex \
+
 OBJCOPY_BIN += \
 APP_CURRENT.bin \
 
@@ -63,8 +65,8 @@ all: main-build
 main-build: APP_CURRENT.elf secondary-outputs
 
 # Tool invocations
-APP_CURRENT.elf APP_CURRENT.map: $(OBJS) $(USER_OBJS) D:\File_dai_hoc_UIT\Thuc_Tap_FSOFT\INTERN_PROJECT\STM32_BOOTLOADER\APP_CURRENT\STM32F103C8TX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "APP_CURRENT.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"D:\File_dai_hoc_UIT\Thuc_Tap_FSOFT\INTERN_PROJECT\STM32_BOOTLOADER\APP_CURRENT\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="APP_CURRENT.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+APP_CURRENT.elf APP_CURRENT.map: $(OBJS) $(USER_OBJS) /home/richardmelvin52/Thuc_hanh_UIT/FPT_Intern_Bootloader/STM32_BOOTLOADER/APP_CURRENT/STM32F103C8TX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "APP_CURRENT.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"/home/richardmelvin52/Thuc_hanh_UIT/FPT_Intern_Bootloader/STM32_BOOTLOADER/APP_CURRENT/STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="APP_CURRENT.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -78,6 +80,11 @@ APP_CURRENT.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	@echo 'Finished building: $@'
 	@echo ' '
 
+APP_CURRENT.hex: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objcopy  -O ihex $(EXECUTABLES) "APP_CURRENT.hex"
+	@echo 'Finished building: $@'
+	@echo ' '
+
 APP_CURRENT.bin: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	arm-none-eabi-objcopy  -O binary $(EXECUTABLES) "APP_CURRENT.bin"
 	@echo 'Finished building: $@'
@@ -85,10 +92,10 @@ APP_CURRENT.bin: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 
 # Other Targets
 clean:
-	-$(RM) APP_CURRENT.bin APP_CURRENT.elf APP_CURRENT.list APP_CURRENT.map default.size.stdout
+	-$(RM) APP_CURRENT.bin APP_CURRENT.elf APP_CURRENT.hex APP_CURRENT.list APP_CURRENT.map default.size.stdout
 	-@echo ' '
 
-secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST) $(OBJCOPY_BIN)
+secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST) $(OBJCOPY_HEX) $(OBJCOPY_BIN)
 
 fail-specified-linker-script-missing:
 	@echo 'Error: Cannot find the specified linker script. Check the linker settings in the build configuration.'

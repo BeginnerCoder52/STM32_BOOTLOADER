@@ -9,6 +9,7 @@ RM := rm -rf
 
 # All of the sources participating in the build are defined here
 -include sources.mk
+-include drivers_2/Src/subdir.mk
 -include drivers/Src/subdir.mk
 -include Startup/subdir.mk
 -include Src/subdir.mk
@@ -60,8 +61,8 @@ all: main-build
 main-build: BOOTLOADER.elf secondary-outputs
 
 # Tool invocations
-BOOTLOADER.elf BOOTLOADER.map: $(OBJS) $(USER_OBJS) D:\File_dai_hoc_UIT\Thuc_Tap_FSOFT\INTERN_PROJECT\STM32_BOOTLOADER\BOOTLOADER\STM32F103C8TX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "BOOTLOADER.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"D:\File_dai_hoc_UIT\Thuc_Tap_FSOFT\INTERN_PROJECT\STM32_BOOTLOADER\BOOTLOADER\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="BOOTLOADER.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+BOOTLOADER.elf BOOTLOADER.map: $(OBJS) $(USER_OBJS) /home/richardmelvin52/Thuc_hanh_UIT/FPT_Intern_Bootloader/STM32_BOOTLOADER/BOOTLOADER/STM32F103C8TX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "BOOTLOADER.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"/home/richardmelvin52/Thuc_hanh_UIT/FPT_Intern_Bootloader/STM32_BOOTLOADER/BOOTLOADER/STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="BOOTLOADER.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

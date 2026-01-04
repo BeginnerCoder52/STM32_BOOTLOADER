@@ -1,25 +1,19 @@
 Src/main.o: ../Src/main.c \
- D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/STM32_BOOTLOADER/APP_CURRENT/drivers/Inc/stm32f103xx.h \
- D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/STM32_BOOTLOADER/APP_CURRENT/drivers/Inc/stm32f103xx_rcc_driver.h \
- D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/STM32_BOOTLOADER/APP_CURRENT/drivers/Inc/stm32f103xx.h \
- D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/STM32_BOOTLOADER/APP_CURRENT/drivers/Inc/stm32f103xx_gpio_driver.h \
- D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/STM32_BOOTLOADER/APP_CURRENT/drivers/Inc/stm32f103xx_it_driver.h \
- D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/STM32_BOOTLOADER/APP_CURRENT/drivers/Inc/stm32f103xx_spi_driver.h \
- D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/STM32_BOOTLOADER/APP_CURRENT/drivers/Inc/stm32f103xx_usart_driver.h \
- D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/STM32_BOOTLOADER/APP_CURRENT/drivers/Inc/stm32f103xx_flash_driver.h \
- D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/STM32_BOOTLOADER/APP_CURRENT/drivers/Inc/stm32f103xx_gpio_driver.h \
- D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/STM32_BOOTLOADER/APP_CURRENT/drivers/Inc/stm32f103xx_rcc_driver.h \
- ../Inc/app_meta.h \
- D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/STM32_BOOTLOADER/APP_CURRENT/drivers/Inc/stm32f103xx_flash_driver.h
-D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/STM32_BOOTLOADER/APP_CURRENT/drivers/Inc/stm32f103xx.h:
-D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/STM32_BOOTLOADER/APP_CURRENT/drivers/Inc/stm32f103xx_rcc_driver.h:
-D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/STM32_BOOTLOADER/APP_CURRENT/drivers/Inc/stm32f103xx.h:
-D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/STM32_BOOTLOADER/APP_CURRENT/drivers/Inc/stm32f103xx_gpio_driver.h:
-D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/STM32_BOOTLOADER/APP_CURRENT/drivers/Inc/stm32f103xx_it_driver.h:
-D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/STM32_BOOTLOADER/APP_CURRENT/drivers/Inc/stm32f103xx_spi_driver.h:
-D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/STM32_BOOTLOADER/APP_CURRENT/drivers/Inc/stm32f103xx_usart_driver.h:
-D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/STM32_BOOTLOADER/APP_CURRENT/drivers/Inc/stm32f103xx_flash_driver.h:
-D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/STM32_BOOTLOADER/APP_CURRENT/drivers/Inc/stm32f103xx_gpio_driver.h:
-D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/STM32_BOOTLOADER/APP_CURRENT/drivers/Inc/stm32f103xx_rcc_driver.h:
-../Inc/app_meta.h:
-D:/File_dai_hoc_UIT/Thuc_Tap_FSOFT/INTERN_PROJECT/STM32_BOOTLOADER/APP_CURRENT/drivers/Inc/stm32f103xx_flash_driver.h:
+ /home/richardmelvin52/Thuc_hanh_UIT/FPT_Intern_Bootloader/STM32_BOOTLOADER/APP_CURRENT/drivers/Inc/stm32f103xx.h \
+ /home/richardmelvin52/Thuc_hanh_UIT/FPT_Intern_Bootloader/STM32_BOOTLOADER/APP_CURRENT/drivers/Inc/stm32f103xx_rcc_driver.h \
+ /home/richardmelvin52/Thuc_hanh_UIT/FPT_Intern_Bootloader/STM32_BOOTLOADER/APP_CURRENT/drivers/Inc/stm32f103xx.h \
+ /home/richardmelvin52/Thuc_hanh_UIT/FPT_Intern_Bootloader/STM32_BOOTLOADER/APP_CURRENT/drivers/Inc/stm32f103xx_gpio_driver.h \
+ /home/richardmelvin52/Thuc_hanh_UIT/FPT_Intern_Bootloader/STM32_BOOTLOADER/APP_CURRENT/drivers/Inc/stm32f103xx_spi_driver.h \
+ /home/richardmelvin52/Thuc_hanh_UIT/FPT_Intern_Bootloader/STM32_BOOTLOADER/APP_CURRENT/drivers/Inc/stm32f103xx_i2c_driver.h \
+ /home/richardmelvin52/Thuc_hanh_UIT/FPT_Intern_Bootloader/STM32_BOOTLOADER/APP_CURRENT/drivers/Inc/stm32f103xx_usart_driver.h \
+ /home/richardmelvin52/Thuc_hanh_UIT/FPT_Intern_Bootloader/STM32_BOOTLOADER/APP_CURRENT/drivers/Inc/stm32f103xx_gpio_driver.h \
+ /home/richardmelvin52/Thuc_hanh_UIT/FPT_Intern_Bootloader/STM32_BOOTLOADER/APP_CURRENT/drivers/Inc/stm32f103xx_rcc_driver.h
+/home/richardmelvin52/Thuc_hanh_UIT/FPT_Intern_Bootloader/STM32_BOOTLOADER/APP_CURRENT/drivers/Inc/stm32f103xx.h:
+/home/richardmelvin52/Thuc_hanh_UIT/FPT_Intern_Bootloader/STM32_BOOTLOADER/APP_CURRENT/drivers/Inc/stm32f103xx_rcc_driver.h:
+/home/richardmelvin52/Thuc_hanh_UIT/FPT_Intern_Bootloader/STM32_BOOTLOADER/APP_CURRENT/drivers/Inc/stm32f103xx.h:
+/home/richardmelvin52/Thuc_hanh_UIT/FPT_Intern_Bootloader/STM32_BOOTLOADER/APP_CURRENT/drivers/Inc/stm32f103xx_gpio_driver.h:
+/home/richardmelvin52/Thuc_hanh_UIT/FPT_Intern_Bootloader/STM32_BOOTLOADER/APP_CURRENT/drivers/Inc/stm32f103xx_spi_driver.h:
+/home/richardmelvin52/Thuc_hanh_UIT/FPT_Intern_Bootloader/STM32_BOOTLOADER/APP_CURRENT/drivers/Inc/stm32f103xx_i2c_driver.h:
+/home/richardmelvin52/Thuc_hanh_UIT/FPT_Intern_Bootloader/STM32_BOOTLOADER/APP_CURRENT/drivers/Inc/stm32f103xx_usart_driver.h:
+/home/richardmelvin52/Thuc_hanh_UIT/FPT_Intern_Bootloader/STM32_BOOTLOADER/APP_CURRENT/drivers/Inc/stm32f103xx_gpio_driver.h:
+/home/richardmelvin52/Thuc_hanh_UIT/FPT_Intern_Bootloader/STM32_BOOTLOADER/APP_CURRENT/drivers/Inc/stm32f103xx_rcc_driver.h:

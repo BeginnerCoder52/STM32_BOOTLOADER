@@ -1,0 +1,3 @@
+../drivers_2/Src/UART_program.c:27:6:UART_voidInit	4	static
+../drivers_2/Src/UART_program.c:49:6:UART_voidTransmit	16	static
+../drivers_2/Src/UART_program.c:60:4:UART_u8Receive	4	static

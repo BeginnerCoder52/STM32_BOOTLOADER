@@ -1,0 +1,3 @@
+../drivers_2/Src/FPEC_program.c:7:6:FPEC_voidInit	4	static
+../drivers_2/Src/FPEC_program.c:18:6:FPEC_voidFlashPageErase	16	static
+../drivers_2/Src/FPEC_program.c:43:6:FPEC_voidFlashWrite	16	static
